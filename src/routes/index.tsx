@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Activity, ArrowRight, CircleDot, Radio, ShieldCheck, Waves } from "lucide-react";
 import heroImage from "@/assets/hero-telemetry.jpg";
-import { HeroTelemetry } from "@/components/hero-telemetry";
 import { Section, SectionHead } from "@/components/section";
 
 export const Route = createFileRoute("/")({
@@ -29,7 +28,9 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
-      <HeroTelemetry>
+      <section className="relative cursor-crosshair overflow-hidden border-b border-border/60">
+        <div className="grid-lines pointer-events-none absolute inset-0 opacity-40" />
+        <div className="telemetry-scan pointer-events-none absolute inset-0" aria-hidden="true" />
         <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-20 sm:pt-28">
           <div className="grid gap-14 lg:grid-cols-[1.05fr_1fr] lg:items-center">
             <div>
@@ -98,7 +99,7 @@ function Index() {
             <span>Supported by Technostream Network</span>
           </div>
         </div>
-      </HeroTelemetry>
+      </section>
 
       <Section>
         <SectionHead
