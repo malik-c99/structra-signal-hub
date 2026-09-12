@@ -46,19 +46,15 @@ const leaders = [
   },
 ];
 
-const interns = [
-  {
-    photo: ammar.url,
-    name: "Ammar Alalawi",
-    role: "Civil Engineering Lead - Intern",
-    tag: "Structural Validation & Failure Physics",
-    body: "Structural validation, failure modes, and engineering physics.",
-  },
-  { photo: intern1.url },
-  { photo: intern2.url },
-  { photo: intern3.url },
-  { photo: intern4.url },
-];
+const ammarProfile = {
+  photo: ammar.url,
+  name: "Ammar Alalawi",
+  role: "Civil Engineering Lead - Intern",
+  tag: "Structural Validation & Failure Physics",
+  body: "Structural validation, failure modes, and engineering physics.",
+};
+
+const internPhotos = [intern1.url, intern2.url, intern3.url, intern4.url];
 
 function TeamPage() {
   return (
@@ -104,31 +100,41 @@ function TeamPage() {
           title="Structra Interns"
           lead="One team, one vision — learning, building, and shaping the future of structural engineering together."
         />
-        <div className="mt-12 grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {interns.map((item, i) => (
+        <div className="mx-auto mt-12 w-full max-w-xs">
+          <article className="overflow-hidden rounded-sm border border-border bg-surface">
+            <div className="h-1 w-full bg-signal/70" />
+            <img
+              src={ammarProfile.photo}
+              alt={`${ammarProfile.name}, ${ammarProfile.role} at Structra`}
+              loading="lazy"
+              className="h-48 w-full object-cover"
+            />
+            <div className="p-6">
+              <h3 className="text-lg font-semibold">{ammarProfile.name}</h3>
+              <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-signal">
+                {ammarProfile.role}
+              </div>
+              <p className="mt-4 text-xs text-muted-foreground">{ammarProfile.tag}</p>
+              <p className="mt-4 border-t border-border pt-4 text-sm text-muted-foreground">
+                {ammarProfile.body}
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {internPhotos.map((photo, i) => (
             <figure
-              key={item.photo}
-              className="group flex h-full flex-col overflow-hidden rounded-sm border border-border bg-surface"
+              key={photo}
+              className="group aspect-square overflow-hidden rounded-sm border border-border bg-surface"
             >
               <div className="h-1 w-full bg-signal/70" />
               <img
-                src={item.photo}
-                alt={item.name ? `${item.name}, ${item.role} at Structra` : `Structra interns collaborating on site, photo ${i}`}
+                src={photo}
+                alt={`Structra interns collaborating on site, photo ${i + 1}`}
                 loading="lazy"
-                className="h-48 w-full shrink-0 object-cover transition-transform duration-500 group-hover:scale-105"
+                className="h-[calc(100%-0.25rem)] w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              {item.name && (
-                <div className="flex-1 p-6">
-                  <h3 className="text-lg font-semibold">{item.name}</h3>
-                  <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-signal">
-                    {item.role}
-                  </div>
-                  <p className="mt-4 text-xs text-muted-foreground">{item.tag}</p>
-                  <p className="mt-4 border-t border-border pt-4 text-sm text-muted-foreground">
-                    {item.body}
-                  </p>
-                </div>
-              )}
             </figure>
           ))}
         </div>
