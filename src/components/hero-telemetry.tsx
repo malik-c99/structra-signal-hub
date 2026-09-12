@@ -20,8 +20,8 @@ const HUD_HEIGHT = 30;
 const HUD_OFFSET = 22;
 
 /**
- * Home-page hero telemetry layer. Scoped to the hero section only:
- * double-clicking anywhere else on the site does nothing.
+ * Home-page telemetry layer. Scoped to the Home page only:
+ * clicking anywhere else on the site does nothing.
  */
 export function HeroTelemetry({ children }: HeroTelemetryProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -75,7 +75,7 @@ export function HeroTelemetry({ children }: HeroTelemetryProps) {
     <div
       ref={sectionRef}
       className="relative"
-      onDoubleClick={registerImpact}
+      onClick={registerImpact}
       aria-label="Interactive structural monitoring display"
     >
       {/* Full-bleed effects canvas: stretches across the whole hero, never blocks clicks */}
