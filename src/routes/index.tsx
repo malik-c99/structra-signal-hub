@@ -28,8 +28,16 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <>
-      <HeroTelemetry>
+    <HeroTelemetry>
+      <div className="pointer-events-none fixed inset-0 z-0" aria-hidden="true">
+        <img
+          src={heroImage}
+          alt=""
+          className="h-full w-full object-cover opacity-75"
+        />
+        <div className="absolute inset-0 bg-background/70" />
+      </div>
+      <div className="relative z-[1]">
       <section className="relative overflow-hidden border-b border-border/60">
         <div className="grid-lines pointer-events-none absolute inset-0 opacity-40" />
         <div className="telemetry-scan pointer-events-none absolute inset-0" aria-hidden="true" />
@@ -257,7 +265,7 @@ function Index() {
           </div>
         </div>
       </Section>
-      </HeroTelemetry>
-    </>
+      </div>
+    </HeroTelemetry>
   );
 }
