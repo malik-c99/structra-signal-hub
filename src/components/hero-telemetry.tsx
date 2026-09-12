@@ -4,6 +4,7 @@ type Impact = {
   id: number;
   x: number;
   y: number;
+  width: number;
   node: string;
   status: "IMPACT DETECTED" | "ANOMALY DETECTED";
   labelX: number;
@@ -56,6 +57,7 @@ export function HeroTelemetry({ children }: HeroTelemetryProps) {
         id,
         x,
         y,
+        width: bounds.width,
         node: String(Math.floor(Math.random() * 9) + 1).padStart(2, "0"),
         status: Math.random() > 0.5 ? "IMPACT DETECTED" : "ANOMALY DETECTED",
         labelX,
@@ -87,13 +89,14 @@ export function HeroTelemetry({ children }: HeroTelemetryProps) {
             <span className="telemetry-ring telemetry-ring-secondary" style={{ left: impact.x, top: impact.y }} />
             <svg
               className="telemetry-waveform"
-              style={{ left: impact.x, top: impact.y }}
-              viewBox="0 0 240 64"
+              style={{ left: 0, top: impact.y }}
+              viewBox={`0 0 ${impact.width} 64`}
+              preserveAspectRatio="none"
               role="presentation"
             >
               <path
                 className="telemetry-waveform-trace"
-                d="M0 32 H64 L72 30 L80 35 L88 26 L96 44 L104 8 L112 56 L120 18 L128 40 L136 29 L144 34 L152 31 H240"
+                d={`M0 32 H${Math.max(0, impact.x - 56)} L${Math.max(0, impact.x - 48)} 30 L${Math.max(0, impact.x - 40)} 35 L${Math.max(0, impact.x - 32)} 26 L${Math.max(0, impact.x - 24)} 44 L${Math.max(0, impact.x - 16)} 8 L${impact.x} 56 L${Math.min(impact.width, impact.x + 16)} 18 L${Math.min(impact.width, impact.x + 24)} 40 L${Math.min(impact.width, impact.x + 32)} 29 L${Math.min(impact.width, impact.x + 40)} 34 L${Math.min(impact.width, impact.x + 48)} 31 H${impact.width}`}
               />
             </svg>
             <span className="telemetry-hud" style={{ left: impact.labelX, top: impact.labelY }}>

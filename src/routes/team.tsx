@@ -104,21 +104,21 @@ function TeamPage() {
           title="Structra Interns"
           lead="One team, one vision — learning, building, and shaping the future of structural engineering together."
         />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {interns.map((item, i) => (
             <figure
               key={item.photo}
-              className="overflow-hidden rounded-sm border border-border bg-surface group"
+              className="group flex h-full flex-col overflow-hidden rounded-sm border border-border bg-surface"
             >
               <div className="h-1 w-full bg-signal/70" />
               <img
                 src={item.photo}
                 alt={item.name ? `${item.name}, ${item.role} at Structra` : `Structra interns collaborating on site, photo ${i}`}
                 loading="lazy"
-                className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="h-48 w-full shrink-0 object-cover transition-transform duration-500 group-hover:scale-105"
               />
               {item.name && (
-                <div className="p-6">
+                <div className="flex-1 p-6">
                   <h3 className="text-lg font-semibold">{item.name}</h3>
                   <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-signal">
                     {item.role}
