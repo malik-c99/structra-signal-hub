@@ -7,7 +7,6 @@ type Impact = {
   node: string;
   labelX: number;
   labelY: number;
-  alignRight: boolean;
 };
 
 type HeroTelemetryProps = {
@@ -40,8 +39,8 @@ export function HeroTelemetry({ children }: HeroTelemetryProps) {
     const y = event.clientY - bounds.top;
     const id = nextId.current;
     const alignRight = x + HUD_OFFSET + HUD_WIDTH > bounds.width - 12;
-    const preferredX = alignRight ? x - HUD_OFFSET : x + HUD_OFFSET;
-    const labelX = Math.min(Math.max(preferredX, HUD_WIDTH + 12), bounds.width - 12);
+    const preferredX = alignRight ? x - HUD_OFFSET - HUD_WIDTH : x + HUD_OFFSET;
+    const labelX = Math.min(Math.max(preferredX, 12), Math.max(12, bounds.width - HUD_WIDTH - 12));
     const labelY = Math.min(Math.max(y - HUD_HEIGHT - 12, 12), bounds.height - HUD_HEIGHT - 12);
 
     nextId.current += 1;
@@ -54,7 +53,6 @@ export function HeroTelemetry({ children }: HeroTelemetryProps) {
         node: String(Math.floor(Math.random() * 9) + 1).padStart(2, "0"),
         labelX,
         labelY,
-        alignRight,
       },
     ]);
 
@@ -93,7 +91,6 @@ export function HeroTelemetry({ children }: HeroTelemetryProps) {
           </svg>
           <span
             className="telemetry-hud"
-            data-align-right={impact.alignRight}
             style={{ left: impact.labelX, top: impact.labelY }}
           >
             NODE {impact.node} — IMPACT DETECTED
