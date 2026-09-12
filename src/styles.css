@@ -165,18 +165,15 @@
 
 @keyframes telemetry-wave-reveal {
   0% {
-    opacity: 1;
-    stroke-dashoffset: 420;
+    opacity: 0;
     transform: translateY(-50%) scaleX(0.15);
   }
   38% {
     opacity: 0.9;
-    stroke-dashoffset: 0;
     transform: translateY(-50%) scaleX(1);
   }
   100% {
     opacity: 0;
-    stroke-dashoffset: -420;
     transform: translateY(-50%) scaleX(1);
   }
 }
@@ -263,7 +260,6 @@
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 420;
 }
 
 .telemetry-hud {
