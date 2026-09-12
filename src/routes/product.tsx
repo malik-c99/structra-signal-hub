@@ -17,6 +17,8 @@ export const Route = createFileRoute("/product")({
         content:
           "Capture, learn, and flag: the three-step Structra stack for continuous structural health monitoring.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: ProductPage,

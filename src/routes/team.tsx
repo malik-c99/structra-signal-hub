@@ -23,6 +23,8 @@ export const Route = createFileRoute("/team")({
         property: "og:description",
         content: "Built to ship the stack — and unlock the sites.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: TeamPage,
