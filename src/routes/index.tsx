@@ -30,7 +30,7 @@ function Index() {
   return (
     <>
       <HeroTelemetry>
-      <section className="relative cursor-crosshair overflow-hidden border-b border-border/60">
+      <section className="relative overflow-hidden border-b border-border/60">
         <div className="grid-lines pointer-events-none absolute inset-0 opacity-40" />
         <div className="telemetry-scan pointer-events-none absolute inset-0" aria-hidden="true" />
         <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-20 sm:pt-28">
@@ -102,7 +102,6 @@ function Index() {
           </div>
         </div>
       </section>
-      </HeroTelemetry>
 
       <Section>
         <SectionHead
@@ -258,6 +257,7 @@ function Index() {
           </div>
         </div>
       </Section>
+      </HeroTelemetry>
     </>
   );
 }

@@ -40,7 +40,7 @@ const leaders = [
   {
     photo: qusai.url,
     name: "Qusai Al Daour",
-    role: "Founding Partner, COO & Head of PR",
+    role: "Founding Partner, CEO & Head of PR",
     tag: "Industry partnerships · Pilot deployments",
     body: "Industry partners, pilot deployments, and site relationships.",
   },
@@ -70,7 +70,7 @@ function TeamPage() {
           lead="A founding team pairing sensing hardware and structural physics with field access in Dubai."
         />
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-12 grid max-w-3xl gap-6 sm:grid-cols-2">
           {leaders.map((m) => (
             <article
               key={m.name}
