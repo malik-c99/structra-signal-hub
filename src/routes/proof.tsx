@@ -16,6 +16,8 @@ export const Route = createFileRoute("/proof")({
         property: "og:description",
         content: "Sensed, compared, detected, alerted — the loop already closed in the lab.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: ProofPage,

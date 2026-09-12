@@ -15,6 +15,8 @@ export const Route = createFileRoute("/privacy")({
         property: "og:description",
         content: "Structra's approach to monitoring data, retention, and contact information.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: PrivacyPage,

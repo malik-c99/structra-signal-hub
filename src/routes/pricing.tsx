@@ -18,6 +18,8 @@ export const Route = createFileRoute("/pricing")({
         content:
           "Priced for the middle 90%. Start with one property, prove the signal, then scale across the portfolio.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: PricingPage,
