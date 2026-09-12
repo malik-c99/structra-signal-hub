@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type PointerEvent, type ReactNode } from "react";
+import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
 
 type Impact = {
   id: number;
@@ -19,7 +19,12 @@ const HUD_WIDTH = 214;
 const HUD_HEIGHT = 30;
 const HUD_OFFSET = 22;
 
-export function GlobalTelemetry({ children }: HeroTelemetryProps) {
+/**
+ * Home-page hero telemetry layer. Scoped to the hero section only:
+ * double-clicking anywhere else on the site does nothing.
+ */
+export function HeroTelemetry({ children }: HeroTelemetryProps) {
+  const sectionRef = useRef<HTMLDivElement>(null);
   const [impacts, setImpacts] = useState<Impact[]>([]);
   const nextId = useRef(0);
   const cleanupTimers = useRef<Map<number, ReturnType<typeof setTimeout>>>(new Map());
@@ -32,18 +37,17 @@ export function GlobalTelemetry({ children }: HeroTelemetryProps) {
     };
   }, []);
 
-  function registerImpact(event: PointerEvent<HTMLDivElement>) {
-    if (event.button !== 0) return;
+  function registerImpact(event: MouseEvent<HTMLDivElement>) {
+    const bounds = sectionRef.current?.getBoundingClientRect();
+    if (!bounds) return;
 
-    const x = event.clientX;
-    const y = event.clientY;
+    const x = event.clientX - bounds.left;
+    const y = event.clientY - bounds.top;
     const id = nextId.current;
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-    const alignRight = x + HUD_OFFSET + HUD_WIDTH > viewportWidth - 12;
+    const alignRight = x + HUD_OFFSET + HUD_WIDTH > bounds.width - 12;
     const preferredX = alignRight ? x - HUD_OFFSET - HUD_WIDTH : x + HUD_OFFSET;
-    const labelX = Math.min(Math.max(preferredX, 12), Math.max(12, viewportWidth - HUD_WIDTH - 12));
-    const labelY = Math.min(Math.max(y - HUD_HEIGHT - 12, 12), viewportHeight - HUD_HEIGHT - 12);
+    const labelX = Math.min(Math.max(preferredX, 12), Math.max(12, bounds.width - HUD_WIDTH - 12));
+    const labelY = Math.min(Math.max(y - HUD_HEIGHT - 12, 12), Math.max(12, bounds.height - HUD_HEIGHT - 12));
 
     nextId.current += 1;
     setImpacts((current) => [
@@ -69,34 +73,35 @@ export function GlobalTelemetry({ children }: HeroTelemetryProps) {
 
   return (
     <div
-      className="relative min-h-screen"
-      onPointerDown={registerImpact}
+      ref={sectionRef}
+      className="relative"
+      onDoubleClick={registerImpact}
       aria-label="Interactive structural monitoring display"
     >
-      {impacts.map((impact) => (
-        <div key={impact.id} className="telemetry-impact pointer-events-none fixed inset-0 z-[100]" aria-hidden="true">
-          <span className="telemetry-impact-core" style={{ left: impact.x, top: impact.y }} />
-          <span className="telemetry-ring telemetry-ring-primary" style={{ left: impact.x, top: impact.y }} />
-          <span className="telemetry-ring telemetry-ring-secondary" style={{ left: impact.x, top: impact.y }} />
-          <svg
-            className="telemetry-waveform"
-            style={{ left: impact.x, top: impact.y }}
-            viewBox="0 0 240 64"
-            role="presentation"
-          >
-            <path
-              className="telemetry-waveform-trace"
-              d="M0 32 H64 L72 30 L80 35 L88 26 L96 44 L104 8 L112 56 L120 18 L128 40 L136 29 L144 34 L152 31 H240"
-            />
-          </svg>
-          <span
-            className="telemetry-hud"
-            style={{ left: impact.labelX, top: impact.labelY }}
-          >
-            NODE {impact.node} — {impact.status}
-          </span>
-        </div>
-      ))}
+      {/* Full-bleed effects canvas: stretches across the whole hero, never blocks clicks */}
+      <div className="pointer-events-none absolute inset-0 z-10 h-full w-full overflow-hidden" aria-hidden="true">
+        {impacts.map((impact) => (
+          <div key={impact.id} className="telemetry-impact pointer-events-none absolute inset-0">
+            <span className="telemetry-impact-core" style={{ left: impact.x, top: impact.y }} />
+            <span className="telemetry-ring telemetry-ring-primary" style={{ left: impact.x, top: impact.y }} />
+            <span className="telemetry-ring telemetry-ring-secondary" style={{ left: impact.x, top: impact.y }} />
+            <svg
+              className="telemetry-waveform"
+              style={{ left: impact.x, top: impact.y }}
+              viewBox="0 0 240 64"
+              role="presentation"
+            >
+              <path
+                className="telemetry-waveform-trace"
+                d="M0 32 H64 L72 30 L80 35 L88 26 L96 44 L104 8 L112 56 L120 18 L128 40 L136 29 L144 34 L152 31 H240"
+              />
+            </svg>
+            <span className="telemetry-hud" style={{ left: impact.labelX, top: impact.labelY }}>
+              NODE {impact.node} — {impact.status}
+            </span>
+          </div>
+        ))}
+      </div>
 
       {children}
     </div>
