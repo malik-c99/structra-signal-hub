@@ -39,6 +39,14 @@ export function HeroTelemetry({ children }: HeroTelemetryProps) {
   }, []);
 
   function registerImpact(event: MouseEvent<HTMLDivElement>) {
+    const target = event.target;
+    if (
+      target instanceof Element &&
+      target.closest("a, button, input, select, textarea, label, [role='button']")
+    ) {
+      return;
+    }
+
     const bounds = sectionRef.current?.getBoundingClientRect();
     if (!bounds) return;
 

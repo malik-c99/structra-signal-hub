@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <HeroTelemetry>
+    <>
       <div className="pointer-events-none fixed inset-0 z-0" aria-hidden="true">
         <img
           src={heroImage}
@@ -38,12 +38,12 @@ function Index() {
         <div className="absolute inset-0 bg-background/70" />
       </div>
       <div className="relative z-[1]">
-      <section className="relative overflow-hidden border-b border-border/60">
-        <div className="grid-lines pointer-events-none absolute inset-0 opacity-40" />
-        <div className="telemetry-scan pointer-events-none absolute inset-0" aria-hidden="true" />
-        <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-20 sm:pt-28">
-          <div className="grid gap-14 lg:grid-cols-[1.05fr_1fr] lg:items-center">
-            <div>
+        <HeroTelemetry>
+          <section className="relative overflow-hidden border-b border-border/60">
+            <div className="grid-lines pointer-events-none absolute inset-0 opacity-40" />
+            <div className="telemetry-scan pointer-events-none absolute inset-0" aria-hidden="true" />
+            <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-20 sm:pt-28">
+              <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5">
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="absolute h-1.5 w-1.5 rounded-full bg-signal pulse-ring" />
@@ -79,37 +79,16 @@ function Index() {
                   Explore Pricing
                 </Link>
               </div>
-            </div>
-
-            <div className="relative">
-              <div className="overflow-hidden rounded-sm border border-border bg-surface signal-glow">
-                <img
-                  src={heroImage}
-                  alt="Structural truss with live telemetry nodes and anomaly detection graph"
-                  width={1600}
-                  height={1104}
-                  className="w-full"
-                />
               </div>
-              <div className="absolute -bottom-5 left-4 flex items-center gap-3 rounded-sm border border-border bg-background/95 px-4 py-3 backdrop-blur">
-                <Activity className="h-4 w-4 text-signal" />
-                <div>
-                  <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                    Node 04 · Frequency deviation
-                  </div>
-                  <div className="text-sm font-semibold">Anomaly flagged · 0.8s</div>
-                </div>
+
+              <div className="mt-24 flex flex-col gap-4 border-t border-border/60 pt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:flex-row sm:items-center sm:gap-10">
+                <span className="text-signal">Trusted foundation</span>
+                <span>Incorporated in Dubai South Business Hub Free Zone</span>
+                <span>Supported by Technostream Network</span>
               </div>
             </div>
-          </div>
-
-          <div className="mt-24 flex flex-col gap-4 border-t border-border/60 pt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:flex-row sm:items-center sm:gap-10">
-            <span className="text-signal">Trusted foundation</span>
-            <span>Incorporated in Dubai South Business Hub Free Zone</span>
-            <span>Supported by Technostream Network</span>
-          </div>
-        </div>
-      </section>
+          </section>
+        </HeroTelemetry>
 
       <Section>
         <SectionHead
@@ -266,6 +245,6 @@ function Index() {
         </div>
       </Section>
       </div>
-    </HeroTelemetry>
+    </>
   );
 }
