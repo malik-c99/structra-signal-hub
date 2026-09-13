@@ -22,9 +22,11 @@ export function SiteHeader() {
             <span className="absolute h-2.5 w-2.5 rounded-full bg-signal pulse-ring" />
             <span className="h-2 w-2 rounded-full bg-signal" />
           </span>
-          <span className="font-mono text-sm font-semibold tracking-[0.34em] text-foreground">
-            STRUCTRA
-          </span>
+          <img
+            src={structraLogo.url}
+            alt="STRUCTRA"
+            className="h-5 w-auto"
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
