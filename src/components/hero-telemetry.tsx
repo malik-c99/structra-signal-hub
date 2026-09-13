@@ -20,27 +20,29 @@ const HUD_WIDTH = 214;
 const HUD_HEIGHT = 30;
 const HUD_OFFSET = 22;
 
-function createHeartbeatPath(width: number, impactX: number) {
+function createHeartbeatPaths(width: number, impactX: number) {
   const point = (offset: number) => Math.min(width, Math.max(0, impactX + offset));
 
-  return [
-    "M0 80",
-    `H${point(-126)}`,
-    `C${point(-116)} 80 ${point(-111)} 74 ${point(-103)} 74`,
-    `C${point(-95)} 74 ${point(-91)} 84 ${point(-84)} 84`,
-    `L${point(-72)} 88`,
-    `L${point(-57)} 8`,
-    `L${point(-34)} 138`,
-    `L${point(-8)} 5`,
-    `L${point(19)} 148`,
-    `L${point(39)} 58`,
-    `L${point(55)} 101`,
-    `L${point(70)} 68`,
-    `L${point(84)} 91`,
-    `L${point(98)} 75`,
-    `C${point(108)} 75 ${point(114)} 80 ${point(126)} 80`,
-    `H${width}`,
-  ].join(" ");
+  return {
+    left: `M0 80 H${point(-126)}`,
+    pulse: [
+      `M${point(-126)} 80`,
+      `C${point(-116)} 80 ${point(-111)} 74 ${point(-103)} 74`,
+      `C${point(-95)} 74 ${point(-91)} 84 ${point(-84)} 84`,
+      `L${point(-72)} 88`,
+      `L${point(-57)} 8`,
+      `L${point(-34)} 138`,
+      `L${point(-8)} 5`,
+      `L${point(19)} 148`,
+      `L${point(39)} 58`,
+      `L${point(55)} 101`,
+      `L${point(70)} 68`,
+      `L${point(84)} 91`,
+      `L${point(98)} 75`,
+      `C${point(108)} 75 ${point(114)} 80 ${point(126)} 80`,
+    ].join(" "),
+    right: `M${point(126)} 80 H${width}`,
+  };
 }
 
 /**
@@ -114,7 +116,10 @@ export function HeroTelemetry({ children }: HeroTelemetryProps) {
     >
       {/* Full-bleed effects canvas: stretches across the whole hero, never blocks clicks */}
       <div className="pointer-events-none absolute inset-0 z-10 h-full w-full overflow-hidden" aria-hidden="true">
-        {impacts.map((impact) => (
+        {impacts.map((impact) => {
+          const paths = createHeartbeatPaths(impact.width, impact.x);
+
+          return (
           <div key={impact.id} className="telemetry-impact pointer-events-none absolute inset-0">
             <span className="telemetry-impact-core" style={{ left: impact.x, top: impact.y }} />
             <span className="telemetry-ring telemetry-ring-primary" style={{ left: impact.x, top: impact.y }} />
@@ -125,22 +130,27 @@ export function HeroTelemetry({ children }: HeroTelemetryProps) {
               preserveAspectRatio="none"
               role="presentation"
             >
-              <path
-                className="telemetry-waveform-trace telemetry-waveform-aura"
-                pathLength="1"
-                d={createHeartbeatPath(impact.width, impact.x)}
-              />
-              <path
-                className="telemetry-waveform-trace telemetry-waveform-core"
-                pathLength="1"
-                d={createHeartbeatPath(impact.width, impact.x)}
-              />
+              {(["left", "pulse", "right"] as const).flatMap((segment) => [
+                <path
+                  key={`${segment}-aura`}
+                  className={`telemetry-waveform-trace telemetry-waveform-${segment} telemetry-waveform-aura`}
+                  pathLength="1"
+                  d={paths[segment]}
+                />,
+                <path
+                  key={`${segment}-core`}
+                  className={`telemetry-waveform-trace telemetry-waveform-${segment} telemetry-waveform-core`}
+                  pathLength="1"
+                  d={paths[segment]}
+                />,
+              ])}
             </svg>
             <span className="telemetry-hud" style={{ left: impact.labelX, top: impact.labelY }}>
               NODE {impact.node} — {impact.status}
             </span>
           </div>
-        ))}
+          );
+        })}
       </div>
 
       {children}

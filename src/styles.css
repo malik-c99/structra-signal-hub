@@ -200,6 +200,15 @@
   }
 }
 
+@keyframes telemetry-baseline-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 @keyframes home-bridge-fade {
   from {
     opacity: 1;
@@ -275,8 +284,8 @@
 
 .telemetry-ring {
   position: absolute;
-  width: clamp(11rem, 24vw, 19rem);
-  height: clamp(11rem, 24vw, 19rem);
+  width: clamp(8.5rem, 18vw, 14rem);
+  height: clamp(8.5rem, 18vw, 14rem);
   border: 1px solid color-mix(in oklab, var(--signal) 54%, transparent);
   border-radius: 9999px;
   background:
@@ -289,7 +298,7 @@
 .telemetry-waveform {
   position: absolute;
   width: 100%;
-  height: clamp(8rem, 16vw, 11rem);
+  height: clamp(6rem, 12vw, 8rem);
   overflow: visible;
   animation: telemetry-wave-reveal 1.8s ease-out both;
 }
@@ -300,7 +309,18 @@
   stroke-linejoin: round;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: telemetry-heartbeat-draw 1.8s cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.telemetry-waveform-left {
+  animation: telemetry-baseline-draw 0.42s cubic-bezier(0.3, 0.7, 0.2, 1) both;
+}
+
+.telemetry-waveform-pulse {
+  animation: telemetry-heartbeat-draw 1.05s cubic-bezier(0.28, 0.62, 0.24, 1) 0.2s both;
+}
+
+.telemetry-waveform-right {
+  animation: telemetry-baseline-draw 0.46s cubic-bezier(0.3, 0.7, 0.2, 1) 0.86s both;
 }
 
 .telemetry-waveform-aura {
