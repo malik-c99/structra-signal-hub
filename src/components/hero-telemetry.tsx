@@ -104,7 +104,8 @@ export function HeroTelemetry({ children }: HeroTelemetryProps) {
             >
               <path
                 className="telemetry-waveform-trace"
-                d={`M0 32 H${Math.max(0, impact.x - 56)} L${Math.max(0, impact.x - 48)} 30 L${Math.max(0, impact.x - 40)} 35 L${Math.max(0, impact.x - 32)} 26 L${Math.max(0, impact.x - 24)} 44 L${Math.max(0, impact.x - 16)} 8 L${impact.x} 56 L${Math.min(impact.width, impact.x + 16)} 18 L${Math.min(impact.width, impact.x + 24)} 40 L${Math.min(impact.width, impact.x + 32)} 29 L${Math.min(impact.width, impact.x + 40)} 34 L${Math.min(impact.width, impact.x + 48)} 31 H${impact.width}`}
+                pathLength="1"
+                d={`M0 32 H${Math.max(0, impact.x - 78)} C${Math.max(0, impact.x - 68)} 32 ${Math.max(0, impact.x - 64)} 29 ${Math.max(0, impact.x - 56)} 29 C${Math.max(0, impact.x - 48)} 29 ${Math.max(0, impact.x - 44)} 36 ${Math.max(0, impact.x - 36)} 36 C${Math.max(0, impact.x - 28)} 36 ${Math.max(0, impact.x - 24)} 20 ${Math.max(0, impact.x - 16)} 12 C${Math.max(0, impact.x - 10)} 6 ${Math.max(0, impact.x - 6)} 52 ${impact.x} 54 C${Math.min(impact.width, impact.x + 7)} 56 ${Math.min(impact.width, impact.x + 12)} 17 ${Math.min(impact.width, impact.x + 18)} 18 C${Math.min(impact.width, impact.x + 25)} 19 ${Math.min(impact.width, impact.x + 28)} 39 ${Math.min(impact.width, impact.x + 36)} 39 C${Math.min(impact.width, impact.x + 44)} 39 ${Math.min(impact.width, impact.x + 48)} 30 ${Math.min(impact.width, impact.x + 58)} 30 C${Math.min(impact.width, impact.x + 66)} 30 ${Math.min(impact.width, impact.x + 70)} 32 ${Math.min(impact.width, impact.x + 80)} 32 H${impact.width}`}
               />
             </svg>
             <span className="telemetry-hud" style={{ left: impact.labelX, top: impact.labelY }}>

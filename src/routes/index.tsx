@@ -29,7 +29,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
-      <div className="pointer-events-none fixed inset-0 z-0" aria-hidden="true">
+      <div className="home-bridge-backdrop pointer-events-none fixed inset-0 z-0" aria-hidden="true">
         <img
           src={heroImage}
           alt=""
