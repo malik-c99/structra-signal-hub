@@ -15,7 +15,7 @@ type HeroTelemetryProps = {
   children: ReactNode;
 };
 
-const IMPACT_LIFETIME = 1200;
+const IMPACT_LIFETIME = 1800;
 const HUD_WIDTH = 214;
 const HUD_HEIGHT = 30;
 const HUD_OFFSET = 22;
