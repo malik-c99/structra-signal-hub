@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import structraLogo from "@/assets/structra-logo.png.asset.json";
 
 const nav = [
   { to: "/product", label: "Product" },
