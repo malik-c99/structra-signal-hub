@@ -166,15 +166,47 @@
 @keyframes telemetry-wave-reveal {
   0% {
     opacity: 0;
-    transform: translateY(-50%) scaleX(0.15);
+    transform: translateY(-50%);
   }
-  38% {
-    opacity: 0.9;
-    transform: translateY(-50%) scaleX(1);
+  12%,
+  68% {
+    opacity: 1;
+    transform: translateY(-50%);
   }
   100% {
     opacity: 0;
-    transform: translateY(-50%) scaleX(1);
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes telemetry-heartbeat-draw {
+  0% {
+    stroke-dashoffset: 1;
+  }
+  48%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes home-bridge-fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.home-bridge-backdrop {
+  opacity: 1;
+}
+
+@supports (animation-timeline: scroll()) {
+  .home-bridge-backdrop {
+    animation: home-bridge-fade linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 75vh;
   }
 }
 
@@ -250,8 +282,7 @@
   height: 4rem;
   overflow: visible;
   filter: drop-shadow(0 0 5px color-mix(in oklab, var(--signal) 80%, transparent));
-  transform-origin: center;
-  animation: telemetry-wave-reveal 1.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: telemetry-wave-reveal 1.65s ease-out both;
 }
 
 .telemetry-waveform-trace {
@@ -260,6 +291,9 @@
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: telemetry-heartbeat-draw 1.65s cubic-bezier(0.2, 0.75, 0.25, 1) both;
 }
 
 .telemetry-hud {
@@ -294,6 +328,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .home-bridge-backdrop {
+    animation: none;
+  }
+
   .telemetry-scan {
     animation: none;
   }
@@ -302,6 +340,10 @@
   .telemetry-impact-core,
   .telemetry-ring,
   .telemetry-waveform {
+    animation-duration: 1ms;
+  }
+
+  .telemetry-waveform-trace {
     animation-duration: 1ms;
   }
 }
