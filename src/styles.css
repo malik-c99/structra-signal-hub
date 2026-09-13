@@ -137,15 +137,17 @@
 
 @keyframes telemetry-impact-ring {
   0% {
-    opacity: 0.95;
-    transform: translate(-50%, -50%) scale(0.12);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.78);
   }
-  65% {
-    opacity: 0.42;
+  14%,
+  70% {
+    opacity: 0.52;
+    transform: translate(-50%, -50%) scale(1);
   }
   100% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1.06);
   }
 }
 
@@ -195,22 +197,6 @@
   58%,
   100% {
     stroke-dashoffset: 0;
-  }
-}
-
-@keyframes telemetry-heartbeat-bloom {
-  0%,
-  22%,
-  100% {
-    filter: drop-shadow(0 0 5px color-mix(in oklab, var(--signal) 55%, transparent));
-  }
-  34%,
-  53% {
-    filter: drop-shadow(0 0 12px var(--signal)) drop-shadow(0 0 5px var(--signal));
-  }
-  43%,
-  64% {
-    filter: drop-shadow(0 0 7px color-mix(in oklab, var(--signal) 80%, transparent));
   }
 }
 
@@ -289,35 +275,45 @@
 
 .telemetry-ring {
   position: absolute;
-  width: clamp(17rem, 38vw, 32rem);
-  height: clamp(17rem, 38vw, 32rem);
-  border: 1px solid color-mix(in oklab, var(--signal) 80%, transparent);
+  width: clamp(14rem, 30vw, 24rem);
+  height: clamp(14rem, 30vw, 24rem);
+  border: 1px solid color-mix(in oklab, var(--signal) 54%, transparent);
   border-radius: 9999px;
-  box-shadow: inset 0 0 20px color-mix(in oklab, var(--signal) 12%, transparent);
-  animation: telemetry-impact-ring 1.65s cubic-bezier(0.12, 0.7, 0.18, 1) both;
-}
-
-.telemetry-ring-secondary {
-  animation-delay: 110ms;
+  background:
+    linear-gradient(90deg, transparent calc(50% - 0.5px), color-mix(in oklab, var(--signal) 24%, transparent) 50%, transparent calc(50% + 0.5px)),
+    linear-gradient(transparent calc(50% - 0.5px), color-mix(in oklab, var(--signal) 24%, transparent) 50%, transparent calc(50% + 0.5px));
+  box-shadow: inset 0 0 28px color-mix(in oklab, var(--signal) 8%, transparent), 0 0 22px color-mix(in oklab, var(--signal) 10%, transparent);
+  animation: telemetry-impact-ring 1.8s cubic-bezier(0.12, 0.7, 0.18, 1) both;
 }
 
 .telemetry-waveform {
   position: absolute;
   width: 100%;
-  height: 6rem;
+  height: clamp(10rem, 20vw, 14rem);
   overflow: visible;
-  animation: telemetry-wave-reveal 1.8s ease-out both, telemetry-heartbeat-bloom 1.8s ease-out both;
+  animation: telemetry-wave-reveal 1.8s ease-out both;
 }
 
 .telemetry-waveform-trace {
   fill: none;
-  stroke: var(--signal);
-  stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
   animation: telemetry-heartbeat-draw 1.8s cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.telemetry-waveform-aura {
+  stroke: color-mix(in oklab, var(--signal) 72%, transparent);
+  stroke-width: 11;
+  opacity: 0.72;
+  filter: blur(7px) drop-shadow(0 0 16px var(--signal));
+}
+
+.telemetry-waveform-core {
+  stroke: color-mix(in oklab, var(--signal) 72%, white);
+  stroke-width: 2.25;
+  filter: drop-shadow(0 0 3px var(--signal)) drop-shadow(0 0 9px var(--signal));
 }
 
 .telemetry-hud {

@@ -24,29 +24,21 @@ function createHeartbeatPath(width: number, impactX: number) {
   const point = (offset: number) => Math.min(width, Math.max(0, impactX + offset));
 
   return [
-    "M0 48",
-    `H${point(-150)}`,
-    `C${point(-142)} 48 ${point(-138)} 43 ${point(-130)} 43`,
-    `C${point(-122)} 43 ${point(-118)} 50 ${point(-110)} 50`,
-    `L${point(-96)} 52`,
-    `L${point(-86)} 38`,
-    `L${point(-76)} 76`,
-    `L${point(-64)} 7`,
-    `L${point(-50)} 84`,
-    `L${point(-38)} 43`,
-    `C${point(-27)} 43 ${point(-22)} 34 ${point(-12)} 34`,
-    `C${point(-2)} 34 ${point(4)} 48 ${point(18)} 48`,
-    `H${point(42)}`,
-    `C${point(50)} 48 ${point(54)} 45 ${point(61)} 45`,
-    `C${point(68)} 45 ${point(72)} 50 ${point(79)} 50`,
-    `L${point(88)} 51`,
-    `L${point(95)} 42`,
-    `L${point(102)} 67`,
-    `L${point(111)} 24`,
-    `L${point(121)} 70`,
-    `L${point(130)} 45`,
-    `C${point(138)} 45 ${point(142)} 39 ${point(150)} 39`,
-    `C${point(158)} 39 ${point(164)} 48 ${point(176)} 48`,
+    "M0 80",
+    `H${point(-126)}`,
+    `C${point(-116)} 80 ${point(-111)} 74 ${point(-103)} 74`,
+    `C${point(-95)} 74 ${point(-91)} 84 ${point(-84)} 84`,
+    `L${point(-72)} 88`,
+    `L${point(-57)} 8`,
+    `L${point(-34)} 138`,
+    `L${point(-8)} 5`,
+    `L${point(19)} 148`,
+    `L${point(39)} 58`,
+    `L${point(55)} 101`,
+    `L${point(70)} 68`,
+    `L${point(84)} 91`,
+    `L${point(98)} 75`,
+    `C${point(108)} 75 ${point(114)} 80 ${point(126)} 80`,
     `H${width}`,
   ].join(" ");
 }
@@ -83,9 +75,10 @@ export function HeroTelemetry({ children }: HeroTelemetryProps) {
 
     const x = event.clientX - bounds.left;
     const y = event.clientY - bounds.top;
+    const spikeX = Math.min(Math.max(x, Math.min(132, bounds.width / 2)), Math.max(bounds.width - 132, bounds.width / 2));
     const id = nextId.current;
-    const alignRight = x + HUD_OFFSET + HUD_WIDTH > bounds.width - 12;
-    const preferredX = alignRight ? x - HUD_OFFSET - HUD_WIDTH : x + HUD_OFFSET;
+    const alignRight = spikeX + HUD_OFFSET + HUD_WIDTH > bounds.width - 12;
+    const preferredX = alignRight ? spikeX - HUD_OFFSET - HUD_WIDTH : spikeX + HUD_OFFSET;
     const labelX = Math.min(Math.max(preferredX, 12), Math.max(12, bounds.width - HUD_WIDTH - 12));
     const labelY = Math.min(Math.max(y - HUD_HEIGHT - 12, 12), Math.max(12, bounds.height - HUD_HEIGHT - 12));
 
@@ -94,7 +87,7 @@ export function HeroTelemetry({ children }: HeroTelemetryProps) {
       ...current,
       {
         id,
-        x,
+        x: spikeX,
         y,
         width: bounds.width,
         node: String(Math.floor(Math.random() * 9) + 1).padStart(2, "0"),
@@ -125,16 +118,20 @@ export function HeroTelemetry({ children }: HeroTelemetryProps) {
           <div key={impact.id} className="telemetry-impact pointer-events-none absolute inset-0">
             <span className="telemetry-impact-core" style={{ left: impact.x, top: impact.y }} />
             <span className="telemetry-ring telemetry-ring-primary" style={{ left: impact.x, top: impact.y }} />
-            <span className="telemetry-ring telemetry-ring-secondary" style={{ left: impact.x, top: impact.y }} />
             <svg
               className="telemetry-waveform"
               style={{ left: 0, top: impact.y }}
-              viewBox={`0 0 ${impact.width} 96`}
+              viewBox={`0 0 ${impact.width} 160`}
               preserveAspectRatio="none"
               role="presentation"
             >
               <path
-                className="telemetry-waveform-trace"
+                className="telemetry-waveform-trace telemetry-waveform-aura"
+                pathLength="1"
+                d={createHeartbeatPath(impact.width, impact.x)}
+              />
+              <path
+                className="telemetry-waveform-trace telemetry-waveform-core"
                 pathLength="1"
                 d={createHeartbeatPath(impact.width, impact.x)}
               />
