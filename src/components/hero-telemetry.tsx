@@ -20,6 +20,37 @@ const HUD_WIDTH = 214;
 const HUD_HEIGHT = 30;
 const HUD_OFFSET = 22;
 
+function createHeartbeatPath(width: number, impactX: number) {
+  const point = (offset: number) => Math.min(width, Math.max(0, impactX + offset));
+
+  return [
+    "M0 48",
+    `H${point(-150)}`,
+    `C${point(-142)} 48 ${point(-138)} 43 ${point(-130)} 43`,
+    `C${point(-122)} 43 ${point(-118)} 50 ${point(-110)} 50`,
+    `L${point(-96)} 52`,
+    `L${point(-86)} 38`,
+    `L${point(-76)} 76`,
+    `L${point(-64)} 7`,
+    `L${point(-50)} 84`,
+    `L${point(-38)} 43`,
+    `C${point(-27)} 43 ${point(-22)} 34 ${point(-12)} 34`,
+    `C${point(-2)} 34 ${point(4)} 48 ${point(18)} 48`,
+    `H${point(42)}`,
+    `C${point(50)} 48 ${point(54)} 45 ${point(61)} 45`,
+    `C${point(68)} 45 ${point(72)} 50 ${point(79)} 50`,
+    `L${point(88)} 51`,
+    `L${point(95)} 42`,
+    `L${point(102)} 67`,
+    `L${point(111)} 24`,
+    `L${point(121)} 70`,
+    `L${point(130)} 45`,
+    `C${point(138)} 45 ${point(142)} 39 ${point(150)} 39`,
+    `C${point(158)} 39 ${point(164)} 48 ${point(176)} 48`,
+    `H${width}`,
+  ].join(" ");
+}
+
 /**
  * Home-page telemetry layer. Scoped to the Home page only:
  * clicking anywhere else on the site does nothing.
@@ -98,14 +129,14 @@ export function HeroTelemetry({ children }: HeroTelemetryProps) {
             <svg
               className="telemetry-waveform"
               style={{ left: 0, top: impact.y }}
-              viewBox={`0 0 ${impact.width} 64`}
+              viewBox={`0 0 ${impact.width} 96`}
               preserveAspectRatio="none"
               role="presentation"
             >
               <path
                 className="telemetry-waveform-trace"
                 pathLength="1"
-                d={`M0 32 H${Math.max(0, impact.x - 78)} C${Math.max(0, impact.x - 68)} 32 ${Math.max(0, impact.x - 64)} 29 ${Math.max(0, impact.x - 56)} 29 C${Math.max(0, impact.x - 48)} 29 ${Math.max(0, impact.x - 44)} 36 ${Math.max(0, impact.x - 36)} 36 C${Math.max(0, impact.x - 28)} 36 ${Math.max(0, impact.x - 24)} 20 ${Math.max(0, impact.x - 16)} 12 C${Math.max(0, impact.x - 10)} 6 ${Math.max(0, impact.x - 6)} 52 ${impact.x} 54 C${Math.min(impact.width, impact.x + 7)} 56 ${Math.min(impact.width, impact.x + 12)} 17 ${Math.min(impact.width, impact.x + 18)} 18 C${Math.min(impact.width, impact.x + 25)} 19 ${Math.min(impact.width, impact.x + 28)} 39 ${Math.min(impact.width, impact.x + 36)} 39 C${Math.min(impact.width, impact.x + 44)} 39 ${Math.min(impact.width, impact.x + 48)} 30 ${Math.min(impact.width, impact.x + 58)} 30 C${Math.min(impact.width, impact.x + 66)} 30 ${Math.min(impact.width, impact.x + 70)} 32 ${Math.min(impact.width, impact.x + 80)} 32 H${impact.width}`}
+                d={createHeartbeatPath(impact.width, impact.x)}
               />
             </svg>
             <span className="telemetry-hud" style={{ left: impact.labelX, top: impact.labelY }}>
