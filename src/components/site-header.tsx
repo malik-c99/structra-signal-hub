@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import structraLogo from "@/assets/structra-logo.png.asset.json";
 
 const nav = [
   { to: "/product", label: "Product" },
@@ -22,11 +21,9 @@ export function SiteHeader() {
             <span className="absolute h-2.5 w-2.5 rounded-full bg-signal pulse-ring" />
             <span className="h-2 w-2 rounded-full bg-signal" />
           </span>
-          <img
-            src={structraLogo.url}
-            alt="STRUCTRA"
-            className="h-7 w-auto"
-          />
+          <span className="font-display text-lg font-extrabold tracking-tight text-white">
+            STRUCTRA
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
