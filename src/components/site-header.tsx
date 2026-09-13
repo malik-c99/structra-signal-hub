@@ -25,7 +25,7 @@ export function SiteHeader() {
           <img
             src={structraLogo.url}
             alt="STRUCTRA"
-            className="h-5 w-auto"
+            className="h-7 w-auto"
           />
         </Link>
 
