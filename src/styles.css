@@ -683,10 +683,28 @@
   pointer-events: none;
 }
 
+.site-monitor-ambient {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(38% 34% at 18% 22%, color-mix(in oklab, var(--signal) 22%, transparent), transparent 70%),
+    radial-gradient(42% 38% at 82% 72%, color-mix(in oklab, var(--violet-glow) 20%, transparent), transparent 72%),
+    radial-gradient(30% 26% at 55% 8%, color-mix(in oklab, var(--signal) 12%, transparent), transparent 70%);
+  filter: blur(70px);
+  opacity: 0.55;
+}
+
+.site-monitor-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
 .site-monitor-grid {
   position: absolute;
   inset: 0;
-  opacity: 0.3;
+  opacity: 0.36;
   background-image:
     linear-gradient(to right, color-mix(in oklab, var(--signal) 9%, transparent) 1px, transparent 1px),
     linear-gradient(to bottom, color-mix(in oklab, var(--signal) 9%, transparent) 1px, transparent 1px),
@@ -700,8 +718,18 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.4;
+  opacity: 0.45;
   mask-image: radial-gradient(ellipse 85% 75% at 50% 52%, black 35%, transparent 95%);
+}
+
+.site-monitor-truss-far {
+  opacity: 0.2;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 45%, black 25%, transparent 92%);
+}
+
+.site-monitor-truss-far .site-monitor-structure line {
+  stroke: color-mix(in oklab, var(--violet-glow) 30%, transparent);
+  stroke-width: 0.8;
 }
 
 .site-monitor-structure line {
