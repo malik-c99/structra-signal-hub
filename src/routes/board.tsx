@@ -61,7 +61,7 @@ const interns = [
     role: "Engineering",
     bio: null,
   },
-  { photo: intern2.url, name: "Intern 02", role: null, bio: "Personal photo and bio coming soon." },
+  { photo: abdullah.url, name: "Abdullah Ishraq", role: "Software", bio: null },
   { photo: intern3.url, name: "Intern 03", role: null, bio: "Personal photo and bio coming soon." },
   { photo: intern4.url, name: "Intern 04", role: null, bio: "Personal photo and bio coming soon." },
 ];
