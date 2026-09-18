@@ -22,10 +22,7 @@ export function SiteFooter() {
             />
             <FooterCol
               title="Documentation"
-              links={[
-                { to: "/product", label: "Node specs" },
-                { to: "/pricing", label: "Pricing" },
-              ]}
+              links={[{ to: "/product", label: "Node specs" }]}
             />
             <FooterCol
               title="Company"
