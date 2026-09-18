@@ -670,3 +670,117 @@
     animation-duration: 1ms;
   }
 }
+
+/* ============ Site-wide monitoring backdrop ============ */
+
+.site-monitor {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.site-monitor-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--signal) 9%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--signal) 9%, transparent) 1px, transparent 1px),
+    radial-gradient(circle, color-mix(in oklab, var(--signal) 20%, transparent) 0.7px, transparent 0.8px);
+  background-size: 64px 64px, 64px 64px, 16px 16px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 30%, transparent 100%);
+}
+
+.site-monitor-truss {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 52%, black 35%, transparent 95%);
+}
+
+.site-monitor-structure line {
+  stroke: color-mix(in oklab, var(--signal) 26%, transparent);
+  stroke-width: 1;
+}
+
+.site-monitor-structure .site-monitor-ground {
+  stroke-dasharray: 6 8;
+  stroke: color-mix(in oklab, var(--signal) 16%, transparent);
+}
+
+.site-monitor-node-aura {
+  fill: none;
+  stroke: color-mix(in oklab, var(--signal) 55%, transparent);
+  stroke-width: 1;
+  opacity: 0;
+  animation: site-node-pulse 5.4s ease-out infinite;
+}
+
+.site-monitor-node-core {
+  fill: color-mix(in oklab, var(--signal) 80%, white);
+  filter: drop-shadow(0 0 5px var(--signal));
+  opacity: 0.75;
+}
+
+.site-monitor-node-label {
+  fill: color-mix(in oklab, var(--signal) 55%, transparent);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+
+.site-monitor-scan {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 34%;
+  opacity: 0.16;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    color-mix(in oklab, var(--signal) 10%, transparent) 46%,
+    color-mix(in oklab, var(--signal) 42%, transparent) 50%,
+    color-mix(in oklab, var(--signal) 10%, transparent) 54%,
+    transparent 100%
+  );
+  animation: site-monitor-sweep 16s linear infinite;
+}
+
+@keyframes site-node-pulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  18% {
+    opacity: 0.9;
+  }
+  55% {
+    opacity: 0.25;
+    transform: scale(1.6);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+@keyframes site-monitor-sweep {
+  0% {
+    transform: translateX(-40%);
+  }
+  100% {
+    transform: translateX(340%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-monitor-node-aura,
+  .site-monitor-scan {
+    animation: none;
+  }
+}
