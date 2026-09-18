@@ -17,16 +17,16 @@ import { Link } from "@tanstack/react-router";
 import technostreamLogo from "@/assets/technostream-logo.png.asset.json";
 import mrshadeLogo from "@/assets/mrshade-logo.png.asset.json";
 
-export const Route = createFileRoute("/partners")({
+export const Route = createFileRoute("/group")({
   head: () => ({
     meta: [
-      { title: "Keystone — Our Group | Structra" },
+      { title: "The Group | Structra" },
       {
         name: "description",
         content:
           "Structra operates as the structural-intelligence division of a wider engineering group — held, backed, and built with Technostream and Mr Shade ME.",
       },
-      { property: "og:title", content: "Keystone — Our Group | Structra" },
+      { property: "og:title", content: "The Group | Structra" },
       {
         property: "og:description",
         content:

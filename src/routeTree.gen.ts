@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as PartnersRouteImport } from './routes/partners'
+import { Route as GroupRouteImport } from './routes/group'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProductRouteImport } from './routes/product'
 import { Route as ProofRouteImport } from './routes/proof'
@@ -27,9 +27,9 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PartnersRoute = PartnersRouteImport.update({
-  id: '/partners',
-  path: '/partners',
+const GroupRoute = GroupRouteImport.update({
+  id: '/group',
+  path: '/group',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -56,7 +56,7 @@ const TeamRoute = TeamRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/partners': typeof PartnersRoute
+  '/group': typeof GroupRoute
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRoute
   '/proof': typeof ProofRoute
@@ -65,7 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/partners': typeof PartnersRoute
+  '/group': typeof GroupRoute
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRoute
   '/proof': typeof ProofRoute
@@ -75,7 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/partners': typeof PartnersRoute
+  '/group': typeof GroupRoute
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRoute
   '/proof': typeof ProofRoute
@@ -84,27 +84,14 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
-    | '/contact'
-    | '/partners'
-    | '/privacy'
-    | '/product'
-    | '/proof'
-    | '/team'
+    '/' | '/contact' | '/group' | '/privacy' | '/product' | '/proof' | '/team'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/contact'
-    | '/partners'
-    | '/privacy'
-    | '/product'
-    | '/proof'
-    | '/team'
+  to: '/' | '/contact' | '/group' | '/privacy' | '/product' | '/proof' | '/team'
   id:
     | '__root__'
     | '/'
     | '/contact'
-    | '/partners'
+    | '/group'
     | '/privacy'
     | '/product'
     | '/proof'
@@ -114,7 +101,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
-  PartnersRoute: typeof PartnersRoute
+  GroupRoute: typeof GroupRoute
   PrivacyRoute: typeof PrivacyRoute
   ProductRoute: typeof ProductRoute
   ProofRoute: typeof ProofRoute
@@ -137,11 +124,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/partners': {
-      id: '/partners'
-      path: '/partners'
-      fullPath: '/partners'
-      preLoaderRoute: typeof PartnersRouteImport
+    '/group': {
+      id: '/group'
+      path: '/group'
+      fullPath: '/group'
+      preLoaderRoute: typeof GroupRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -178,7 +165,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
-  PartnersRoute: PartnersRoute,
+  GroupRoute: GroupRoute,
   PrivacyRoute: PrivacyRoute,
   ProductRoute: ProductRoute,
   ProofRoute: ProofRoute,
