@@ -28,6 +28,7 @@ export function SiteFooter() {
               title="Company"
               links={[
                 { to: "/team", label: "Team" },
+                { to: "/partners", label: "Partners" },
                 { to: "/contact", label: "Contact" },
               ]}
             />

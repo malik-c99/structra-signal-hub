@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { MonitoringBackdrop } from "@/components/monitoring-backdrop";
 import { Toaster } from "@/components/ui/sonner";
 
 
@@ -127,9 +128,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col bg-background">
+      <div className="relative flex min-h-screen flex-col bg-background">
+        <MonitoringBackdrop />
         <SiteHeader />
-        <main className="flex-1">
+        <main className="relative z-[1] flex-1">
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
         </main>
