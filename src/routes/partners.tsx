@@ -49,7 +49,7 @@ const partners = [
     id: "mr-shade",
     logo: mrshadeLogo.url,
     logoAlt: "Mister Shade ME logo",
-    name: "MR SHADE",
+    name: "MR SHADE ME",
     kicker: "Strategic partner · Shade structures",
     lead:
       "Engineered tensile shade products — car park canopies, PTFE membrane structures, and utility structures built to withstand the region's harshest conditions.",
