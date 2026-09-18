@@ -32,7 +32,7 @@ const partners = [
     logo: technostreamLogo.url,
     logoAlt: "Technostream Group logo",
     name: "TECHNOSTREAM",
-    kicker: "Sister company · Engineering group",
+    kicker: "Strategic partner · Engineering group",
     lead:
       "Integrated engineering and industrial products — from light-gauge-steel prefab building systems to security, automation, and smart infrastructure solutions.",
     body:
@@ -50,7 +50,7 @@ const partners = [
     logo: mrshadeLogo.url,
     logoAlt: "Mister Shade ME logo",
     name: "MR SHADE",
-    kicker: "Sister company · Shade structures",
+    kicker: "Strategic partner · Shade structures",
     lead:
       "Engineered tensile shade products — car park canopies, PTFE membrane structures, and utility structures built to withstand the region's harshest conditions.",
     body:
@@ -68,9 +68,9 @@ function PartnersPage() {
     <>
       <Section className="border-b-0">
         <SectionHead
-          eyebrow="The network"
-          title="Built on a wider engineering network."
-          lead="Structra doesn't operate alone. Two sister companies — Technostream and Mr Shade — provide the engineering depth, fabrication capability, and regional delivery experience behind our always-on monitoring platform."
+          eyebrow="Strategic alliance"
+          title="Standing on a stronger backbone."
+          lead="Structra operates within a wider engineering family. Technostream and Mr Shade are strategic partners whose industrial depth, fabrication capability, and delivery network quietly underpin everything we build — the keystone our platform stands on."
         />
 
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
