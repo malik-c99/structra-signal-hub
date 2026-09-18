@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Factory, Network, ShieldCheck, Sun, GraduationCap, Pill, Smartphone } from "lucide-react";
 import { Section, SectionHead } from "@/components/section";
 import { Link } from "@tanstack/react-router";
+import technostreamLogo from "@/assets/technostream-logo.png.asset.json";
+import mrshadeLogo from "@/assets/mrshade-logo.png.asset.json";
 
 export const Route = createFileRoute("/partners")({
   head: () => ({
@@ -27,10 +29,12 @@ export const Route = createFileRoute("/partners")({
 const partners = [
   {
     id: "technostream",
+    logo: technostreamLogo.url,
+    logoAlt: "Technostream Group logo",
     name: "TECHNOSTREAM",
     kicker: "Sister company · Engineering group",
     lead:
-      "A diversified engineering group headquartered in Dubai, delivering integrated industrial, engineering, technology, and healthcare solutions across the UAE and Saudi Arabia.",
+      "A diversified engineering group delivering integrated industrial, engineering, technology, and healthcare solutions across the UAE and Saudi Arabia.",
     body:
       "Technostream's divisions span light-gauge-steel (LGS) prefab construction, security and automation systems, technical education and training, pharmaceuticals, and mobile services. Its industrial division's prefab and LGS expertise is a natural fit with Structra's prefab monitoring focus, while the group's engineering depth gives Structra an operational backbone across the region.",
     divisions: [
@@ -40,14 +44,11 @@ const partners = [
       { icon: Pill, label: "Pharmaceuticals" },
       { icon: Smartphone, label: "Mobile Services" },
     ],
-    points: [
-      ["Headquarters", "Dubai, United Arab Emirates"],
-      ["Footprint", "UAE and Saudi Arabia"],
-      ["Focus", "Industrial, engineering, technology, healthcare"],
-    ],
   },
   {
     id: "mr-shade",
+    logo: mrshadeLogo.url,
+    logoAlt: "Mister Shade ME logo",
     name: "MR SHADE",
     kicker: "Sister company · Shade structures",
     lead:
@@ -58,11 +59,6 @@ const partners = [
       { icon: Sun, label: "Car Park Shades" },
       { icon: Network, label: "PTFE Membrane Structures" },
       { icon: Factory, label: "Utility Structures" },
-    ],
-    points: [
-      ["Established", "1996"],
-      ["Footprint", "UAE, Oman, Qatar, Africa"],
-      ["Focus", "Tensile and steel shade structures"],
     ],
   },
 ];
@@ -77,46 +73,54 @@ function PartnersPage() {
           lead="Structra doesn't operate alone. Two sister companies — Technostream and Mr Shade — provide the engineering depth, fabrication capability, and regional delivery experience behind our always-on monitoring platform."
         />
 
-        <div className="mt-14 space-y-8">
+        <div className="mt-14 grid gap-8 lg:grid-cols-2">
           {partners.map((p) => (
             <article
               key={p.id}
-              className="rounded-sm border border-border bg-surface p-8 transition-colors hover:border-signal/40 sm:p-12"
+              className="group relative flex flex-col overflow-hidden rounded-sm border border-border bg-surface transition-colors hover:border-signal/40"
             >
-              <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
-                <div>
-                  <div className="label-mono">{p.kicker}</div>
-                  <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
-                    {p.name}
-                  </h2>
-                  <p className="mt-5 text-base text-foreground/90">{p.lead}</p>
-                  <p className="mt-4 text-sm text-muted-foreground">{p.body}</p>
+              {/* Logo panel */}
+              <div className="relative flex h-44 items-center justify-center border-b border-border bg-background/60 px-10">
+                <div
+                  aria-hidden
+                  className="absolute inset-0 opacity-[0.35]"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(circle at 1px 1px, oklch(var(--border)) 1px, transparent 0)",
+                    backgroundSize: "20px 20px",
+                  }}
+                />
+                <div
+                  aria-hidden
+                  className="absolute left-1/2 top-1/2 h-32 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-signal/10 blur-3xl transition-opacity duration-500 group-hover:opacity-100 opacity-60"
+                />
+                <img
+                  src={p.logo}
+                  alt={p.logoAlt}
+                  className="relative h-16 w-auto max-w-full object-contain sm:h-20"
+                  loading="lazy"
+                />
+                <span className="label-mono absolute left-4 top-4 text-[10px]">{p.kicker}</span>
+              </div>
 
-                  <div className="mt-8 flex flex-wrap gap-2">
-                    {p.divisions.map((d) => (
-                      <span
-                        key={d.label}
-                        className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1.5 text-xs text-muted-foreground"
-                      >
-                        <d.icon className="h-3.5 w-3.5 text-signal" />
-                        {d.label}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              {/* Content */}
+              <div className="flex flex-1 flex-col p-8 sm:p-10">
+                <h2 className="whitespace-nowrap font-display text-[clamp(1.1rem,5.4vw,1.875rem)] font-extrabold tracking-tight">
+                  {p.name}
+                </h2>
+                <p className="mt-4 text-base text-foreground/90">{p.lead}</p>
+                <p className="mt-4 text-sm text-muted-foreground">{p.body}</p>
 
-                <div className="rounded-sm border border-border bg-surface-raised p-6 sm:p-8">
-                  <div className="label-mono">At a glance</div>
-                  <ul className="mt-5 space-y-5">
-                    {p.points.map(([label, value]) => (
-                      <li key={label} className="border-l border-signal/50 pl-4">
-                        <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-                          {label}
-                        </div>
-                        <div className="mt-1 text-sm font-semibold">{value}</div>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="mt-auto flex flex-wrap gap-2 pt-8">
+                  {p.divisions.map((d) => (
+                    <span
+                      key={d.label}
+                      className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1.5 text-xs text-muted-foreground"
+                    >
+                      <d.icon className="h-3.5 w-3.5 text-signal" />
+                      {d.label}
+                    </span>
+                  ))}
                 </div>
               </div>
             </article>
