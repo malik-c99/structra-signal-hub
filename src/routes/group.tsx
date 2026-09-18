@@ -60,6 +60,7 @@ const groupRoles = [
 const partners = [
   {
     id: "technostream",
+    site: "https://technostream.org",
     logo: technostreamLogo.url,
     logoAlt: "Technostream Group logo",
     name: "TECHNOSTREAM",
@@ -78,6 +79,7 @@ const partners = [
   },
   {
     id: "mr-shade",
+    site: "https://mister-shade.com",
     logo: mrshadeLogo.url,
     logoAlt: "Mr Shade ME logo",
     name: "MR SHADE ME",
