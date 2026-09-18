@@ -73,7 +73,7 @@ function BoardPage() {
         <SectionHead
           eyebrow="The Board"
           title="Built to ship the stack — and unlock the sites."
-          lead="A founding team pairing sensing hardware and structural physics with field access in Dubai."
+          lead="A youth-led founding team pairing sensing hardware and structural physics with field access in Dubai — young engineers building institutional-grade monitoring."
         />
 
         <div className="mx-auto mt-12 grid max-w-3xl gap-6 sm:grid-cols-2">
@@ -108,7 +108,7 @@ function BoardPage() {
         <SectionHead
           eyebrow="Interns & growth"
           title="Structra Interns"
-          lead="One team, one vision — learning, building, and shaping the future of structural engineering together."
+          lead="Youth-led, hands-on — one team, one vision: learning, building, and shaping the future of structural engineering together."
         />
         <div className="mx-auto mt-12 w-full max-w-xs">
           <article className="group overflow-hidden rounded-sm border border-border bg-surface">

@@ -126,7 +126,7 @@ function Index() {
               </div>
 
               <div className="mt-24 flex flex-col gap-4 border-t border-border/60 pt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:flex-row sm:items-center sm:gap-10">
-                <span className="text-signal">Trusted foundation</span>
+                <span className="text-signal">Youth-led engineering team</span>
                 <span>Incorporated in Dubai South Business Hub Free Zone</span>
                 <span>Supported by Technostream Network</span>
               </div>
