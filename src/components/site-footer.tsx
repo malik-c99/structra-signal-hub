@@ -40,6 +40,7 @@ export function SiteFooter() {
         </div>
         <div className="mt-12 flex flex-col gap-2 border-t border-border/70 pt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:flex-row sm:justify-between">
           <span>getstructra.com</span>
+          <span className="text-signal/80">Youth-led engineering</span>
           <span>Dubai South Free Zone</span>
           <span>2026</span>
         </div>
