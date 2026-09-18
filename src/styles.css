@@ -826,3 +826,113 @@
     animation: none;
   }
 }
+/* ---- Home hero typography & polish ---- */
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 7.2vw, 5.25rem);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.hero-title-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(0.35em);
+  filter: blur(10px);
+  animation: hero-line-reveal 1s cubic-bezier(0.22, 0.75, 0.2, 1) forwards;
+}
+
+.hero-title-line-1 {
+  animation-delay: 0.08s;
+  text-shadow: 0 0 60px color-mix(in oklab, var(--signal) 18%, transparent);
+}
+
+.hero-title-line-2 {
+  animation-delay: 0.26s;
+  filter: blur(10px) drop-shadow(0 0 28px color-mix(in oklab, var(--signal) 35%, transparent));
+}
+
+@keyframes hero-line-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.hero-rule {
+  position: relative;
+  height: 1px;
+  max-width: 34rem;
+  background: linear-gradient(
+    to right,
+    color-mix(in oklab, var(--signal) 70%, transparent),
+    color-mix(in oklab, var(--violet-glow) 40%, transparent) 45%,
+    transparent
+  );
+}
+
+.hero-rule::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 6rem;
+  height: 1px;
+  background: var(--signal);
+  box-shadow: 0 0 12px var(--signal);
+  animation: hero-rule-travel 5.5s ease-in-out infinite;
+}
+
+@keyframes hero-rule-travel {
+  0%,
+  100% {
+    transform: translate(0, -50%);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(26rem, -50%);
+    opacity: 1;
+  }
+}
+
+.hero-cta-primary {
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--signal) 45%, transparent),
+    0 16px 44px -18px color-mix(in oklab, var(--signal) 85%, transparent);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--signal) 70%, transparent),
+    0 22px 56px -18px color-mix(in oklab, var(--signal) 95%, transparent);
+}
+
+.hero-cta-ghost {
+  background: color-mix(in oklab, var(--surface) 70%, transparent);
+  backdrop-filter: blur(6px);
+  transition: border-color 0.25s ease, transform 0.25s ease, color 0.25s ease;
+}
+
+.hero-cta-ghost:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklab, var(--signal) 55%, transparent);
+  color: var(--signal);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title-line {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+  }
+
+  .hero-rule::after {
+    animation: none;
+  }
+}
