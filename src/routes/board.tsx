@@ -34,15 +34,15 @@ const leaders = [
     photo: qusai.url,
     name: "Qusai Al Daour",
     role: "Cofounder & CEO",
-    tag: "Industry partnerships · Pilot deployments",
-    body: "Industry partners, pilot deployments, and site relationships.",
+    tag: "Operations · Strategy · Growth",
+    body: "Runs the business end to end — operations, commercial strategy, partnerships, and pilot deployments that keep Structra growing.",
   },
   {
     photo: daniel.url,
     name: "Daniel Shihat",
     role: "Cofounder & CTO",
-    tag: "Forward Deployed Engineer · Technical Strategy",
-    body: "Hardware architecture, sensing algorithms, and the technical roadmap.",
+    tag: "Product · Engineering · Technical Strategy",
+    body: "Leads the product — from sensing hardware and monitoring software to the engineering that powers every Structra deployment.",
   },
 ];
 
@@ -101,13 +101,13 @@ function BoardPage() {
           lead="One team, one vision — learning, building, and shaping the future of structural engineering together."
         />
         <div className="mx-auto mt-12 w-full max-w-xs">
-          <article className="overflow-hidden rounded-sm border border-border bg-surface">
+          <article className="group overflow-hidden rounded-sm border border-border bg-surface">
             <div className="h-1 w-full bg-signal/70" />
             <img
               src={ammarProfile.photo}
               alt={`${ammarProfile.name}, ${ammarProfile.role} at Structra`}
               loading="lazy"
-              className="h-48 w-full object-cover"
+              className="aspect-square w-full object-cover"
             />
             <div className="p-6">
               <h3 className="text-lg font-semibold">{ammarProfile.name}</h3>
@@ -122,20 +122,28 @@ function BoardPage() {
           </article>
         </div>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-6 grid w-full max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {internPhotos.map((photo, i) => (
-            <figure
+            <article
               key={photo}
-              className="group aspect-square overflow-hidden rounded-sm border border-border bg-surface"
+              className="group overflow-hidden rounded-sm border border-border bg-surface"
             >
               <div className="h-1 w-full bg-signal/70" />
               <img
                 src={photo}
-                alt={`Structra interns collaborating on site, photo ${i + 1}`}
+                alt={`Structra intern profile slot ${i + 1}`}
                 loading="lazy"
-                className="h-[calc(100%-0.25rem)] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-            </figure>
+              <div className="p-5">
+                <h3 className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+                  Intern {String(i + 1).padStart(2, "0")}
+                </h3>
+                <p className="mt-3 border-t border-border pt-3 text-xs text-muted-foreground">
+                  Personal photo and bio coming soon.
+                </p>
+              </div>
+            </article>
           ))}
         </div>
         <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
