@@ -33,14 +33,14 @@ const leaders = [
   {
     photo: qusai.url,
     name: "Qusai Al Daour",
-    role: "Cofounder & CEO",
+    role: "Co-Founder & CEO",
     tag: "Operations · Strategy · Growth",
     body: "Runs the business end to end — operations, commercial strategy, partnerships, and pilot deployments that keep Structra growing.",
   },
   {
     photo: daniel.url,
     name: "Daniel Shihat",
-    role: "Cofounder & CTO",
+    role: "Co-Founder & CTO",
     tag: "Product · Engineering · Technical Strategy",
     body: "Leads the product — from sensing hardware and monitoring software to the engineering that powers every Structra deployment.",
   },
