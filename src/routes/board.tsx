@@ -76,7 +76,7 @@ function BoardPage() {
             <span className="h-2 w-2 rounded-full bg-signal" />
           </span>
           <span className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-signal">
-            100% youth-led
+            Youth-led
           </span>
         </div>
         <SectionHead
@@ -121,7 +121,7 @@ function BoardPage() {
             <span className="h-2 w-2 rounded-full bg-signal" />
           </span>
           <span className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-signal">
-            Youth-led · hands-on
+            Youth-led
           </span>
         </div>
         <SectionHead
