@@ -133,24 +133,39 @@ function BoardPage() {
         </div>
 
         <div className="mx-auto mt-6 grid w-full max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {internPhotos.map((photo, i) => (
+          {interns.map((intern) => (
             <article
-              key={photo}
+              key={intern.name}
               className="group overflow-hidden rounded-sm border border-border bg-surface"
             >
               <div className="h-1 w-full bg-signal/70" />
               <img
-                src={photo}
-                alt={`Structra intern profile slot ${i + 1}`}
+                src={intern.photo}
+                alt={
+                  intern.role
+                    ? `${intern.name}, ${intern.role} at Structra`
+                    : `Structra intern profile slot ${intern.name}`
+                }
                 loading="lazy"
                 className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="p-5">
-                <h3 className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-                  Intern {String(i + 1).padStart(2, "0")}
+                <h3
+                  className={
+                    intern.role
+                      ? "text-base font-semibold"
+                      : "font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
+                  }
+                >
+                  {intern.name}
                 </h3>
+                {intern.role ? (
+                  <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-signal">
+                    {intern.role}
+                  </div>
+                ) : null}
                 <p className="mt-3 border-t border-border pt-3 text-xs text-muted-foreground">
-                  Personal photo and bio coming soon.
+                  {intern.bio ?? " "}
                 </p>
               </div>
             </article>
