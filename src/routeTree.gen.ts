@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BoardRouteImport } from './routes/board'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GroupRouteImport } from './routes/group'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -20,6 +21,11 @@ import { Route as TeamRouteImport } from './routes/team'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BoardRoute = BoardRouteImport.update({
+  id: '/board',
+  path: '/board',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -55,6 +61,7 @@ const TeamRoute = TeamRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/board': typeof BoardRoute
   '/contact': typeof ContactRoute
   '/group': typeof GroupRoute
   '/privacy': typeof PrivacyRoute
@@ -64,6 +71,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/board': typeof BoardRoute
   '/contact': typeof ContactRoute
   '/group': typeof GroupRoute
   '/privacy': typeof PrivacyRoute
@@ -74,6 +82,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/board': typeof BoardRoute
   '/contact': typeof ContactRoute
   '/group': typeof GroupRoute
   '/privacy': typeof PrivacyRoute
@@ -84,12 +93,28 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/contact' | '/group' | '/privacy' | '/product' | '/proof' | '/team'
+    | '/'
+    | '/board'
+    | '/contact'
+    | '/group'
+    | '/privacy'
+    | '/product'
+    | '/proof'
+    | '/team'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/group' | '/privacy' | '/product' | '/proof' | '/team'
+  to:
+    | '/'
+    | '/board'
+    | '/contact'
+    | '/group'
+    | '/privacy'
+    | '/product'
+    | '/proof'
+    | '/team'
   id:
     | '__root__'
     | '/'
+    | '/board'
     | '/contact'
     | '/group'
     | '/privacy'
@@ -100,6 +125,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BoardRoute: typeof BoardRoute
   ContactRoute: typeof ContactRoute
   GroupRoute: typeof GroupRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -115,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/board': {
+      id: '/board'
+      path: '/board'
+      fullPath: '/board'
+      preLoaderRoute: typeof BoardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -164,6 +197,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BoardRoute: BoardRoute,
   ContactRoute: ContactRoute,
   GroupRoute: GroupRoute,
   PrivacyRoute: PrivacyRoute,
