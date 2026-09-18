@@ -34,9 +34,9 @@ const partners = [
     name: "TECHNOSTREAM",
     kicker: "Sister company · Engineering group",
     lead:
-      "A diversified engineering group delivering integrated industrial, engineering, technology, and healthcare solutions across the UAE and Saudi Arabia.",
+      "Integrated engineering and industrial products — from light-gauge-steel prefab building systems to security, automation, and smart infrastructure solutions.",
     body:
-      "Technostream's divisions span light-gauge-steel (LGS) prefab construction, security and automation systems, technical education and training, pharmaceuticals, and mobile services. Its industrial division's prefab and LGS expertise is a natural fit with Structra's prefab monitoring focus, while the group's engineering depth gives Structra an operational backbone across the region.",
+      "Technostream designs and delivers complete product systems for the built environment: turnkey LGS prefab structures engineered off-site and assembled on location, integrated security and automation installations, technical education and training programs, pharmaceutical supply, and mobile service solutions. Every product is delivered end-to-end — design, fabrication, installation, and support.",
     divisions: [
       { icon: Factory, label: "Industries" },
       { icon: ShieldCheck, label: "Security & Automation" },
@@ -52,9 +52,9 @@ const partners = [
     name: "MR SHADE",
     kicker: "Sister company · Shade structures",
     lead:
-      "A Middle East pioneer in tensile shade structures, established in 1996 — specialists in car park canopies, PTFE membrane structures, and utility structures across the region.",
+      "Engineered tensile shade products — car park canopies, PTFE membrane structures, and utility structures built to withstand the region's harshest conditions.",
     body:
-      "From its base in the UAE, Mr Shade has designed and delivered shade and canopy structures across the UAE, Oman, Qatar, and Africa — for clients including government entities and major developers. Every shade structure is a steel structure exposed to wind, heat, and load cycles, which makes it a natural proving ground for Structra's continuous monitoring approach.",
+      "Mr Shade manufactures and installs complete shade product lines: cantilever and column car park shades, architecturally tensed PTFE and PVC membrane roofs, walkway and entrance canopies, and custom utility and storage structures. Each product is engineered for wind, heat, and load from the ground up — fabricated in-house and installed with its own steel framing and anchoring systems.",
     divisions: [
       { icon: Sun, label: "Car Park Shades" },
       { icon: Network, label: "PTFE Membrane Structures" },
