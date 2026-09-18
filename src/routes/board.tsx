@@ -6,7 +6,7 @@ import qusai from "@/assets/qusai-photo.jpg.asset.json";
 import mahdi from "@/assets/mahdi-alsalahat.jpg.asset.json";
 import abdullah from "@/assets/abdullah-ishraq-2.jpg.asset.json";
 import adham from "@/assets/adham-elbahaa.jpg.asset.json";
-import intern4 from "@/assets/interns-4.jpg.asset.json";
+import abdulmaliik from "@/assets/abdulmaliik-chaqif.jpg.asset.json";
 
 export const Route = createFileRoute("/board")({
   head: () => ({
