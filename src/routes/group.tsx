@@ -17,7 +17,7 @@ import { Link } from "@tanstack/react-router";
 import technostreamLogo from "@/assets/technostream-logo.png.asset.json";
 import mrshadeLogo from "@/assets/mrshade-logo.png.asset.json";
 
-export const Route = createFileRoute("/partners")({
+export const Route = createFileRoute("/group")({
   head: () => ({
     meta: [
       { title: "Keystone — Our Group | Structra" },
