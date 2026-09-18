@@ -128,13 +128,14 @@ function PartnersPage() {
         </div>
 
         <div className="mt-12 rounded-sm border border-border bg-surface p-10 sm:p-14">
-          <div className="label-mono">Partner with Structra</div>
+          <div className="label-mono">Keystone alliance</div>
           <h2 className="mt-4 max-w-2xl text-3xl font-semibold sm:text-4xl">
-            Bring continuous monitoring to your network.
+            Backed by engineering groups. Built for asset owners.
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            We work with asset owners, developers, and engineering firms ready to host a focused
-            90-day pilot deployment.
+            Our alliance network gives Structra the reach of established engineering groups — and
+            gives our partners a direct line to always-on monitoring. We work with asset owners,
+            developers, and engineering firms ready to host a focused 90-day pilot deployment.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
