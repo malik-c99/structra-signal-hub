@@ -35,16 +35,9 @@ function BuildingFrame({ prefix }: { prefix: string }) {
       {FLOORS.slice(1).map((y) => (
         <line key={`${prefix}f${y}`} x1={COLS[0]} y1={y} x2={COLS[COLS.length - 1]} y2={y} />
       ))}
-      {/* core shear wall hatch: diagonal bracing in center bay */}
-      {FLOORS.slice(0, -1).map((y, i) => (
-        <line
-          key={`${prefix}b${i}`}
-          x1={i % 2 === 0 ? 620 : 820}
-          y1={y}
-          x2={i % 2 === 0 ? 820 : 620}
-          y2={FLOORS[i + 1]}
-        />
-      ))}
+      {/* elevator core shaft */}
+      <line x1={680} y1={ROOF} x2={680} y2={GROUND} />
+      <line x1={760} y1={ROOF} x2={760} y2={GROUND} />
       {/* ground line */}
       <line
         x1={40}
