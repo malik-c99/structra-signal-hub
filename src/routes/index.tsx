@@ -92,7 +92,18 @@ function Index() {
                 infrastructure — bridging the invisible gaps between periodic engineering visits.
               </p>
 
+              <div className="mt-5 inline-flex items-center gap-2.5 rounded-sm border border-signal/40 bg-signal/10 px-4 py-2.5">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute h-2 w-2 rounded-full bg-signal pulse-ring" />
+                  <span className="h-2 w-2 rounded-full bg-signal" />
+                </span>
+                <span className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-signal">
+                  Youth-led engineering team
+                </span>
+              </div>
+
               <div className="mt-9 flex flex-wrap items-center gap-3">
+
                 <Link
                   to="/contact"
                   className="hero-cta-primary inline-flex items-center gap-2 rounded-sm bg-signal px-6 py-3.5 text-sm font-semibold text-primary-foreground"

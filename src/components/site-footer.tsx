@@ -38,12 +38,25 @@ export function SiteFooter() {
             <FooterCol title="Legal" links={[{ to: "/privacy", label: "Privacy" }]} />
           </div>
         </div>
-        <div className="mt-12 flex flex-col gap-2 border-t border-border/70 pt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:flex-row sm:justify-between">
+        <div className="mt-12 flex flex-wrap items-center gap-3 rounded-sm border border-signal/35 bg-signal/10 px-5 py-4">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute h-2 w-2 rounded-full bg-signal pulse-ring" />
+            <span className="h-2 w-2 rounded-full bg-signal" />
+          </span>
+          <span className="font-mono text-xs font-medium uppercase tracking-[0.22em] text-signal">
+            Youth-led engineering
+          </span>
+          <span className="hidden h-3 w-px bg-signal/30 sm:block" aria-hidden="true" />
+          <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+            The next generation of structural engineers, already shipping
+          </span>
+        </div>
+        <div className="mt-8 flex flex-col gap-2 border-t border-border/70 pt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:flex-row sm:justify-between">
           <span>getstructra.com</span>
-          <span className="text-signal/80">Youth-led engineering</span>
           <span>Dubai South Free Zone</span>
           <span>2026</span>
         </div>
+
       </div>
     </footer>
   );

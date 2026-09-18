@@ -70,11 +70,21 @@ function BoardPage() {
   return (
     <>
       <Section>
+        <div className="mb-6 inline-flex items-center gap-2.5 rounded-sm border border-signal/40 bg-signal/10 px-4 py-2.5">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute h-2 w-2 rounded-full bg-signal pulse-ring" />
+            <span className="h-2 w-2 rounded-full bg-signal" />
+          </span>
+          <span className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-signal">
+            100% youth-led
+          </span>
+        </div>
         <SectionHead
           eyebrow="The Board"
           title="Built to ship the stack — and unlock the sites."
           lead="A youth-led founding team pairing sensing hardware and structural physics with field access in Dubai — young engineers building institutional-grade monitoring."
         />
+
 
         <div className="mx-auto mt-12 grid max-w-3xl gap-6 sm:grid-cols-2">
           {leaders.map((m) => (
@@ -105,9 +115,19 @@ function BoardPage() {
       </Section>
 
       <Section className="border-b-0">
+        <div className="mb-6 inline-flex items-center gap-2.5 rounded-sm border border-signal/40 bg-signal/10 px-4 py-2.5">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute h-2 w-2 rounded-full bg-signal pulse-ring" />
+            <span className="h-2 w-2 rounded-full bg-signal" />
+          </span>
+          <span className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-signal">
+            Youth-led · hands-on
+          </span>
+        </div>
         <SectionHead
           eyebrow="Interns & growth"
           title="Structra Interns"
+
           lead="Youth-led, hands-on — one team, one vision: learning, building, and shaping the future of structural engineering together."
         />
         <div className="mx-auto mt-12 w-full max-w-xs">
