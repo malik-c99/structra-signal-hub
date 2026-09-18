@@ -1,24 +1,56 @@
+// Monitored high-rise building rendered as an engineering elevation.
+const COLS = [520, 620, 720, 820, 920];
+const FLOORS = [120, 175, 230, 285, 340, 395, 450, 505, 560, 615, 670];
+const ROOF = 120;
+const GROUND = 690;
+
 const NODES: [number, number, string, number][] = [
   // x, y, label, pulse delay (s)
-  [80, 470, "N-01", 0],
-  [320, 330, "N-02", 0.9],
-  [640, 330, "N-03", 1.8],
-  [960, 330, "N-04", 2.7],
-  [1120, 330, "N-05", 3.6],
-  [1360, 470, "N-06", 1.4],
-  [800, 470, "N-07", 2.3],
-  [480, 470, "N-08", 3.2],
+  [520, 230, "N-01", 0],
+  [720, 175, "N-02", 0.9],
+  [920, 340, "N-03", 1.8],
+  [620, 450, "N-04", 2.7],
+  [820, 505, "N-05", 3.6],
+  [520, 560, "N-06", 1.4],
+  [920, 615, "N-07", 2.3],
+  [720, 395, "N-08", 3.2],
 ];
 
-const TOP_X = [320, 480, 640, 800, 960, 1120];
-const PANEL = 160;
+function BuildingFrame({ prefix }: { prefix: string }) {
+  return (
+    <>
+      {/* exterior walls */}
+      <line x1={COLS[0]} y1={ROOF} x2={COLS[0]} y2={GROUND} />
+      <line x1={COLS[COLS.length - 1]} y1={ROOF} x2={COLS[COLS.length - 1]} y2={GROUND} />
+      {/* roof slab */}
+      <line x1={COLS[0]} y1={ROOF} x2={COLS[COLS.length - 1]} y2={ROOF} />
+      {/* antenna mast + beacon tick */}
+      <line x1={720} y1={ROOF} x2={720} y2={56} />
+      <line x1={706} y1={56} x2={734} y2={56} />
+      {/* interior columns */}
+      {COLS.slice(1, -1).map((x) => (
+        <line key={`${prefix}c${x}`} x1={x} y1={ROOF} x2={x} y2={GROUND} />
+      ))}
+      {/* floor slabs */}
+      {FLOORS.slice(1).map((y) => (
+        <line key={`${prefix}f${y}`} x1={COLS[0]} y1={y} x2={COLS[COLS.length - 1]} y2={y} />
+      ))}
+      {/* elevator core shaft */}
+      <line x1={680} y1={ROOF} x2={680} y2={GROUND} />
+      <line x1={760} y1={ROOF} x2={760} y2={GROUND} />
+      {/* ground line */}
+      <line
+        x1={40}
+        y1={GROUND}
+        x2={1400}
+        y2={GROUND}
+        className="site-monitor-ground"
+      />
+    </>
+  );
+}
 
 export function MonitoringBackdrop() {
-  const verticals = TOP_X.map((x) => [x, 330, x, 470] as const);
-  const diagonals = TOP_X.filter((x) => x > 320).map(
-    (x) => [x, 330, x - PANEL, 470] as const,
-  );
-
   return (
     <div className="site-monitor" aria-hidden="true">
       <div className="site-monitor-ambient" />
@@ -30,20 +62,9 @@ export function MonitoringBackdrop() {
       >
         <g
           className="site-monitor-structure"
-          transform="translate(180 96) scale(0.62)"
+          transform="translate(120 130) scale(0.6)"
         >
-          <line x1={80} y1={470} x2={1360} y2={470} />
-          <line x1={320} y1={330} x2={1120} y2={330} />
-          <line x1={80} y1={470} x2={320} y2={330} />
-          <line x1={1360} y1={470} x2={1120} y2={330} />
-          {verticals.map(([x1, y1, x2, y2]) => (
-            <line key={`fv${x1}`} x1={x1} y1={y1} x2={x2} y2={y2} />
-          ))}
-          {diagonals.map(([x1, y1, x2, y2]) => (
-            <line key={`fd${x1}`} x1={x1} y1={y1} x2={x2} y2={y2} />
-          ))}
-          <line x1={320} y1={470} x2={320} y2={690} />
-          <line x1={1120} y1={470} x2={1120} y2={690} />
+          <BuildingFrame prefix="far" />
         </g>
       </svg>
       <svg
@@ -52,25 +73,7 @@ export function MonitoringBackdrop() {
         preserveAspectRatio="xMidYMid slice"
       >
         <g className="site-monitor-structure">
-          {/* bottom chord / deck */}
-          <line x1={80} y1={470} x2={1360} y2={470} />
-          {/* top chord */}
-          <line x1={320} y1={330} x2={1120} y2={330} />
-          {/* end posts */}
-          <line x1={80} y1={470} x2={320} y2={330} />
-          <line x1={1360} y1={470} x2={1120} y2={330} />
-          {/* verticals */}
-          {verticals.map(([x1, y1, x2, y2]) => (
-            <line key={`v${x1}`} x1={x1} y1={y1} x2={x2} y2={y2} />
-          ))}
-          {/* diagonals */}
-          {diagonals.map(([x1, y1, x2, y2]) => (
-            <line key={`d${x1}`} x1={x1} y1={y1} x2={x2} y2={y2} />
-          ))}
-          {/* piers to ground */}
-          <line x1={320} y1={470} x2={320} y2={690} />
-          <line x1={1120} y1={470} x2={1120} y2={690} />
-          <line x1={40} y1={690} x2={1400} y2={690} className="site-monitor-ground" />
+          <BuildingFrame prefix="main" />
         </g>
 
         {NODES.map(([x, y, label, delay]) => (
@@ -88,6 +91,11 @@ export function MonitoringBackdrop() {
             </text>
           </g>
         ))}
+        {/* antenna beacon */}
+        <g className="site-monitor-node">
+          <circle cx={720} cy={56} r={14} className="site-monitor-node-aura" />
+          <circle cx={720} cy={56} r={3} className="site-monitor-node-core" />
+        </g>
       </svg>
       <div className="site-monitor-scan" />
       <div className="site-monitor-noise" />

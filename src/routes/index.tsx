@@ -71,12 +71,19 @@ function Index() {
                 </span>
               </div>
 
-              <h1 className="hero-title mt-8">
-                <span className="hero-title-line hero-title-line-1">Continuous Signal.</span>
-                <span className="hero-title-line hero-title-line-2 text-signal-gradient">
-                  Engineering Intelligence.
-                </span>
-              </h1>
+              <div className="hero-title-frame relative mt-8">
+                <span className="hero-hud-corner hero-hud-corner-tl" aria-hidden="true" />
+                <span className="hero-hud-corner hero-hud-corner-br" aria-hidden="true" />
+                <h1 className="hero-title">
+                  <span className="hero-title-line hero-title-line-1">
+                    Continuous{" "}
+                    <span className="hero-title-bold">Signal.</span>
+                  </span>
+                  <span className="hero-title-line hero-title-line-2">
+                    Engineering Intelligence
+                  </span>
+                </h1>
+              </div>
 
               <div className="hero-rule mt-8" aria-hidden="true" />
 
