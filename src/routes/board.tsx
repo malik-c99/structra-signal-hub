@@ -4,8 +4,8 @@ import daniel from "@/assets/daniel.png.asset.json";
 import ammar from "@/assets/ammar.jpg.asset.json";
 import qusai from "@/assets/qusai.jpg.asset.json";
 import mahdi from "@/assets/mahdi-alsalahat.jpg.asset.json";
-import intern2 from "@/assets/interns-2.jpg.asset.json";
-import intern3 from "@/assets/interns-3.jpg.asset.json";
+import abdullah from "@/assets/abdullah-ishraq.jpg.asset.json";
+import adham from "@/assets/adham-elbahaa.jpg.asset.json";
 import intern4 from "@/assets/interns-4.jpg.asset.json";
 
 export const Route = createFileRoute("/board")({
@@ -61,8 +61,8 @@ const interns = [
     role: "Engineering",
     bio: null,
   },
-  { photo: intern2.url, name: "Intern 02", role: null, bio: "Personal photo and bio coming soon." },
-  { photo: intern3.url, name: "Intern 03", role: null, bio: "Personal photo and bio coming soon." },
+  { photo: abdullah.url, name: "Abdullah Ishraq", role: "Software", bio: null },
+  { photo: adham.url, name: "Adham Elbahaa", role: "Software", bio: null },
   { photo: intern4.url, name: "Intern 04", role: null, bio: "Personal photo and bio coming soon." },
 ];
 
