@@ -10,7 +10,8 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --radius-2xl: calc(var(--radius) + 8px);
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter Tight", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-grotesk: "Space Grotesk", "Inter Tight", ui-sans-serif, sans-serif;
   --font-display: "Syne", "Arial Black", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
   --color-background: var(--background);
@@ -84,15 +85,25 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv01", "tnum";
+    letter-spacing: -0.006em;
+    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1,
-  h2,
-  h3 {
+  h2 {
     font-family: var(--font-display);
     font-weight: 800;
-    letter-spacing: 0;
+    letter-spacing: -0.015em;
+  }
+
+  h3,
+  h4 {
+    font-family: var(--font-grotesk);
+    font-weight: 600;
+    letter-spacing: -0.012em;
   }
 }
 
@@ -691,24 +702,24 @@
     radial-gradient(42% 38% at 82% 72%, color-mix(in oklab, var(--violet-glow) 20%, transparent), transparent 72%),
     radial-gradient(30% 26% at 55% 8%, color-mix(in oklab, var(--signal) 12%, transparent), transparent 70%);
   filter: blur(70px);
-  opacity: 0.55;
+  opacity: 0.85;
 }
 
 .site-monitor-noise {
   position: absolute;
   inset: 0;
-  opacity: 0.045;
+  opacity: 0.06;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 .site-monitor-grid {
   position: absolute;
   inset: 0;
-  opacity: 0.36;
+  opacity: 0.6;
   background-image:
-    linear-gradient(to right, color-mix(in oklab, var(--signal) 9%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklab, var(--signal) 9%, transparent) 1px, transparent 1px),
-    radial-gradient(circle, color-mix(in oklab, var(--signal) 20%, transparent) 0.7px, transparent 0.8px);
+    linear-gradient(to right, color-mix(in oklab, var(--signal) 14%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--signal) 14%, transparent) 1px, transparent 1px),
+    radial-gradient(circle, color-mix(in oklab, var(--signal) 32%, transparent) 0.7px, transparent 0.8px);
   background-size: 64px 64px, 64px 64px, 16px 16px;
   mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 30%, transparent 100%);
 }
@@ -718,23 +729,24 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.45;
+  opacity: 0.8;
   mask-image: radial-gradient(ellipse 85% 75% at 50% 52%, black 35%, transparent 95%);
 }
 
 .site-monitor-truss-far {
-  opacity: 0.2;
+  opacity: 0.38;
   mask-image: radial-gradient(ellipse 80% 70% at 50% 45%, black 25%, transparent 92%);
 }
 
 .site-monitor-truss-far .site-monitor-structure line {
-  stroke: color-mix(in oklab, var(--violet-glow) 30%, transparent);
-  stroke-width: 0.8;
+  stroke: color-mix(in oklab, var(--violet-glow) 48%, transparent);
+  stroke-width: 0.9;
 }
 
 .site-monitor-structure line {
-  stroke: color-mix(in oklab, var(--signal) 26%, transparent);
-  stroke-width: 1;
+  stroke: color-mix(in oklab, var(--signal) 42%, transparent);
+  stroke-width: 1.1;
+  filter: drop-shadow(0 0 3px color-mix(in oklab, var(--signal) 28%, transparent));
 }
 
 .site-monitor-structure .site-monitor-ground {
@@ -757,7 +769,7 @@
 }
 
 .site-monitor-node-label {
-  fill: color-mix(in oklab, var(--signal) 55%, transparent);
+  fill: color-mix(in oklab, var(--signal) 78%, transparent);
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.14em;
@@ -769,7 +781,7 @@
   bottom: 0;
   left: 0;
   width: 34%;
-  opacity: 0.16;
+  opacity: 0.3;
   background: linear-gradient(
     to right,
     transparent 0%,
