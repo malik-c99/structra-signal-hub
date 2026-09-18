@@ -45,30 +45,32 @@
 
 :root {
   --radius: 0.25rem;
-  --background: oklch(0.09 0.01 230);
+  /* Niche dark: deep midnight ink (blue-violet) with cyan signal accents */
+  --background: oklch(0.105 0.024 268);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.14 0.02 230);
+  --card: oklch(0.155 0.03 266);
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.14 0.02 230);
+  --popover: oklch(0.155 0.03 266);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.70 0.16 230);
-  --primary-foreground: oklch(0.10 0.02 230);
-  --secondary: oklch(0.20 0.04 230);
+  --primary: oklch(0.72 0.16 228);
+  --primary-foreground: oklch(0.11 0.03 268);
+  --secondary: oklch(0.215 0.045 266);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.18 0.02 230);
-  --muted-foreground: oklch(0.75 0.04 230);
-  --accent: oklch(0.24 0.06 230);
+  --muted: oklch(0.19 0.03 266);
+  --muted-foreground: oklch(0.76 0.035 262);
+  --accent: oklch(0.26 0.065 262);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.62 0.21 25);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.22 0.04 230);
-  --input: oklch(0.22 0.04 230);
-  --ring: oklch(0.70 0.16 230);
-  --signal: oklch(0.78 0.18 220);
-  --signal-dim: oklch(0.50 0.12 220);
-  --surface: oklch(0.12 0.02 230);
-  --surface-raised: oklch(0.16 0.03 230);
-  --gradient-signal: linear-gradient(135deg, oklch(0.82 0.16 210), oklch(0.65 0.18 230));
+  --border: oklch(0.245 0.045 266);
+  --input: oklch(0.245 0.045 266);
+  --ring: oklch(0.72 0.16 228);
+  --signal: oklch(0.80 0.17 218);
+  --signal-dim: oklch(0.52 0.12 222);
+  --violet-glow: oklch(0.58 0.18 292);
+  --surface: oklch(0.135 0.027 268);
+  --surface-raised: oklch(0.175 0.035 266);
+  --gradient-signal: linear-gradient(135deg, oklch(0.85 0.15 205), oklch(0.62 0.18 262));
   --shadow-signal: 0 0 0 1px color-mix(in oklab, var(--signal) 30%, transparent),
     0 18px 60px -20px color-mix(in oklab, var(--signal) 50%, transparent);
 }
@@ -681,10 +683,28 @@
   pointer-events: none;
 }
 
+.site-monitor-ambient {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(38% 34% at 18% 22%, color-mix(in oklab, var(--signal) 22%, transparent), transparent 70%),
+    radial-gradient(42% 38% at 82% 72%, color-mix(in oklab, var(--violet-glow) 20%, transparent), transparent 72%),
+    radial-gradient(30% 26% at 55% 8%, color-mix(in oklab, var(--signal) 12%, transparent), transparent 70%);
+  filter: blur(70px);
+  opacity: 0.55;
+}
+
+.site-monitor-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
 .site-monitor-grid {
   position: absolute;
   inset: 0;
-  opacity: 0.3;
+  opacity: 0.36;
   background-image:
     linear-gradient(to right, color-mix(in oklab, var(--signal) 9%, transparent) 1px, transparent 1px),
     linear-gradient(to bottom, color-mix(in oklab, var(--signal) 9%, transparent) 1px, transparent 1px),
@@ -698,8 +718,18 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.4;
+  opacity: 0.45;
   mask-image: radial-gradient(ellipse 85% 75% at 50% 52%, black 35%, transparent 95%);
+}
+
+.site-monitor-truss-far {
+  opacity: 0.2;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 45%, black 25%, transparent 92%);
+}
+
+.site-monitor-truss-far .site-monitor-structure line {
+  stroke: color-mix(in oklab, var(--violet-glow) 30%, transparent);
+  stroke-width: 0.8;
 }
 
 .site-monitor-structure line {
