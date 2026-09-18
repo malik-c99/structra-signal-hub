@@ -60,8 +60,8 @@ function Index() {
               ))}
             </div>
             <div className="relative z-20 mx-auto max-w-6xl px-5 pb-20 pt-20 sm:pt-28">
-              <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5">
+              <div className="hero-copy max-w-3xl">
+              <div className="inline-flex items-center gap-2 rounded-full border border-signal/30 bg-surface/80 px-3 py-1.5 backdrop-blur-sm">
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="absolute h-1.5 w-1.5 rounded-full bg-signal pulse-ring" />
                   <span className="h-1.5 w-1.5 rounded-full bg-signal" />
@@ -71,23 +71,32 @@ function Index() {
                 </span>
               </div>
 
-              <h1 className="mt-7 text-4xl font-extrabold leading-[1.05] sm:text-6xl">
-                Continuous Signal.
-                <br />
-                <span className="text-signal-gradient">Engineering Intelligence.</span>
+              <h1 className="hero-title mt-8">
+                <span className="hero-title-line hero-title-line-1">Continuous Signal.</span>
+                <span className="hero-title-line hero-title-line-2 text-signal-gradient">
+                  Engineering Intelligence.
+                </span>
               </h1>
 
-              <p className="mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
+              <div className="hero-rule mt-8" aria-hidden="true" />
+
+              <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
                 Always-on structural intelligence for commercial properties, prefab assets, and
                 infrastructure — bridging the invisible gaps between periodic engineering visits.
               </p>
 
-              <div className="mt-9 flex flex-wrap gap-3">
+              <div className="mt-9 flex flex-wrap items-center gap-3">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 rounded-sm bg-signal px-5 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                  className="hero-cta-primary inline-flex items-center gap-2 rounded-sm bg-signal px-6 py-3.5 text-sm font-semibold text-primary-foreground"
                 >
                   Request a Pilot <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  to="/product"
+                  className="hero-cta-ghost inline-flex items-center gap-2 rounded-sm border border-border/80 px-6 py-3.5 text-sm font-semibold text-foreground"
+                >
+                  See how it works
                 </Link>
               </div>
               </div>
