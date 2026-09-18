@@ -63,7 +63,7 @@ const interns = [
   },
   { photo: abdullah.url, name: "Abdullah Ishraq", role: "Software", bio: null },
   { photo: adham.url, name: "Adham Elbahaa", role: "Software", bio: null },
-  { photo: intern4.url, name: "Intern 04", role: null, bio: "Personal photo and bio coming soon." },
+  { photo: abdulmaliik.url, name: "Abdulmaliik Chaqif", role: "Software", bio: null },
 ];
 
 function BoardPage() {
