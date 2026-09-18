@@ -4,6 +4,7 @@ import { z } from "zod";
 import { toast } from "sonner";
 import { ArrowRight, Building2, Mail, MapPin } from "lucide-react";
 import { Section, SectionHead } from "@/components/section";
+import { SocialLinks } from "@/components/social-links";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -91,6 +92,11 @@ function ContactPage() {
               <div className="flex items-center gap-3">
                 <Building2 className="h-4 w-4 text-signal" /> Supported by Technostream Network
               </div>
+            </div>
+
+            <div className="mt-10">
+              <div className="label-mono text-[10px]">Follow the signal</div>
+              <SocialLinks className="mt-3" />
             </div>
           </div>
 

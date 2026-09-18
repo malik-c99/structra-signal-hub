@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { SocialLinks } from "@/components/social-links";
 
 export function SiteFooter() {
   return (
@@ -11,6 +12,8 @@ export function SiteFooter() {
               Always-on structural intelligence for commercial properties, prefab assets, and
               infrastructure.
             </p>
+            <div className="label-mono mt-6 text-[10px]">Follow the signal</div>
+            <SocialLinks className="mt-3" />
           </div>
           <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
             <FooterCol
