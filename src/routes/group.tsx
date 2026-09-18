@@ -128,9 +128,13 @@ function PartnersPage() {
             {/* Holding layer */}
             <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-2">
               {partners.map((p) => (
-                <div
+                <a
                   key={p.id}
-                  className="flex items-center justify-center rounded-sm border border-border bg-background/70 px-6 py-6"
+                  href={p.site}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${p.name} website (opens in a new tab)`}
+                  className="flex items-center justify-center rounded-sm border border-border bg-background/70 px-6 py-6 transition-colors hover:border-signal/50 focus-visible:outline-2 focus-visible:outline-signal"
                 >
                   <img
                     src={p.logo}
@@ -138,7 +142,7 @@ function PartnersPage() {
                     className="h-12 w-auto max-w-full object-contain sm:h-14"
                     loading="lazy"
                   />
-                </div>
+                </a>
               ))}
             </div>
 
@@ -196,9 +200,13 @@ function PartnersPage() {
         {/* Partner detail cards */}
         <div className="mt-16 grid gap-8 lg:grid-cols-2">
           {partners.map((p) => (
-            <article
+            <a
               key={p.id}
-              className="group relative flex flex-col overflow-hidden rounded-sm border border-border bg-surface transition-colors hover:border-signal/40"
+              href={p.site}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${p.name} — visit website (opens in a new tab)`}
+              className="group relative flex flex-col overflow-hidden rounded-sm border border-border bg-surface transition-colors hover:border-signal/40 focus-visible:outline-2 focus-visible:outline-signal"
             >
               {/* Logo panel */}
               <div className="relative flex h-44 items-center justify-center border-b border-border bg-background/60 px-10">
