@@ -8,16 +8,16 @@ import intern2 from "@/assets/interns-2.jpg.asset.json";
 import intern3 from "@/assets/interns-3.jpg.asset.json";
 import intern4 from "@/assets/interns-4.jpg.asset.json";
 
-export const Route = createFileRoute("/team")({
+export const Route = createFileRoute("/board")({
   head: () => ({
     meta: [
-      { title: "Team & Leadership | Structra" },
+      { title: "The Board | Structra" },
       {
         name: "description",
         content:
-          "Meet the Structra leadership team building continuous structural intelligence — engineering, structural validation, research, and partnerships.",
+          "Meet the Structra board and leadership building continuous structural intelligence — engineering, structural validation, research, and partnerships.",
       },
-      { property: "og:title", content: "Team & Leadership | Structra" },
+      { property: "og:title", content: "The Board | Structra" },
       {
         property: "og:description",
         content: "Built to ship the stack — and unlock the sites.",
@@ -26,23 +26,23 @@ export const Route = createFileRoute("/team")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: TeamPage,
+  component: BoardPage,
 });
 
 const leaders = [
   {
-    photo: daniel.url,
-    name: "Daniel Shihat",
-    role: "Founder & CTO",
-    tag: "Forward Deployed Engineer · Technical Strategy",
-    body: "Hardware architecture, sensing algorithms, and the technical roadmap.",
-  },
-  {
     photo: qusai.url,
     name: "Qusai Al Daour",
-    role: "Founding Partner, CEO & Head of PR",
+    role: "Cofounder & CEO",
     tag: "Industry partnerships · Pilot deployments",
     body: "Industry partners, pilot deployments, and site relationships.",
+  },
+  {
+    photo: daniel.url,
+    name: "Daniel Shihat",
+    role: "Cofounder & CTO",
+    tag: "Forward Deployed Engineer · Technical Strategy",
+    body: "Hardware architecture, sensing algorithms, and the technical roadmap.",
   },
 ];
 
@@ -56,12 +56,12 @@ const ammarProfile = {
 
 const internPhotos = [intern1.url, intern2.url, intern3.url, intern4.url];
 
-function TeamPage() {
+function BoardPage() {
   return (
     <>
       <Section>
         <SectionHead
-          eyebrow="Team"
+          eyebrow="The Board"
           title="Built to ship the stack — and unlock the sites."
           lead="A founding team pairing sensing hardware and structural physics with field access in Dubai."
         />

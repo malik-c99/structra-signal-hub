@@ -10,16 +10,21 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BoardRouteImport } from './routes/board'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GroupRouteImport } from './routes/group'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProductRouteImport } from './routes/product'
 import { Route as ProofRouteImport } from './routes/proof'
-import { Route as TeamRouteImport } from './routes/team'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BoardRoute = BoardRouteImport.update({
+  id: '/board',
+  path: '/board',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -47,65 +52,61 @@ const ProofRoute = ProofRouteImport.update({
   path: '/proof',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TeamRoute = TeamRouteImport.update({
-  id: '/team',
-  path: '/team',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/board': typeof BoardRoute
   '/contact': typeof ContactRoute
   '/group': typeof GroupRoute
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRoute
   '/proof': typeof ProofRoute
-  '/team': typeof TeamRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/board': typeof BoardRoute
   '/contact': typeof ContactRoute
   '/group': typeof GroupRoute
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRoute
   '/proof': typeof ProofRoute
-  '/team': typeof TeamRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/board': typeof BoardRoute
   '/contact': typeof ContactRoute
   '/group': typeof GroupRoute
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRoute
   '/proof': typeof ProofRoute
-  '/team': typeof TeamRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/contact' | '/group' | '/privacy' | '/product' | '/proof' | '/team'
+    '/' | '/board' | '/contact' | '/group' | '/privacy' | '/product' | '/proof'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/group' | '/privacy' | '/product' | '/proof' | '/team'
+  to:
+    '/' | '/board' | '/contact' | '/group' | '/privacy' | '/product' | '/proof'
   id:
     | '__root__'
     | '/'
+    | '/board'
     | '/contact'
     | '/group'
     | '/privacy'
     | '/product'
     | '/proof'
-    | '/team'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BoardRoute: typeof BoardRoute
   ContactRoute: typeof ContactRoute
   GroupRoute: typeof GroupRoute
   PrivacyRoute: typeof PrivacyRoute
   ProductRoute: typeof ProductRoute
   ProofRoute: typeof ProofRoute
-  TeamRoute: typeof TeamRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -115,6 +116,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/board': {
+      id: '/board'
+      path: '/board'
+      fullPath: '/board'
+      preLoaderRoute: typeof BoardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -152,24 +160,17 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProofRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/team': {
-      id: '/team'
-      path: '/team'
-      fullPath: '/team'
-      preLoaderRoute: typeof TeamRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BoardRoute: BoardRoute,
   ContactRoute: ContactRoute,
   GroupRoute: GroupRoute,
   PrivacyRoute: PrivacyRoute,
   ProductRoute: ProductRoute,
   ProofRoute: ProofRoute,
-  TeamRoute: TeamRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

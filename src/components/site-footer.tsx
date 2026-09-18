@@ -27,7 +27,7 @@ export function SiteFooter() {
             <FooterCol
               title="Company"
               links={[
-                { to: "/team", label: "Team" },
+                { to: "/board", label: "Board" },
                 { to: "/group", label: "Group" },
                 { to: "/contact", label: "Contact" },
               ]}
