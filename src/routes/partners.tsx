@@ -8,16 +8,16 @@ import mrshadeLogo from "@/assets/mrshade-logo.png.asset.json";
 export const Route = createFileRoute("/partners")({
   head: () => ({
     meta: [
-      { title: "Partners & Sister Companies | Structra" },
+      { title: "Keystone — Strategic Partners | Structra" },
       {
         name: "description",
         content:
-          "Structra operates within a wider engineering network — sister companies Technostream and Mr Shade.",
+          "Structra stands on a wider engineering backbone — a strategic alliance with Technostream and Mr Shade.",
       },
-      { property: "og:title", content: "Partners & Sister Companies | Structra" },
+      { property: "og:title", content: "Keystone — Strategic Partners | Structra" },
       {
         property: "og:description",
-        content: "Meet Technostream and Mr Shade — the sister companies behind the Structra network.",
+        content: "The engineering backbone behind Structra — Technostream and Mr Shade.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
