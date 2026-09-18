@@ -21,7 +21,31 @@ export function MonitoringBackdrop() {
 
   return (
     <div className="site-monitor" aria-hidden="true">
+      <div className="site-monitor-ambient" />
       <div className="site-monitor-grid" />
+      <svg
+        className="site-monitor-truss site-monitor-truss-far"
+        viewBox="0 0 1440 720"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <g
+          className="site-monitor-structure"
+          transform="translate(180 96) scale(0.62)"
+        >
+          <line x1={80} y1={470} x2={1360} y2={470} />
+          <line x1={320} y1={330} x2={1120} y2={330} />
+          <line x1={80} y1={470} x2={320} y2={330} />
+          <line x1={1360} y1={470} x2={1120} y2={330} />
+          {verticals.map(([x1, y1, x2, y2]) => (
+            <line key={`fv${x1}`} x1={x1} y1={y1} x2={x2} y2={y2} />
+          ))}
+          {diagonals.map(([x1, y1, x2, y2]) => (
+            <line key={`fd${x1}`} x1={x1} y1={y1} x2={x2} y2={y2} />
+          ))}
+          <line x1={320} y1={470} x2={320} y2={690} />
+          <line x1={1120} y1={470} x2={1120} y2={690} />
+        </g>
+      </svg>
       <svg
         className="site-monitor-truss"
         viewBox="0 0 1440 720"
@@ -66,6 +90,7 @@ export function MonitoringBackdrop() {
         ))}
       </svg>
       <div className="site-monitor-scan" />
+      <div className="site-monitor-noise" />
     </div>
   );
 }
