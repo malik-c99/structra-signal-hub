@@ -1,5 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Factory, Network, ShieldCheck, Sun, GraduationCap, Pill, Smartphone } from "lucide-react";
+import {
+  ArrowRight,
+  Factory,
+  Network,
+  ShieldCheck,
+  Sun,
+  GraduationCap,
+  Pill,
+  Smartphone,
+  Landmark,
+  Compass,
+  Hammer,
+} from "lucide-react";
 import { Section, SectionHead } from "@/components/section";
 import { Link } from "@tanstack/react-router";
 import technostreamLogo from "@/assets/technostream-logo.png.asset.json";
@@ -8,16 +20,17 @@ import mrshadeLogo from "@/assets/mrshade-logo.png.asset.json";
 export const Route = createFileRoute("/partners")({
   head: () => ({
     meta: [
-      { title: "Keystone — Strategic Partners | Structra" },
+      { title: "Keystone — Our Group | Structra" },
       {
         name: "description",
         content:
-          "Structra stands on a wider engineering backbone — a strategic alliance with Technostream and Mr Shade.",
+          "Structra operates as the structural-intelligence division of a wider engineering group — held, backed, and built with Technostream and Mr Shade ME.",
       },
-      { property: "og:title", content: "Keystone — Strategic Partners | Structra" },
+      { property: "og:title", content: "Keystone — Our Group | Structra" },
       {
         property: "og:description",
-        content: "The engineering backbone behind Structra — Technostream and Mr Shade.",
+        content:
+          "One group. Technostream and Mr Shade ME as the holding backbone; Structra as its monitoring division.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -26,13 +39,31 @@ export const Route = createFileRoute("/partners")({
   component: PartnersPage,
 });
 
+const groupRoles = [
+  {
+    icon: Landmark,
+    title: "Investors",
+    body: "The group funds Structra's platform, deployments, and growth — patient capital from operators who build for a living.",
+  },
+  {
+    icon: Compass,
+    title: "Advisors",
+    body: "Decades of engineering judgment guide our product, our pilots, and every structural standard we hold ourselves to.",
+  },
+  {
+    icon: Hammer,
+    title: "Builders",
+    body: "Fabrication lines, installation crews, and delivery networks within the group turn Structra deployments into reality.",
+  },
+];
+
 const partners = [
   {
     id: "technostream",
     logo: technostreamLogo.url,
     logoAlt: "Technostream Group logo",
     name: "TECHNOSTREAM",
-    kicker: "Strategic partner · Engineering group",
+    kicker: "Holding partner · Engineering group",
     lead:
       "Integrated engineering and industrial products — from light-gauge-steel prefab building systems to security, automation, and smart infrastructure solutions.",
     body:
@@ -48,13 +79,13 @@ const partners = [
   {
     id: "mr-shade",
     logo: mrshadeLogo.url,
-    logoAlt: "Mister Shade ME logo",
+    logoAlt: "Mr Shade ME logo",
     name: "MR SHADE ME",
-    kicker: "Strategic partner · Shade structures",
+    kicker: "Holding partner · Shade structures",
     lead:
       "Engineered tensile shade products — car park canopies, PTFE membrane structures, and utility structures built to withstand the region's harshest conditions.",
     body:
-      "Mr Shade manufactures and installs complete shade product lines: cantilever and column car park shades, architecturally tensed PTFE and PVC membrane roofs, walkway and entrance canopies, and custom utility and storage structures. Each product is engineered for wind, heat, and load from the ground up — fabricated in-house and installed with its own steel framing and anchoring systems.",
+      "Mr Shade ME manufactures and installs complete shade product lines: cantilever and column car park shades, architecturally tensed PTFE and PVC membrane roofs, walkway and entrance canopies, and custom utility and storage structures. Each product is engineered for wind, heat, and load from the ground up — fabricated in-house and installed with its own steel framing and anchoring systems.",
     divisions: [
       { icon: Sun, label: "Car Park Shades" },
       { icon: Network, label: "PTFE Membrane Structures" },
@@ -68,12 +99,100 @@ function PartnersPage() {
     <>
       <Section className="border-b-0">
         <SectionHead
-          eyebrow="Strategic alliance"
-          title="Standing on a stronger backbone."
-          lead="Structra operates within a wider engineering family. Technostream and Mr Shade are strategic partners whose industrial depth, fabrication capability, and delivery network quietly underpin everything we build — the keystone our platform stands on."
+          eyebrow="One group"
+          title="A division of something bigger."
+          lead="Structra is the structural-intelligence division of a wider engineering group. Technostream and Mr Shade ME form the holding backbone behind us — our investors, our advisors, and our builders — giving a focused technology team the depth of established industrial groups."
         />
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-2">
+        {/* Group structure diagram */}
+        <div className="relative mt-16 overflow-hidden rounded-sm border border-border bg-surface/60 px-6 py-12 sm:px-12">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-[0.3]"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 1px 1px, oklch(var(--border)) 1px, transparent 0)",
+              backgroundSize: "22px 22px",
+            }}
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 top-0 h-56 w-[36rem] max-w-full -translate-x-1/2 -translate-y-1/3 rounded-full bg-signal/10 blur-3xl"
+          />
+
+          <div className="relative">
+            <div className="label-mono text-center text-[10px]">Group structure</div>
+
+            {/* Holding layer */}
+            <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-2">
+              {partners.map((p) => (
+                <div
+                  key={p.id}
+                  className="flex items-center justify-center rounded-sm border border-border bg-background/70 px-6 py-6"
+                >
+                  <img
+                    src={p.logo}
+                    alt={p.logoAlt}
+                    className="h-12 w-auto max-w-full object-contain sm:h-14"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Connectors */}
+            <div aria-hidden className="mx-auto grid max-w-3xl grid-cols-2">
+              <div className="flex justify-center">
+                <div className="h-10 w-px bg-gradient-to-b from-signal/50 to-signal/20" />
+              </div>
+              <div className="flex justify-center">
+                <div className="h-10 w-px bg-gradient-to-b from-signal/50 to-signal/20" />
+              </div>
+            </div>
+            <div aria-hidden className="mx-auto h-px max-w-3xl bg-signal/20" />
+            <div aria-hidden className="flex justify-center">
+              <div className="h-10 w-px bg-gradient-to-b from-signal/20 to-signal/60" />
+            </div>
+
+            {/* Structra division node */}
+            <div className="flex justify-center">
+              <div className="relative rounded-sm border border-signal/40 bg-background px-10 py-6 text-center shadow-[0_0_50px_-12px_oklch(var(--signal)/0.5)]">
+                <div
+                  aria-hidden
+                  className="absolute left-1/2 top-1/2 h-20 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-signal/15 blur-2xl"
+                />
+                <div className="label-mono relative text-[10px] text-signal">
+                  Monitoring division
+                </div>
+                <div className="relative mt-2 font-display text-2xl font-extrabold tracking-tight">
+                  STRUCTRA
+                </div>
+                <div className="relative mt-1 text-xs text-muted-foreground">
+                  Continuous signal · Engineering intelligence
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Group roles */}
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          {groupRoles.map((r) => (
+            <div
+              key={r.title}
+              className="group rounded-sm border border-border bg-surface p-7 transition-colors hover:border-signal/40"
+            >
+              <div className="flex h-11 w-11 items-center justify-center rounded-sm border border-signal/30 bg-signal/10">
+                <r.icon className="h-5 w-5 text-signal" />
+              </div>
+              <h3 className="mt-5 font-display text-lg font-bold tracking-tight">{r.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{r.body}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Partner detail cards */}
+        <div className="mt-16 grid gap-8 lg:grid-cols-2">
           {partners.map((p) => (
             <article
               key={p.id}
@@ -92,7 +211,7 @@ function PartnersPage() {
                 />
                 <div
                   aria-hidden
-                  className="absolute left-1/2 top-1/2 h-32 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-signal/10 blur-3xl transition-opacity duration-500 group-hover:opacity-100 opacity-60"
+                  className="absolute left-1/2 top-1/2 h-32 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-signal/10 opacity-60 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
                 />
                 <img
                   src={p.logo}
@@ -128,14 +247,15 @@ function PartnersPage() {
         </div>
 
         <div className="mt-12 rounded-sm border border-border bg-surface p-10 sm:p-14">
-          <div className="label-mono">Keystone alliance</div>
+          <div className="label-mono">Within the group</div>
           <h2 className="mt-4 max-w-2xl text-3xl font-semibold sm:text-4xl">
-            Backed by engineering groups. Built for asset owners.
+            Held by engineers. Built for asset owners.
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Our alliance network gives Structra the reach of established engineering groups — and
-            gives our partners a direct line to always-on monitoring. We work with asset owners,
-            developers, and engineering firms ready to host a focused 90-day pilot deployment.
+            Operating inside the group gives Structra the reach, fabrication depth, and field
+            experience of established engineering companies — while our partners gain a direct line
+            to always-on monitoring. We work with asset owners, developers, and engineering firms
+            ready to host a focused 90-day pilot deployment.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
