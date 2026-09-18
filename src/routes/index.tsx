@@ -39,10 +39,27 @@ function Index() {
       </div>
       <div className="relative z-[1]">
         <HeroTelemetry>
-          <section className="relative overflow-hidden border-b border-border/60">
-            <div className="grid-lines pointer-events-none absolute inset-0 opacity-40" />
+          <section className="hero-command-surface relative overflow-hidden border-b border-border/60">
+            <div className="hero-blueprint-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+            <div className="hero-ambient-field hero-ambient-field-primary" aria-hidden="true" />
+            <div className="hero-ambient-field hero-ambient-field-secondary" aria-hidden="true" />
+            <div className="hero-grain pointer-events-none absolute inset-0" aria-hidden="true" />
             <div className="telemetry-scan pointer-events-none absolute inset-0" aria-hidden="true" />
-            <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-20 sm:pt-28">
+            <div className="hero-node-field pointer-events-none absolute inset-0" aria-hidden="true">
+              {[
+                ["NODE 01", "hero-node-a"],
+                ["NODE 02", "hero-node-b"],
+                ["NODE 03", "hero-node-c"],
+                ["NODE 04", "hero-node-d"],
+              ].map(([label, className]) => (
+                <span key={label} className={`hero-bridge-node ${className}`}>
+                  <span className="hero-bridge-node-aura" />
+                  <span className="hero-bridge-node-core" />
+                  <span className="hero-bridge-node-label">{label}</span>
+                </span>
+              ))}
+            </div>
+            <div className="relative z-20 mx-auto max-w-6xl px-5 pb-20 pt-20 sm:pt-28">
               <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5">
                 <span className="relative flex h-1.5 w-1.5">
@@ -73,6 +90,23 @@ function Index() {
                   Request a Pilot <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
+              </div>
+
+              <div className="hero-metric-grid" aria-label="Live structural metrics">
+                {[
+                  ["Structural strain", "0.02%", "Nominal"],
+                  ["Frequency", "14.2 Hz", "Stable"],
+                  ["Sensors online", "100%", "Network clear"],
+                ].map(([label, value, status]) => (
+                  <div key={label} className="hero-metric-card">
+                    <div className="hero-metric-card-head">
+                      <span>{label}</span>
+                      <span className="hero-metric-status-dot" />
+                    </div>
+                    <div className="hero-metric-value">{value}</div>
+                    <div className="hero-metric-status">{status}</div>
+                  </div>
+                ))}
               </div>
 
               <div className="mt-24 flex flex-col gap-4 border-t border-border/60 pt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:flex-row sm:items-center sm:gap-10">
