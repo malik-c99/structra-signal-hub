@@ -8,16 +8,16 @@ import mrshadeLogo from "@/assets/mrshade-logo.png.asset.json";
 export const Route = createFileRoute("/partners")({
   head: () => ({
     meta: [
-      { title: "Partners & Sister Companies | Structra" },
+      { title: "Keystone — Strategic Partners | Structra" },
       {
         name: "description",
         content:
-          "Structra operates within a wider engineering network — sister companies Technostream and Mr Shade.",
+          "Structra stands on a wider engineering backbone — a strategic alliance with Technostream and Mr Shade.",
       },
-      { property: "og:title", content: "Partners & Sister Companies | Structra" },
+      { property: "og:title", content: "Keystone — Strategic Partners | Structra" },
       {
         property: "og:description",
-        content: "Meet Technostream and Mr Shade — the sister companies behind the Structra network.",
+        content: "The engineering backbone behind Structra — Technostream and Mr Shade.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -32,7 +32,7 @@ const partners = [
     logo: technostreamLogo.url,
     logoAlt: "Technostream Group logo",
     name: "TECHNOSTREAM",
-    kicker: "Sister company · Engineering group",
+    kicker: "Strategic partner · Engineering group",
     lead:
       "Integrated engineering and industrial products — from light-gauge-steel prefab building systems to security, automation, and smart infrastructure solutions.",
     body:
@@ -50,7 +50,7 @@ const partners = [
     logo: mrshadeLogo.url,
     logoAlt: "Mister Shade ME logo",
     name: "MR SHADE",
-    kicker: "Sister company · Shade structures",
+    kicker: "Strategic partner · Shade structures",
     lead:
       "Engineered tensile shade products — car park canopies, PTFE membrane structures, and utility structures built to withstand the region's harshest conditions.",
     body:
@@ -68,9 +68,9 @@ function PartnersPage() {
     <>
       <Section className="border-b-0">
         <SectionHead
-          eyebrow="The network"
-          title="Built on a wider engineering network."
-          lead="Structra doesn't operate alone. Two sister companies — Technostream and Mr Shade — provide the engineering depth, fabrication capability, and regional delivery experience behind our always-on monitoring platform."
+          eyebrow="Strategic alliance"
+          title="Standing on a stronger backbone."
+          lead="Structra operates within a wider engineering family. Technostream and Mr Shade are strategic partners whose industrial depth, fabrication capability, and delivery network quietly underpin everything we build — the keystone our platform stands on."
         />
 
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
@@ -128,13 +128,14 @@ function PartnersPage() {
         </div>
 
         <div className="mt-12 rounded-sm border border-border bg-surface p-10 sm:p-14">
-          <div className="label-mono">Partner with Structra</div>
+          <div className="label-mono">Keystone alliance</div>
           <h2 className="mt-4 max-w-2xl text-3xl font-semibold sm:text-4xl">
-            Bring continuous monitoring to your network.
+            Backed by engineering groups. Built for asset owners.
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            We work with asset owners, developers, and engineering firms ready to host a focused
-            90-day pilot deployment.
+            Our alliance network gives Structra the reach of established engineering groups — and
+            gives our partners a direct line to always-on monitoring. We work with asset owners,
+            developers, and engineering firms ready to host a focused 90-day pilot deployment.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
