@@ -105,7 +105,7 @@ function PartnersPage() {
 
               {/* Content */}
               <div className="flex flex-1 flex-col p-8 sm:p-10">
-                <h2 className="font-display text-2xl font-extrabold tracking-tight sm:text-3xl">
+                <h2 className="break-words font-display text-xl font-extrabold tracking-tight sm:text-3xl">
                   {p.name}
                 </h2>
                 <p className="mt-4 text-base text-foreground/90">{p.lead}</p>
