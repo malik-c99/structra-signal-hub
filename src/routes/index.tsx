@@ -11,7 +11,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Always-on structural health monitoring for commercial properties, prefab assets, and infrastructure. Pilot properties start at AED 2,500.",
+          "Always-on structural health monitoring for commercial properties, prefab assets, and infrastructure.",
       },
       { property: "og:title", content: "STRUCTRA — Continuous Signal. Engineering Intelligence." },
       {
@@ -71,12 +71,6 @@ function Index() {
                   className="inline-flex items-center gap-2 rounded-sm bg-signal px-5 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
                 >
                   Request a Pilot <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  to="/pricing"
-                  className="inline-flex items-center gap-2 rounded-sm border border-border bg-surface px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-accent"
-                >
-                  Explore Pricing
                 </Link>
               </div>
               </div>
@@ -222,7 +216,7 @@ function Index() {
         <div className="rounded-sm border border-border bg-surface p-10 sm:p-14">
           <div className="label-mono">04 / The ask</div>
           <h2 className="mt-4 max-w-2xl text-3xl font-semibold sm:text-4xl">
-            Open pilot sites. Pilot properties start at AED 2,500.
+            Open pilot sites.
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
             Host a focused 90-day deployment on a prefab, parking, campus, industrial, or bridge
@@ -234,12 +228,6 @@ function Index() {
               className="inline-flex items-center gap-2 rounded-sm bg-signal px-5 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
             >
               Request a Pilot <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              to="/pricing"
-              className="inline-flex items-center gap-2 rounded-sm border border-border px-5 py-3 text-sm font-semibold transition-colors hover:bg-accent"
-            >
-              Explore Pricing
             </Link>
           </div>
         </div>

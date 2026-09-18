@@ -248,21 +248,21 @@
 
 @keyframes telemetry-scan {
   0% {
-    transform: translateY(-100%);
+    transform: translateX(-100%);
   }
   100% {
-    transform: translateY(100%);
+    transform: translateX(100%);
   }
 }
 
 .telemetry-scan {
-  opacity: 0.16;
+  opacity: 0.22;
   background: linear-gradient(
-    to bottom,
+    to right,
     transparent 0%,
-    color-mix(in oklab, var(--signal) 10%, transparent) 48%,
-    color-mix(in oklab, var(--signal) 32%, transparent) 50%,
-    color-mix(in oklab, var(--signal) 10%, transparent) 52%,
+    color-mix(in oklab, var(--signal) 12%, transparent) 48%,
+    color-mix(in oklab, var(--signal) 40%, transparent) 50%,
+    color-mix(in oklab, var(--signal) 12%, transparent) 52%,
     transparent 100%
   );
   animation: telemetry-scan 9s linear infinite;

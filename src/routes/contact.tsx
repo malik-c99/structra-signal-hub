@@ -12,7 +12,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Asset owners, developers, and facilities leaders: apply for a 90-day Structra field deployment. Pilot properties start at AED 2,500.",
+          "Asset owners, developers, and facilities leaders: apply for a focused 90-day Structra field deployment.",
       },
       { property: "og:title", content: "Request a 90-Day Pilot | Structra" },
       {
@@ -83,7 +83,7 @@ function ContactPage() {
 
             <div className="mt-12 space-y-3 text-sm text-muted-foreground">
               <div className="flex items-center gap-3">
-                <Mail className="h-4 w-4 text-signal" /> hello@getstructra.com
+                <Mail className="h-4 w-4 text-signal" /> Contact@getstructra.com
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 text-signal" /> Dubai South Business Hub Free Zone
@@ -103,7 +103,7 @@ function ContactPage() {
               </p>
             ) : (
               <p className="mt-3 text-sm text-muted-foreground">
-                Pilot properties start at AED 2,500.
+                Tell us about the asset you would like monitored.
               </p>
             )}
 

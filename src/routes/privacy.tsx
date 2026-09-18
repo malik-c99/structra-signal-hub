@@ -50,7 +50,7 @@ function PrivacyPage() {
           ],
           [
             "Contact",
-            "For access, correction, or deletion requests, write to hello@getstructra.com. Structra is incorporated in Dubai South Business Hub Free Zone.",
+            "For access, correction, or deletion requests, write to Contact@getstructra.com. Structra is incorporated in Dubai South Business Hub Free Zone.",
           ],
         ].map(([t, d]) => (
           <section key={t}>
