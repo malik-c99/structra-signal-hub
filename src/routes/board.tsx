@@ -4,7 +4,7 @@ import daniel from "@/assets/daniel.png.asset.json";
 import ammar from "@/assets/ammar.jpg.asset.json";
 import qusai from "@/assets/qusai.jpg.asset.json";
 import mahdi from "@/assets/mahdi-alsalahat.jpg.asset.json";
-import intern2 from "@/assets/interns-2.jpg.asset.json";
+import abdullah from "@/assets/abdullah-ishraq.jpg.asset.json";
 import intern3 from "@/assets/interns-3.jpg.asset.json";
 import intern4 from "@/assets/interns-4.jpg.asset.json";
 
