@@ -827,15 +827,37 @@
   }
 }
 /* ---- Home hero typography & polish ---- */
+.hero-title-frame {
+  display: inline-block;
+  padding: 1.1rem 1.5rem 1.4rem 0;
+}
+
+.hero-hud-corner {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid color-mix(in oklab, var(--signal) 35%, transparent);
+  pointer-events: none;
+}
+
+.hero-hud-corner-tl {
+  top: 0;
+  left: -1.5rem;
+  border-right: none;
+  border-bottom: none;
+}
+
+.hero-hud-corner-br {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
 .hero-title {
   display: flex;
   flex-direction: column;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(2.5rem, 7.2vw, 5.25rem);
-  line-height: 0.96;
-  letter-spacing: -0.035em;
-  text-wrap: balance;
+  gap: 1.1rem;
 }
 
 .hero-title-line {
@@ -848,11 +870,36 @@
 
 .hero-title-line-1 {
   animation-delay: 0.08s;
+  font-family: var(--font-grotesk, "Space Grotesk", ui-sans-serif, system-ui, sans-serif);
+  font-weight: 300;
+  font-size: clamp(2.6rem, 7vw, 5.75rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+  color: var(--foreground);
   text-shadow: 0 0 60px color-mix(in oklab, var(--signal) 18%, transparent);
+  text-wrap: balance;
+}
+
+.hero-title-bold {
+  font-weight: 700;
+  background: linear-gradient(
+    to bottom,
+    var(--foreground) 30%,
+    color-mix(in oklab, var(--foreground) 42%, var(--background))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .hero-title-line-2 {
   animation-delay: 0.26s;
+  font-family: var(--font-michroma, "Michroma", ui-sans-serif, system-ui, sans-serif);
+  font-size: clamp(0.72rem, 1.7vw, 1.35rem);
+  font-weight: 400;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: var(--signal);
   filter: blur(10px) drop-shadow(0 0 28px color-mix(in oklab, var(--signal) 35%, transparent));
 }
 
