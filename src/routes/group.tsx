@@ -237,6 +237,10 @@ function PartnersPage() {
                 <h2 className="whitespace-nowrap font-display text-[clamp(1.1rem,5.4vw,1.875rem)] font-extrabold tracking-tight">
                   {p.name}
                 </h2>
+                <span className="label-mono mt-2 inline-flex items-center gap-1.5 text-[10px] text-signal">
+                  Visit website
+                  <ArrowUpRight className="h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </span>
                 <p className="mt-4 text-base text-foreground/90">{p.lead}</p>
                 <p className="mt-4 text-sm text-muted-foreground">{p.body}</p>
 
@@ -252,7 +256,7 @@ function PartnersPage() {
                   ))}
                 </div>
               </div>
-            </article>
+            </a>
           ))}
         </div>
 
