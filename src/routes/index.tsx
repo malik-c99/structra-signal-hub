@@ -59,8 +59,8 @@ function Index() {
                 </span>
               ))}
             </div>
-            <div className="relative z-20 mx-auto max-w-6xl px-5 pb-20 pt-20 sm:pt-28">
-              <div className="hero-copy max-w-3xl">
+            <div className="hero-system-frame relative z-20 mx-auto max-w-6xl px-5 pb-20 pt-20 sm:pt-28">
+              <div className="hero-copy mx-auto max-w-4xl text-center">
               <div className="inline-flex items-center gap-2 rounded-full border border-signal/30 bg-surface/80 px-3 py-1.5 backdrop-blur-sm">
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="absolute h-1.5 w-1.5 rounded-full bg-signal pulse-ring" />
@@ -85,9 +85,9 @@ function Index() {
                 </h1>
               </div>
 
-              <div className="hero-rule mt-8" aria-hidden="true" />
+              <div className="hero-rule mx-auto mt-8" aria-hidden="true" />
 
-              <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+              <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
                 Always-on structural intelligence for commercial properties, prefab assets, and
                 infrastructure — bridging the invisible gaps between periodic engineering visits.
               </p>
@@ -102,7 +102,7 @@ function Index() {
                 </span>
               </div>
 
-              <div className="mt-9 flex flex-wrap items-center gap-3">
+              <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
 
                 <Link
                   to="/contact"
