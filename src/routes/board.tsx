@@ -45,12 +45,6 @@ const leaders = [
   },
 ];
 
-const ammarProfile = {
-  name: "Ammar Alalawi",
-  role: "Civil Engineering Lead - Intern",
-  tag: "Structural Validation & Failure Physics",
-  body: "Structural validation, failure modes, and engineering physics.",
-};
 
 const interns = [
   {
@@ -128,23 +122,7 @@ function BoardPage() {
 
           lead="Youth-led, hands-on — one team, one vision: learning, building, and shaping the future of structural engineering together."
         />
-        <div className="mx-auto mt-12 w-full max-w-xs">
-          <article className="group overflow-hidden rounded-sm border border-border bg-surface">
-            <div className="h-1 w-full bg-signal/70" />
-            <div className="p-6">
-              <h3 className="text-lg font-semibold">{ammarProfile.name}</h3>
-              <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-signal">
-                {ammarProfile.role}
-              </div>
-              <p className="mt-4 text-xs text-muted-foreground">{ammarProfile.tag}</p>
-              <p className="mt-4 border-t border-border pt-4 text-sm text-muted-foreground">
-                {ammarProfile.body}
-              </p>
-            </div>
-          </article>
-        </div>
-
-        <div className="mx-auto mt-6 grid w-full max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-12 grid w-full max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {interns.map((intern) => (
             <article
               key={intern.name}
