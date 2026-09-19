@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/section";
 import foundersMessage from "@/assets/founders-message.png.asset.json";
 import qusaiFounderNote from "@/assets/qusai-founder-note.png.asset.json";
+import danielFounderNote from "@/assets/daniel-founder-note.png.asset.json";
 
 export const Route = createFileRoute("/insights")({
   head: () => ({
