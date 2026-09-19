@@ -12,3 +12,5 @@
 - [ ] Present Technostream and Mr Shade ME clearly as Structra sister companies on the Group page
 
 - [ ] Rebuild the Board page with a cleaner, more organized futuristic layout
+
+- [ ] Show Technostream and Mr Shade ME as sister holding groups with Structra beneath them
