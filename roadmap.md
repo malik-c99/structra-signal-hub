@@ -10,3 +10,5 @@
 - [x] Refine the Board page into a more professional, niche, attention-focused design
 
 - [ ] Present Technostream and Mr Shade ME clearly as Structra sister companies on the Group page
+
+- [ ] Rebuild the Board page with a cleaner, more organized futuristic layout
