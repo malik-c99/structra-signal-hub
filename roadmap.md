@@ -6,5 +6,5 @@
 
 - [x] Add Karim Yacoub as Operations Intern using a close face crop of the person on the left
 
-- [ ] Zoom Karim Yacoub portrait out slightly while keeping him centered
-- [ ] Refine the Board page into a more professional, niche, attention-focused design
+- [x] Zoom Karim Yacoub portrait out slightly while keeping him centered
+- [x] Refine the Board page into a more professional, niche, attention-focused design
