@@ -59,6 +59,18 @@ function InsightsPage() {
           className="insights-feature-image"
         />
       </article>
+
+      <article className="insights-feature">
+        <div className="insights-feature-rail" aria-hidden="true">
+          <span>FOUNDER NOTE</span>
+          <span>03 / DANIEL SHIHAT</span>
+        </div>
+        <img
+          src={danielFounderNote.url}
+          alt="A personal note from Daniel Shihat, Co-Founder & CTO — “Structra is personal to me.”"
+          className="insights-feature-image"
+        />
+      </article>
     </Section>
   );
 }
