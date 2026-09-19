@@ -1313,3 +1313,269 @@
   .system-section-head { padding-left: 1rem; }
   .hero-metric-grid { grid-template-columns: 1fr; }
 }
+
+/* ============ Board registry ============ */
+.board-page {
+  --board-line: color-mix(in oklab, var(--signal) 25%, var(--border));
+}
+
+.board-leadership-section {
+  padding-top: clamp(5rem, 10vw, 8.5rem);
+}
+
+.board-title-rail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--board-line);
+  padding-bottom: 0.8rem;
+}
+
+.board-registry-code,
+.board-founder-index {
+  color: color-mix(in oklab, var(--signal) 62%, var(--muted-foreground));
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+}
+
+.board-founders {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  max-width: 64rem;
+  margin-inline: auto;
+  background: var(--board-line);
+  border: 1px solid var(--board-line);
+  box-shadow: 0 34px 90px color-mix(in oklab, var(--background) 70%, transparent);
+}
+
+.board-founder {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(13rem, 0.92fr);
+  min-height: 29rem;
+  overflow: hidden;
+  background: color-mix(in oklab, var(--surface) 86%, transparent) !important;
+}
+
+.board-founder-portrait {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  border-right: 1px solid var(--board-line);
+}
+
+.board-founder-portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, color-mix(in oklab, var(--background) 60%, transparent), transparent 42%);
+  pointer-events: none;
+}
+
+.board-founder-index {
+  position: absolute;
+  z-index: 2;
+  top: 1rem;
+  left: 1rem;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border: 1px solid color-mix(in oklab, var(--signal) 55%, transparent);
+  background: color-mix(in oklab, var(--background) 76%, transparent);
+}
+
+.board-founder-scan {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 18%;
+  height: 1px;
+  opacity: 0;
+  background: var(--signal);
+  box-shadow: 0 0 12px var(--signal);
+  transition: opacity 220ms ease;
+}
+
+.board-founder:hover .board-founder-scan {
+  opacity: 0.7;
+  animation: board-scan 2.4s linear infinite;
+}
+
+.board-founder-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(1.4rem, 3vw, 2.4rem);
+}
+
+.board-founder-role,
+.board-founder-tag,
+.board-intern-copy div {
+  color: var(--signal);
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  text-transform: uppercase;
+}
+
+.board-founder-copy h3 {
+  margin-top: 0.65rem;
+  color: var(--foreground);
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 2.5vw, 2.3rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.board-founder-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}
+
+.board-founder-copy p {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--board-line);
+  padding-top: 1.25rem;
+  color: var(--muted-foreground);
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.board-cohort-section {
+  background: color-mix(in oklab, var(--background) 82%, transparent);
+}
+
+.board-cohort-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.board-cohort-status {
+  display: grid;
+  justify-items: end;
+  flex: 0 0 auto;
+  border-left: 1px solid var(--board-line);
+  padding-left: 2rem;
+  color: var(--signal);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+}
+
+.board-cohort-status strong {
+  color: color-mix(in oklab, var(--signal) 55%, transparent);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 300;
+  line-height: 0.85;
+}
+
+.board-interns {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.board-intern {
+  overflow: hidden;
+  border: 1px solid var(--board-line);
+  background: color-mix(in oklab, var(--surface) 70%, transparent) !important;
+  transition: border-color 240ms ease, transform 240ms ease;
+}
+
+.board-intern:hover {
+  z-index: 2;
+  border-color: color-mix(in oklab, var(--signal) 65%, transparent);
+  transform: translateY(-4px);
+}
+
+.board-intern-image {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-bottom: 1px solid var(--board-line);
+}
+
+.board-intern-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, color-mix(in oklab, var(--background) 35%, transparent), transparent 55%);
+  pointer-events: none;
+}
+
+.board-intern-image span {
+  position: absolute;
+  z-index: 1;
+  top: 0.65rem;
+  right: 0.65rem;
+  color: var(--signal);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+}
+
+.board-intern:hover img {
+  transform: scale(1.035);
+  filter: saturate(1.08) contrast(1.02);
+}
+
+.board-intern-copy {
+  min-height: 6.4rem;
+  padding: 1rem;
+}
+
+.board-intern-copy h3 {
+  color: var(--foreground);
+  font-family: var(--font-grotesk);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.board-intern-copy div {
+  margin-top: 0.55rem;
+}
+
+.board-cohort-footer {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--board-line);
+  padding-top: 1rem;
+  color: var(--muted-foreground);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+@keyframes board-scan {
+  from { transform: translateY(0); }
+  to { transform: translateY(18rem); }
+}
+
+@media (max-width: 1023px) {
+  .board-founder { grid-template-columns: 1fr; }
+  .board-founder-portrait { aspect-ratio: 1; border-right: 0; border-bottom: 1px solid var(--board-line); }
+  .board-interns { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 639px) {
+  .board-title-rail { align-items: flex-end; }
+  .board-founders { grid-template-columns: 1fr; gap: 1px; }
+  .board-founder { min-height: 0; }
+  .board-founder-copy { min-height: 17rem; }
+  .board-cohort-heading { align-items: flex-start; }
+  .board-cohort-status { display: none; }
+  .board-interns { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.65rem; }
+  .board-intern:last-child { grid-column: 1 / -1; width: calc(50% - 0.325rem); justify-self: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .board-founder:hover .board-founder-scan { animation: none; }
+  .board-intern, .board-intern img { transition: none; }
+}
