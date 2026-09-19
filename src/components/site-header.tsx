@@ -14,19 +14,19 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+    <header className="system-header sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-xl">
+      <div className="system-header-inner mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
         <Link to="/" className="flex items-center gap-2.5">
           <span className="relative flex h-2.5 w-2.5 items-center justify-center">
             <span className="absolute h-2.5 w-2.5 rounded-full bg-signal pulse-ring" />
             <span className="h-2 w-2 rounded-full bg-signal" />
           </span>
-          <span className="font-display text-lg font-extrabold tracking-tight text-white">
+          <span className="font-display text-lg font-bold text-foreground">
             STRUCTRA
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="system-nav hidden items-center gap-8 md:flex">
           {nav.map((item) => (
             <Link
               key={item.to}
@@ -42,7 +42,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <Link
             to="/contact"
-            className="hidden rounded-sm bg-signal px-4 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:inline-flex"
+            className="system-primary-action hidden rounded-sm bg-signal px-4 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:inline-flex"
           >
             Book a 90-Day Pilot
           </Link>
@@ -57,7 +57,7 @@ export function SiteHeader() {
       </div>
 
       {open ? (
-        <div className="border-t border-border/70 bg-background md:hidden">
+        <div className="system-mobile-nav border-t border-border/70 bg-background md:hidden">
           <div className="mx-auto flex max-w-6xl flex-col px-5 py-3">
             {nav.map((item) => (
               <Link

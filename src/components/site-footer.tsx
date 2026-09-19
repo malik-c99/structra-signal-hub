@@ -3,7 +3,7 @@ import { SocialLinks } from "@/components/social-links";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border/70 bg-surface">
+    <footer className="system-footer border-t border-border/70 bg-surface">
       <div className="mx-auto max-w-6xl px-5 py-14">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
@@ -38,7 +38,7 @@ export function SiteFooter() {
             <FooterCol title="Legal" links={[{ to: "/privacy", label: "Privacy" }]} />
           </div>
         </div>
-        <div className="mt-12 flex flex-wrap items-center gap-3 rounded-sm border border-signal/35 bg-signal/10 px-5 py-4">
+        <div className="system-status-rail mt-12 flex flex-wrap items-center gap-3 rounded-sm border border-signal/35 bg-signal/10 px-5 py-4">
           <span className="relative flex h-2 w-2">
             <span className="absolute h-2 w-2 rounded-full bg-signal pulse-ring" />
             <span className="h-2 w-2 rounded-full bg-signal" />

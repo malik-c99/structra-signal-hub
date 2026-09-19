@@ -6,6 +6,7 @@ import mahdi from "@/assets/mahdi-alsalahat.jpg.asset.json";
 import abdullah from "@/assets/abdullah-ishraq-2.jpg.asset.json";
 import adham from "@/assets/adham-elbahaa.jpg.asset.json";
 import abdulmaliik from "@/assets/abdulmaliik-chaqif.jpg.asset.json";
+import karim from "@/assets/karim-yacoub.jpg.asset.json";
 
 export const Route = createFileRoute("/board")({
   head: () => ({
@@ -56,6 +57,7 @@ const interns = [
   { photo: abdullah.url, name: "Abdullah Ishraq", role: "Software", bio: null },
   { photo: adham.url, name: "Adham Elbahaa", role: "Software", bio: null },
   { photo: abdulmaliik.url, name: "Abdulmaliik Chaqif", role: "Software", bio: null },
+  { photo: karim.url, name: "Karim Yacoub", role: "Operations Intern", bio: null },
 ];
 
 function BoardPage() {
@@ -122,7 +124,7 @@ function BoardPage() {
 
           lead="Youth-led, hands-on — one team, one vision: learning, building, and shaping the future of structural engineering together."
         />
-        <div className="mx-auto mt-12 grid w-full max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-12 grid w-full max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {interns.map((intern) => (
             <article
               key={intern.name}

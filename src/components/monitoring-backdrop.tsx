@@ -55,6 +55,8 @@ export function MonitoringBackdrop() {
     <div className="site-monitor" aria-hidden="true">
       <div className="site-monitor-ambient" />
       <div className="site-monitor-grid" />
+      <div className="site-monitor-coordinate site-monitor-coordinate-top">GRID / STRUCTURAL DIGITAL TWIN</div>
+      <div className="site-monitor-coordinate site-monitor-coordinate-side">LIVE NODE ARRAY / 08</div>
       <svg
         className="site-monitor-truss site-monitor-truss-far"
         viewBox="0 0 1440 720"
@@ -74,6 +76,8 @@ export function MonitoringBackdrop() {
       >
         <g className="site-monitor-structure">
           <BuildingFrame prefix="main" />
+          <path className="site-monitor-outline" d="M500 690 L500 100 L940 100 L940 690" />
+          <path className="site-monitor-depth" d="M520 120 L470 88 L870 88 L920 120 M470 88 L470 655 L520 690" />
         </g>
 
         {NODES.map(([x, y, label, delay]) => (
