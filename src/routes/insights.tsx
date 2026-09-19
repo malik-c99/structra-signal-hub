@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/section";
 import foundersMessage from "@/assets/founders-message.png.asset.json";
+import qusaiFounderNote from "@/assets/qusai-founder-note.png.asset.json";
 
 export const Route = createFileRoute("/insights")({
   head: () => ({
@@ -42,6 +43,18 @@ function InsightsPage() {
         <img
           src={foundersMessage.url}
           alt="Founders’ message from Qusai Al Daour and Daniel Shihat: Two perspectives. One direction."
+          className="insights-feature-image"
+        />
+      </article>
+
+      <article className="insights-feature">
+        <div className="insights-feature-rail" aria-hidden="true">
+          <span>FOUNDER NOTE</span>
+          <span>02 / QUSAI AL DAOUR</span>
+        </div>
+        <img
+          src={qusaiFounderNote.url}
+          alt="A personal note from Qusai Al Daour, Co-Founder & CEO — “The confidence to begin.”"
           className="insights-feature-image"
         />
       </article>
