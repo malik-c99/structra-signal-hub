@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section, SectionHead } from "@/components/section";
 import daniel from "@/assets/daniel.png.asset.json";
-import ammar from "@/assets/ammar.jpg.asset.json";
 import qusai from "@/assets/qusai-photo.jpg.asset.json";
 import mahdi from "@/assets/mahdi-alsalahat.jpg.asset.json";
 import abdullah from "@/assets/abdullah-ishraq-2.jpg.asset.json";
@@ -133,12 +132,6 @@ function BoardPage() {
         <div className="mx-auto mt-12 w-full max-w-xs">
           <article className="group overflow-hidden rounded-sm border border-border bg-surface">
             <div className="h-1 w-full bg-signal/70" />
-            <img
-              src={ammarProfile.photo}
-              alt={`${ammarProfile.name}, ${ammarProfile.role} at Structra`}
-              loading="lazy"
-              className="aspect-square w-full object-cover"
-            />
             <div className="p-6">
               <h3 className="text-lg font-semibold">{ammarProfile.name}</h3>
               <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-signal">
