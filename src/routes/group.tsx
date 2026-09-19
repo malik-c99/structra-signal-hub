@@ -25,13 +25,13 @@ export const Route = createFileRoute("/group")({
       {
         name: "description",
         content:
-          "Structra, Technostream, and Mr Shade ME operate as sister companies within one wider engineering group.",
+          "Structra operates under the shared group backing of sister holding companies Technostream and Mr Shade ME.",
       },
       { property: "og:title", content: "The Group | Structra" },
       {
         property: "og:description",
         content:
-          "Three sister companies. One shared engineering group.",
+          "Two sister holding companies. One focused structural-intelligence division.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -65,7 +65,7 @@ const partners = [
     logo: technostreamLogo.url,
     logoAlt: "Technostream Group logo",
     name: "TECHNOSTREAM",
-    kicker: "Sister company · Engineering systems",
+    kicker: "Sister holding company · Engineering systems",
     lead:
       "Integrated engineering and industrial products — from light-gauge-steel prefab building systems to security, automation, and smart infrastructure solutions.",
     body:
@@ -84,7 +84,7 @@ const partners = [
     logo: mrshadeLogo.url,
     logoAlt: "Mr Shade ME logo",
     name: "MR SHADE ME",
-    kicker: "Sister company · Shade structures",
+    kicker: "Sister holding company · Shade structures",
     lead:
       "Engineered tensile shade products — car park canopies, PTFE membrane structures, and utility structures built to withstand the region's harshest conditions.",
     body:
@@ -102,9 +102,9 @@ function PartnersPage() {
     <>
       <Section className="border-b-0">
         <SectionHead
-          eyebrow="Sister companies · One group"
-          title="Independent expertise. Shared strength."
-          lead="Structra operates alongside Technostream and Mr Shade ME as sister companies within the same wider engineering group. Each company keeps its own specialist focus while sharing the experience, advice, and delivery strength of the group."
+          eyebrow="One group · Shared foundation"
+          title="Backed by two sister companies."
+          lead="Technostream and Mr Shade ME are sister holding companies within the wider group. Structra operates beneath their shared backing as the group's focused structural-intelligence division — supported by their investment, advice, engineering experience, and delivery strength."
         />
 
         {/* Group structure diagram */}
@@ -124,10 +124,10 @@ function PartnersPage() {
           />
 
           <div className="relative">
-            <div className="label-mono text-center text-[10px]">Sister-company network</div>
+            <div className="label-mono text-center text-[10px]">Group holding structure</div>
 
-            {/* Sister-company network */}
-            <div className="mx-auto mt-8 grid max-w-5xl gap-4 lg:grid-cols-3">
+            {/* Sister holding companies */}
+            <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-2">
               {partners.map((p) => (
                 <a
                   key={p.id}
@@ -143,16 +143,26 @@ function PartnersPage() {
                     className="h-12 w-auto max-w-full object-contain sm:h-14"
                     loading="lazy"
                   />
-                  <span className="label-mono text-[9px] text-signal">Sister company</span>
+                  <span className="label-mono text-[9px] text-signal">Sister holding company</span>
                 </a>
               ))}
+            </div>
+
+            <div aria-hidden className="mx-auto grid max-w-3xl grid-cols-2">
+              <div className="flex justify-center"><div className="h-9 w-px bg-signal/35" /></div>
+              <div className="flex justify-center"><div className="h-9 w-px bg-signal/35" /></div>
+            </div>
+            <div aria-hidden className="mx-auto h-px max-w-3xl bg-gradient-to-r from-transparent via-signal/45 to-transparent" />
+            <div aria-hidden className="flex justify-center"><div className="h-9 w-px bg-signal/50" /></div>
+
+            <div className="flex justify-center">
               <div className="relative flex min-h-32 flex-col items-center justify-center rounded-sm border border-signal/50 bg-background px-8 py-6 text-center shadow-[0_0_50px_-12px_oklch(var(--signal)/0.5)]">
                 <div
                   aria-hidden
                   className="absolute left-1/2 top-1/2 h-20 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-signal/15 blur-2xl"
                 />
                 <div className="label-mono relative text-[10px] text-signal">
-                  Sister company · Monitoring intelligence
+                  Group division · Structural intelligence
                 </div>
                 <div className="relative mt-2 font-display text-2xl font-extrabold tracking-tight">
                   STRUCTRA
@@ -162,13 +172,8 @@ function PartnersPage() {
                 </div>
               </div>
             </div>
-            <div aria-hidden className="mx-auto mt-7 flex max-w-5xl items-center gap-3">
-              <span className="h-px flex-1 bg-gradient-to-r from-transparent via-signal/35 to-signal/20" />
-              <span className="h-2 w-2 rotate-45 border border-signal/60 bg-signal/20" />
-              <span className="h-px flex-1 bg-gradient-to-r from-signal/20 via-signal/35 to-transparent" />
-            </div>
             <p className="label-mono mt-4 text-center text-[9px] text-muted-foreground">
-              Shared group infrastructure · Distinct specialist companies
+              Shared holding support · Focused operating division
             </p>
           </div>
         </div>

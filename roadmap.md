@@ -9,6 +9,8 @@
 - [x] Zoom Karim Yacoub portrait out slightly while keeping him centered
 - [x] Refine the Board page into a more professional, niche, attention-focused design
 
-- [ ] Present Technostream and Mr Shade ME clearly as Structra sister companies on the Group page
+- [x] Present Technostream and Mr Shade ME clearly as Structra sister companies on the Group page
 
-- [ ] Rebuild the Board page with a cleaner, more organized futuristic layout
+- [x] Rebuild the Board page with a cleaner, more organized futuristic layout
+
+- [x] Show Technostream and Mr Shade ME as sister holding groups with Structra beneath them

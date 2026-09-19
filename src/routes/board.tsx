@@ -64,25 +64,26 @@ function BoardPage() {
   return (
     <div className="board-page">
       <Section className="board-leadership-section">
-        <div className="board-title-rail">
-          <div className="inline-flex items-center gap-2.5 border border-signal/40 bg-signal/10 px-4 py-2.5">
+        <div className="board-command-heading">
+          <span className="board-command-kicker">Personnel directory system</span>
+          <h1>Structra <span>Board</span></h1>
+          <div className="board-command-line" aria-hidden="true" />
+          <div className="board-command-status">
             <span className="relative flex h-2 w-2">
               <span className="absolute h-2 w-2 rounded-full bg-signal pulse-ring" />
               <span className="h-2 w-2 rounded-full bg-signal" />
             </span>
-            <span className="font-mono text-[11px] font-medium uppercase text-signal">
-              Youth-led
-            </span>
+            Youth-led
           </div>
-          <span className="board-registry-code">GOV / 01</span>
         </div>
-        <SectionHead
-          eyebrow="Leadership registry"
-          title="Built to ship the stack — and unlock the sites."
-          lead="A youth-led founding team pairing sensing hardware and structural physics with field access in Dubai — young engineers building institutional-grade monitoring."
-        />
 
-        <div className="board-founders mt-14">
+        <div className="board-cluster-label">
+          <span aria-hidden="true" />
+          <h2>Core founders</h2>
+          <span aria-hidden="true" />
+        </div>
+
+        <div className="board-founders">
           {leaders.map((m, index) => (
             <article
               key={m.name}
@@ -106,6 +107,10 @@ function BoardPage() {
                   {m.tag}
                 </div>
                 <p>{m.body}</p>
+                <div className="board-founder-access" aria-hidden="true">
+                  <span>LEAD-0{index + 1}</span>
+                  <span>CORE ACCESS</span>
+                </div>
               </div>
             </article>
           ))}
@@ -114,11 +119,11 @@ function BoardPage() {
 
       <Section className="board-cohort-section border-b-0">
         <div className="board-cohort-heading">
-          <SectionHead
-            eyebrow="Cohort / 05"
-            title="Structra Interns"
-            lead="Youth-led, hands-on — one team, one vision: learning, building, and shaping the future of structural engineering together."
-          />
+          <div>
+            <span className="board-command-kicker">Cohort / 05</span>
+            <h2>Operational interns</h2>
+            <p>Youth-led, hands-on — one team learning, building, and shaping the future of structural engineering together.</p>
+          </div>
           <div className="board-cohort-status" aria-hidden="true">
             <span>ACTIVE ROSTER</span>
             <strong>05</strong>
@@ -142,13 +147,16 @@ function BoardPage() {
               <div className="board-intern-copy">
                 <h3>{intern.name}</h3>
                 <div>{intern.role}</div>
+                <span aria-hidden="true"><i /></span>
               </div>
             </article>
           ))}
         </div>
-        <p className="board-cohort-footer">
-          With many more coming soon
-        </p>
+        <div className="board-system-bar" aria-hidden="true">
+          <span>REGISTRY / STRUCTRA-07</span>
+          <span><i /> ACTIVE ROSTER</span>
+          <span>YOUTH-LED / DUBAI</span>
+        </div>
       </Section>
     </div>
   );
