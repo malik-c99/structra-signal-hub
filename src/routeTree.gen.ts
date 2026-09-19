@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as BoardRouteImport } from './routes/board'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GroupRouteImport } from './routes/group'
+import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProductRouteImport } from './routes/product'
 import { Route as ProofRouteImport } from './routes/proof'
@@ -37,6 +38,11 @@ const GroupRoute = GroupRouteImport.update({
   path: '/group',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InsightsRoute = InsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/board': typeof BoardRoute
   '/contact': typeof ContactRoute
   '/group': typeof GroupRoute
+  '/insights': typeof InsightsRoute
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRoute
   '/proof': typeof ProofRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/board': typeof BoardRoute
   '/contact': typeof ContactRoute
   '/group': typeof GroupRoute
+  '/insights': typeof InsightsRoute
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRoute
   '/proof': typeof ProofRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/board': typeof BoardRoute
   '/contact': typeof ContactRoute
   '/group': typeof GroupRoute
+  '/insights': typeof InsightsRoute
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRoute
   '/proof': typeof ProofRoute
@@ -84,16 +93,31 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/board' | '/contact' | '/group' | '/privacy' | '/product' | '/proof'
+    | '/'
+    | '/board'
+    | '/contact'
+    | '/group'
+    | '/insights'
+    | '/privacy'
+    | '/product'
+    | '/proof'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/board' | '/contact' | '/group' | '/privacy' | '/product' | '/proof'
+    | '/'
+    | '/board'
+    | '/contact'
+    | '/group'
+    | '/insights'
+    | '/privacy'
+    | '/product'
+    | '/proof'
   id:
     | '__root__'
     | '/'
     | '/board'
     | '/contact'
     | '/group'
+    | '/insights'
     | '/privacy'
     | '/product'
     | '/proof'
@@ -104,6 +128,7 @@ export interface RootRouteChildren {
   BoardRoute: typeof BoardRoute
   ContactRoute: typeof ContactRoute
   GroupRoute: typeof GroupRoute
+  InsightsRoute: typeof InsightsRoute
   PrivacyRoute: typeof PrivacyRoute
   ProductRoute: typeof ProductRoute
   ProofRoute: typeof ProofRoute
@@ -139,6 +164,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GroupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/insights': {
+      id: '/insights'
+      path: '/insights'
+      fullPath: '/insights'
+      preLoaderRoute: typeof InsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
@@ -168,6 +200,7 @@ const rootRouteChildren: RootRouteChildren = {
   BoardRoute: BoardRoute,
   ContactRoute: ContactRoute,
   GroupRoute: GroupRoute,
+  InsightsRoute: InsightsRoute,
   PrivacyRoute: PrivacyRoute,
   ProductRoute: ProductRoute,
   ProofRoute: ProofRoute,
