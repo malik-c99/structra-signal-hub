@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/section";
 import foundersMessage from "@/assets/founders-message.png.asset.json";
 import qusaiFounderNote from "@/assets/qusai-founder-note.png.asset.json";
+import danielFounderNote from "@/assets/daniel-founder-note.png.asset.json";
 
 export const Route = createFileRoute("/insights")({
   head: () => ({
@@ -55,6 +56,18 @@ function InsightsPage() {
         <img
           src={qusaiFounderNote.url}
           alt="A personal note from Qusai Al Daour, Co-Founder & CEO — “The confidence to begin.”"
+          className="insights-feature-image"
+        />
+      </article>
+
+      <article className="insights-feature">
+        <div className="insights-feature-rail" aria-hidden="true">
+          <span>FOUNDER NOTE</span>
+          <span>03 / DANIEL SHIHAT</span>
+        </div>
+        <img
+          src={danielFounderNote.url}
+          alt="A personal note from Daniel Shihat, Co-Founder & CTO — “Structra is personal to me.”"
           className="insights-feature-image"
         />
       </article>
