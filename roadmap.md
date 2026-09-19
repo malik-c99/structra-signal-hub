@@ -16,3 +16,5 @@
 - [x] Show Technostream and Mr Shade ME as sister holding groups with Structra beneath them
 
 - [x] Redesign Board with a stronger aura and label the intern team clearly
+
+- [x] Add an Insights tab featuring the founders’ message artwork
