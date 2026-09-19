@@ -51,12 +51,12 @@ const interns = [
   {
     photo: mahdi.url,
     name: "Mahdi Alsalahat",
-    role: "Engineering",
+    role: "Engineering Intern",
     bio: null,
   },
-  { photo: abdullah.url, name: "Abdullah Ishraq", role: "Software", bio: null },
-  { photo: adham.url, name: "Adham Elbahaa", role: "Software", bio: null },
-  { photo: abdulmaliik.url, name: "Abdulmaliik Chaqif", role: "Software", bio: null },
+  { photo: abdullah.url, name: "Abdullah Ishraq", role: "Software Intern", bio: null },
+  { photo: adham.url, name: "Adham Elbahaa", role: "Software Intern", bio: null },
+  { photo: abdulmaliik.url, name: "Abdulmaliik Chaqif", role: "Software Intern", bio: null },
   { photo: karim.url, name: "Karim Yacoub", role: "Operations Intern", bio: null },
 ];
 
@@ -64,8 +64,10 @@ function BoardPage() {
   return (
     <div className="board-page">
       <Section className="board-leadership-section">
+        <div className="board-aura board-aura-one" aria-hidden="true" />
+        <div className="board-aura board-aura-two" aria-hidden="true" />
         <div className="board-command-heading">
-          <span className="board-command-kicker">Personnel directory system</span>
+          <span className="board-command-kicker">People behind the signal</span>
           <h1>Structra <span>Board</span></h1>
           <div className="board-command-line" aria-hidden="true" />
           <div className="board-command-status">
@@ -79,7 +81,7 @@ function BoardPage() {
 
         <div className="board-cluster-label">
           <span aria-hidden="true" />
-          <h2>Core founders</h2>
+          <h2>Founders</h2>
           <span aria-hidden="true" />
         </div>
 
@@ -120,12 +122,12 @@ function BoardPage() {
       <Section className="board-cohort-section border-b-0">
         <div className="board-cohort-heading">
           <div>
-            <span className="board-command-kicker">Cohort / 05</span>
-            <h2>Operational interns</h2>
+            <span className="board-command-kicker">Emerging talent / 05</span>
+            <h2>Interns</h2>
             <p>Youth-led, hands-on — one team learning, building, and shaping the future of structural engineering together.</p>
           </div>
           <div className="board-cohort-status" aria-hidden="true">
-            <span>ACTIVE ROSTER</span>
+            <span>INTERNS</span>
             <strong>05</strong>
           </div>
         </div>
@@ -154,7 +156,7 @@ function BoardPage() {
         </div>
         <div className="board-system-bar" aria-hidden="true">
           <span>REGISTRY / STRUCTRA-07</span>
-          <span><i /> ACTIVE ROSTER</span>
+          <span><i /> INTERNS</span>
           <span>YOUTH-LED / DUBAI</span>
         </div>
       </Section>
