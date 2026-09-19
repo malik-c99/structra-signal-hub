@@ -14,3 +14,5 @@
 - [x] Rebuild the Board page with a cleaner, more organized futuristic layout
 
 - [x] Show Technostream and Mr Shade ME as sister holding groups with Structra beneath them
+
+- [x] Redesign Board with a stronger aura and label the intern team clearly

@@ -1319,12 +1319,43 @@
   --board-line: color-mix(in oklab, var(--signal) 25%, var(--border));
   position: relative;
   overflow: hidden;
-  background-image: radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--signal) 10%, transparent) 1px, transparent 0);
-  background-size: 40px 40px;
+  isolation: isolate;
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--signal) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--signal) 5%, transparent) 1px, transparent 1px),
+    radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--signal) 15%, transparent) 1px, transparent 0);
+  background-size: 80px 80px, 80px 80px, 20px 20px;
 }
 
 .board-leadership-section {
+  position: relative;
   padding-top: clamp(5rem, 10vw, 8.5rem);
+}
+
+.board-aura {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  animation: board-aura-drift 9s ease-in-out infinite alternate;
+}
+
+.board-aura-one {
+  top: 2rem;
+  left: 12%;
+  width: min(36rem, 55vw);
+  height: min(28rem, 45vw);
+  background: color-mix(in oklab, var(--signal) 20%, transparent);
+}
+
+.board-aura-two {
+  top: 16rem;
+  right: 8%;
+  width: min(32rem, 48vw);
+  height: min(24rem, 38vw);
+  background: color-mix(in oklab, var(--violet-glow) 18%, transparent);
+  animation-delay: -4s;
 }
 
 .board-command-heading {
@@ -1345,14 +1376,16 @@
 .board-command-heading h1 {
   margin-top: 0.55rem;
   font-family: var(--font-display);
-  font-size: clamp(3rem, 7vw, 5.8rem);
-  font-weight: 700;
+  font-size: clamp(3.5rem, 8vw, 6.8rem);
+  font-weight: 600;
   line-height: 0.95;
 }
 
 .board-command-heading h1 span {
-  color: var(--signal);
-  text-shadow: 0 0 28px color-mix(in oklab, var(--signal) 32%, transparent);
+  color: transparent;
+  background: linear-gradient(110deg, var(--foreground), var(--signal) 48%, var(--violet-glow));
+  background-clip: text;
+  text-shadow: 0 0 42px color-mix(in oklab, var(--signal) 30%, transparent);
 }
 
 .board-command-line {
@@ -1403,26 +1436,27 @@
 .board-founders {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-  max-width: 64rem;
+  gap: 2rem;
+  max-width: 68rem;
   margin-inline: auto;
 }
 
 .board-founder {
   display: grid;
-  grid-template-columns: 9rem minmax(0, 1fr);
-  min-height: 14rem;
+  grid-template-columns: 12rem minmax(0, 1fr);
+  min-height: 19rem;
   overflow: hidden;
   border: 1px solid var(--board-line);
-  background: color-mix(in oklab, var(--surface) 86%, transparent) !important;
-  backdrop-filter: blur(18px);
+  background: linear-gradient(135deg, color-mix(in oklab, var(--surface) 87%, transparent), color-mix(in oklab, var(--background) 76%, transparent)) !important;
+  box-shadow: inset 0 1px color-mix(in oklab, var(--foreground) 7%, transparent), 0 30px 90px color-mix(in oklab, var(--background) 65%, transparent);
+  backdrop-filter: blur(24px);
   transition: border-color 350ms ease, transform 350ms ease, box-shadow 350ms ease;
 }
 
 .board-founder:hover {
   border-color: color-mix(in oklab, var(--signal) 58%, transparent);
   transform: translateY(-3px);
-  box-shadow: 0 18px 70px color-mix(in oklab, var(--signal) 9%, transparent);
+  box-shadow: 0 24px 90px color-mix(in oklab, var(--signal) 16%, transparent), 0 0 45px color-mix(in oklab, var(--violet-glow) 8%, transparent);
 }
 
 .board-founder-portrait {
@@ -1436,7 +1470,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, color-mix(in oklab, var(--background) 60%, transparent), transparent 42%);
+  background: linear-gradient(to top, color-mix(in oklab, var(--background) 72%, transparent), transparent 50%), linear-gradient(110deg, transparent 60%, color-mix(in oklab, var(--signal) 12%, transparent));
   pointer-events: none;
 }
 
@@ -1491,9 +1525,8 @@
   margin-top: 0.65rem;
   color: var(--foreground);
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.2vw, 2rem);
-  font-weight: 700;
-  text-transform: uppercase;
+  font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+  font-weight: 600;
   line-height: 1;
 }
 
@@ -1532,7 +1565,8 @@
 }
 
 .board-cohort-section {
-  background: color-mix(in oklab, var(--background) 82%, transparent);
+  position: relative;
+  background: linear-gradient(180deg, color-mix(in oklab, var(--background) 72%, transparent), color-mix(in oklab, var(--surface) 44%, transparent));
 }
 
 .board-cohort-heading {
@@ -1582,8 +1616,9 @@
 .board-intern {
   overflow: hidden;
   border: 1px solid var(--board-line);
-  background: color-mix(in oklab, var(--surface) 70%, transparent) !important;
-  backdrop-filter: blur(14px);
+  background: linear-gradient(160deg, color-mix(in oklab, var(--surface) 78%, transparent), color-mix(in oklab, var(--background) 72%, transparent)) !important;
+  box-shadow: 0 20px 55px color-mix(in oklab, var(--background) 52%, transparent);
+  backdrop-filter: blur(20px);
   transition: border-color 240ms ease, transform 240ms ease, background-color 240ms ease;
 }
 
@@ -1591,6 +1626,7 @@
   z-index: 2;
   border-color: color-mix(in oklab, var(--signal) 65%, transparent);
   transform: translateY(-4px);
+  box-shadow: 0 22px 70px color-mix(in oklab, var(--signal) 13%, transparent);
 }
 
 .board-intern-image {
@@ -1680,6 +1716,11 @@
   to { transform: translateY(18rem); }
 }
 
+@keyframes board-aura-drift {
+  from { transform: translate3d(-2%, -2%, 0) scale(0.96); opacity: 0.62; }
+  to { transform: translate3d(5%, 4%, 0) scale(1.08); opacity: 1; }
+}
+
 @media (max-width: 1023px) {
   .board-founder { grid-template-columns: 8rem minmax(0, 1fr); }
   .board-interns { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -1700,4 +1741,5 @@
 @media (prefers-reduced-motion: reduce) {
   .board-founder:hover .board-founder-scan { animation: none; }
   .board-intern, .board-intern img { transition: none; }
+  .board-aura { animation: none; }
 }
