@@ -46,7 +46,6 @@ const leaders = [
 ];
 
 const ammarProfile = {
-  photo: ammar.url,
   name: "Ammar Alalawi",
   role: "Civil Engineering Lead - Intern",
   tag: "Structural Validation & Failure Physics",
