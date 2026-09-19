@@ -62,111 +62,94 @@ const interns = [
 
 function BoardPage() {
   return (
-    <>
-      <Section>
-        <div className="mb-6 inline-flex items-center gap-2.5 rounded-sm border border-signal/40 bg-signal/10 px-4 py-2.5">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute h-2 w-2 rounded-full bg-signal pulse-ring" />
-            <span className="h-2 w-2 rounded-full bg-signal" />
-          </span>
-          <span className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-signal">
-            Youth-led
-          </span>
+    <div className="board-page">
+      <Section className="board-leadership-section">
+        <div className="board-title-rail">
+          <div className="inline-flex items-center gap-2.5 border border-signal/40 bg-signal/10 px-4 py-2.5">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute h-2 w-2 rounded-full bg-signal pulse-ring" />
+              <span className="h-2 w-2 rounded-full bg-signal" />
+            </span>
+            <span className="font-mono text-[11px] font-medium uppercase text-signal">
+              Youth-led
+            </span>
+          </div>
+          <span className="board-registry-code">GOV / 01</span>
         </div>
         <SectionHead
-          eyebrow="The Board"
+          eyebrow="Leadership registry"
           title="Built to ship the stack — and unlock the sites."
           lead="A youth-led founding team pairing sensing hardware and structural physics with field access in Dubai — young engineers building institutional-grade monitoring."
         />
 
-
-        <div className="mx-auto mt-12 grid max-w-3xl gap-6 sm:grid-cols-2">
-          {leaders.map((m) => (
+        <div className="board-founders mt-14">
+          {leaders.map((m, index) => (
             <article
               key={m.name}
-              className="group overflow-hidden rounded-sm border border-border bg-surface transition-colors hover:border-signal/50"
+              className="board-founder group"
             >
-              <div className="h-1 w-full bg-signal/70" />
-              <img
-                src={m.photo}
-                alt={`${m.name}, ${m.role} at Structra`}
-                loading="lazy"
-                className="aspect-square w-full object-cover transition-all duration-500"
-              />
-              <div className="p-6">
-                <h3 className="text-lg font-semibold">{m.name}</h3>
-                <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-signal">
-                  {m.role}
+              <div className="board-founder-portrait">
+                <img
+                  src={m.photo}
+                  alt={`${m.name}, ${m.role} at Structra`}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025]"
+                />
+                <span className="board-founder-index">0{index + 1}</span>
+                <div className="board-founder-scan" />
+              </div>
+              <div className="board-founder-copy">
+                <div className="board-founder-role">{m.role}</div>
+                <h3>{m.name}</h3>
+                <div className="board-founder-tag">
+                  <span className="h-1.5 w-1.5 bg-signal shadow-signal" />
+                  {m.tag}
                 </div>
-                <p className="mt-4 text-xs text-muted-foreground">{m.tag}</p>
-                <p className="mt-4 border-t border-border pt-4 text-sm text-muted-foreground">
-                  {m.body}
-                </p>
+                <p>{m.body}</p>
               </div>
             </article>
           ))}
         </div>
       </Section>
 
-      <Section className="border-b-0">
-        <div className="mb-6 inline-flex items-center gap-2.5 rounded-sm border border-signal/40 bg-signal/10 px-4 py-2.5">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute h-2 w-2 rounded-full bg-signal pulse-ring" />
-            <span className="h-2 w-2 rounded-full bg-signal" />
-          </span>
-          <span className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-signal">
-            Youth-led
-          </span>
+      <Section className="board-cohort-section border-b-0">
+        <div className="board-cohort-heading">
+          <SectionHead
+            eyebrow="Cohort / 05"
+            title="Structra Interns"
+            lead="Youth-led, hands-on — one team, one vision: learning, building, and shaping the future of structural engineering together."
+          />
+          <div className="board-cohort-status" aria-hidden="true">
+            <span>ACTIVE ROSTER</span>
+            <strong>05</strong>
+          </div>
         </div>
-        <SectionHead
-          eyebrow="Interns & growth"
-          title="Structra Interns"
-
-          lead="Youth-led, hands-on — one team, one vision: learning, building, and shaping the future of structural engineering together."
-        />
-        <div className="mx-auto mt-12 grid w-full max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-5">
-          {interns.map((intern) => (
+        <div className="board-interns mt-12">
+          {interns.map((intern, index) => (
             <article
               key={intern.name}
-              className="group overflow-hidden rounded-sm border border-border bg-surface"
+              className="board-intern group"
             >
-              <div className="h-1 w-full bg-signal/70" />
-              <img
-                src={intern.photo}
-                alt={
-                  intern.role
-                    ? `${intern.name}, ${intern.role} at Structra`
-                    : `Structra intern profile slot ${intern.name}`
-                }
-                loading="lazy"
-                className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="p-5">
-                <h3
-                  className={
-                    intern.role
-                      ? "text-base font-semibold"
-                      : "font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
-                  }
-                >
-                  {intern.name}
-                </h3>
-                {intern.role ? (
-                  <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-signal">
-                    {intern.role}
-                  </div>
-                ) : null}
-                <p className="mt-3 border-t border-border pt-3 text-xs text-muted-foreground">
-                  {intern.bio ?? " "}
-                </p>
+              <div className="board-intern-image">
+                <img
+                  src={intern.photo}
+                  alt={`${intern.name}, ${intern.role} at Structra`}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-all duration-500"
+                />
+                <span>0{index + 1}</span>
+              </div>
+              <div className="board-intern-copy">
+                <h3>{intern.name}</h3>
+                <div>{intern.role}</div>
               </div>
             </article>
           ))}
         </div>
-        <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+        <p className="board-cohort-footer">
           With many more coming soon
         </p>
       </Section>
-    </>
+    </div>
   );
 }
