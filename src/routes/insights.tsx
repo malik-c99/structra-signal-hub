@@ -10,12 +10,14 @@ export const Route = createFileRoute("/insights")({
       { title: "Insights | Structra" },
       {
         name: "description",
-        content: "Read the founders’ message from Structra — two perspectives, one direction.",
+        content:
+          "The Structra business profile: the product, the market, and the Structra Dashboard for continuous structural monitoring.",
       },
       { property: "og:title", content: "Insights | Structra" },
       {
         property: "og:description",
-        content: "Two perspectives. One direction. A message from Structra’s founders.",
+        content:
+          "The product, the market, and the dashboard — how Structra puts always-on structural intelligence to work.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -23,6 +25,65 @@ export const Route = createFileRoute("/insights")({
   }),
   component: InsightsPage,
 });
+
+const productCards = [
+  {
+    tag: "01 / Structra Node",
+    title: "Capture",
+    body: "Wireless sensing designed for fast installation and continuous vibration capture — mounted with minimal operational disruption.",
+  },
+  {
+    tag: "02 / Structra Cloud",
+    title: "Learn",
+    body: "A secure pipeline builds each structure’s baseline signature and compares behavior over time — the signal between engineering visits.",
+  },
+  {
+    tag: "03 / Structra Dashboard",
+    title: "Flag",
+    body: "A focused operator view that flags live frequency deviation as it emerges — before concern appears.",
+  },
+];
+
+const marketCards = [
+  {
+    tag: "The gap",
+    title: "Inspections are snapshots",
+    body: "Periodic visits, invisible change between them, and teams that learn after concern appears. Structures keep changing — Structra adds the continuous signal between engineering visits.",
+  },
+  {
+    tag: "The position",
+    title: "Property-first SHM",
+    body: "Established platforms are configured around critical infrastructure and major projects. Structra starts with a single property, establishes the baseline, then repeats across the portfolio.",
+  },
+  {
+    tag: "The pathway",
+    title: "90-day pilots",
+    body: "A real field pathway is already open: scope a representative structure, install wireless nodes, validate against engineer observations, then refine and scale.",
+  },
+];
+
+const dashboardCards = [
+  {
+    tag: "Alerts",
+    title: "Unified alert inbox",
+    body: "Every anomaly across the portfolio lands in one focused inbox — ranked, timestamped, and traceable to the node that raised it.",
+  },
+  {
+    tag: "Trends",
+    title: "Baseline deviation charts",
+    body: "Each structure carries a continuous behavioral history, so deviation is read against its own learned normal — not a generic threshold.",
+  },
+  {
+    tag: "Asset status",
+    title: "Portfolio at a glance",
+    body: "One view of every monitored asset: which structures are nominal, which are trending, and which need an engineer’s eyes.",
+  },
+  {
+    tag: "Investigation",
+    title: "One-click anomaly review",
+    body: "When the signal changes, jump straight into the raw vibration data behind the flag — engineering judgment stays in the loop.",
+  },
+];
 
 function InsightsPage() {
   return (
@@ -46,31 +107,19 @@ function InsightsPage() {
           </p>
         </div>
         <div className="insights-grid">
-          <article className="insights-card">
-            <span className="label-mono text-signal">01 / Structra Node</span>
-            <h3>Capture</h3>
-            <p>
-              Wireless sensing designed for fast installation and continuous
-              vibration capture on commercial properties, prefab assets, and
-              infrastructure.
-            </p>
-          </article>
-          <article className="insights-card">
-            <span className="label-mono text-signal">02 / Structra Cloud</span>
-            <h3>Learn</h3>
-            <p>
-              A secure pipeline builds each structure’s baseline and compares
-              behavior over time — the signal between engineering visits.
-            </p>
-          </article>
-          <article className="insights-card">
-            <span className="label-mono text-signal">03 / Structra Dashboard</span>
-            <h3>Flag</h3>
-            <p>
-              A focused view of alerts, trends, asset status, and anomaly
-              investigation — so teams learn before concern appears.
-            </p>
-          </article>
+          {productCards.map((c) => (
+            <article className="insights-card" key={c.tag}>
+              <span className="label-mono text-signal">{c.tag}</span>
+              <h3>{c.title}</h3>
+              <p>{c.body}</p>
+            </article>
+          ))}
+        </div>
+        <div className="insights-chips">
+          <span className="label-mono">Built for</span>
+          <span className="insights-chip">Commercial properties</span>
+          <span className="insights-chip">Prefab assets</span>
+          <span className="insights-chip">Infrastructure</span>
         </div>
       </section>
 
@@ -79,48 +128,84 @@ function InsightsPage() {
           <span className="label-mono text-signal">03 / The market</span>
           <h2>Same SHM category. A sharper entry point.</h2>
           <p>
-            Established platforms are configured around critical infrastructure
-            and major projects. Structra is property-first: start with one
-            property, establish the baseline, then repeat across the portfolio.
+            Structural health monitoring is an established category. Structra
+            enters it from the property side — where the assets are, and where
+            the continuous signal is missing.
           </p>
         </div>
         <div className="insights-grid insights-grid-market">
-          <article className="insights-card">
-            <span className="label-mono text-signal">The gap</span>
-            <h3>Inspections are snapshots</h3>
-            <p>
-              Periodic visits, invisible change between them, and teams that
-              learn after concern appears. Structures keep changing — Structra
-              adds the continuous signal between engineering visits.
-            </p>
-          </article>
-          <article className="insights-card">
-            <span className="label-mono text-signal">The position</span>
-            <h3>Property-first SHM</h3>
-            <p>
-              Where incumbents sell configured project systems and broad sensor
-              suites, Structra starts with a single property and proves the
-              signal before scaling.
-            </p>
-          </article>
-          <article className="insights-card">
-            <span className="label-mono text-signal">The pathway</span>
-            <h3>90-day pilots</h3>
-            <p>
-              A real field pathway is already open: scope a representative
-              structure, install wireless nodes, validate against engineer
-              observations, then refine and scale.
-            </p>
-          </article>
+          {marketCards.map((c) => (
+            <article className="insights-card" key={c.tag}>
+              <span className="label-mono text-signal">{c.tag}</span>
+              <h3>{c.title}</h3>
+              <p>{c.body}</p>
+            </article>
+          ))}
         </div>
         <p className="insights-market-line">
           Start small. Prove the signal. Scale across the portfolio.
         </p>
       </section>
 
+      <section className="insights-block">
+        <div className="insights-block-head">
+          <span className="label-mono text-signal">04 / The dashboard</span>
+          <h2>Structra Dashboard. Monitoring, in one focused view.</h2>
+          <p>
+            The layer your team actually opens: alerts, trends, asset status,
+            and anomaly investigation — the operator surface of always-on
+            structural intelligence.
+          </p>
+        </div>
+
+        <div className="insights-screen" aria-hidden="true">
+          <div className="insights-screen-bar">
+            <span className="insights-screen-dot" />
+            <span className="insights-screen-dot" />
+            <span className="insights-screen-dot" />
+            <span className="label-mono">STRUCTRA DASHBOARD — LIVE</span>
+          </div>
+          <div className="insights-screen-metrics">
+            <div>
+              <span className="label-mono text-signal">FREQUENCY</span>
+              <strong>14.2 Hz</strong>
+            </div>
+            <div>
+              <span className="label-mono text-signal">STRAIN</span>
+              <strong>0.02%</strong>
+            </div>
+            <div>
+              <span className="label-mono text-signal">SENSORS</span>
+              <strong>100%</strong>
+            </div>
+            <div>
+              <span className="label-mono text-signal">ALERTS</span>
+              <strong>0 OPEN</strong>
+            </div>
+          </div>
+          <svg
+            className="insights-screen-wave"
+            viewBox="0 0 600 80"
+            preserveAspectRatio="none"
+          >
+            <path d="M0 40 H120 L130 40 L138 12 L146 66 L154 40 H300 L308 40 L316 18 L324 62 L332 40 H600" />
+          </svg>
+        </div>
+
+        <div className="insights-grid insights-grid-dash">
+          {dashboardCards.map((c) => (
+            <article className="insights-card" key={c.tag}>
+              <span className="label-mono text-signal">{c.tag}</span>
+              <h3>{c.title}</h3>
+              <p>{c.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <header className="insights-heading">
         <div>
-          <span className="label-mono text-signal">04 / The founders</span>
+          <span className="label-mono text-signal">05 / The founders</span>
           <h2>From the founders.</h2>
         </div>
         <p>Perspectives from the people building Structra.</p>
