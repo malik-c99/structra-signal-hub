@@ -102,7 +102,7 @@ function PartnersPage() {
         <SectionHead
           eyebrow="One group · Three companies"
           title="A stronger backbone. A sharper signal."
-          lead="Structra grew out of a family of engineering companies that has spent decades designing, fabricating, and delivering real structures across the region. Technostream and Mr Shade ME are our sister companies — and together we form one group. Within it, Structra is the focused structural-intelligence division: they bring the building strength, we bring the always-on signal layer."
+          lead="Structra grew out of a diversified family of engineering companies — one that spans advanced construction, smart technologies, education, and healthcare. Technostream and Mr Shade ME are our sister companies — and together we form one group. Within it, Structra is the focused structural-intelligence division: they bring decades of engineering reach, we bring the always-on signal layer."
         />
 
         {/* Group structure diagram */}
