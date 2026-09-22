@@ -78,7 +78,7 @@ const partners = [
   },
   {
     id: "mr-shade",
-    site: "https://mister-shade.com",
+    site: "https://www.mistershademe.com",
     logo: mrshadeLogo.url,
     logoAlt: "Mr Shade ME logo",
     name: "MR SHADE ME",
