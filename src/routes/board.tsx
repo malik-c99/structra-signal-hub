@@ -124,13 +124,13 @@ function BoardPage() {
       <Section className="board-cohort-section border-b-0">
         <div className="board-cohort-heading">
           <div>
-            <span className="board-command-kicker">Emerging talent / 05</span>
+            <span className="board-command-kicker">Emerging talent / 06</span>
             <h2>Interns</h2>
             <p>Youth-led, hands-on — one team learning, building, and shaping the future of structural engineering together.</p>
           </div>
           <div className="board-cohort-status" aria-hidden="true">
             <span>INTERNS</span>
-            <strong>05</strong>
+            <strong>06</strong>
           </div>
         </div>
         <div className="board-interns mt-12">
