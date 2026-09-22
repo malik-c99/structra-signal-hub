@@ -25,13 +25,13 @@ export const Route = createFileRoute("/group")({
       {
         name: "description",
         content:
-          "Structra operates under the shared group backing of sister holding companies Technostream and Mr Shade ME.",
+          "Structra is part of a group that also includes Technostream and Mr Shade ME — one group, with Structra as its focused structural-intelligence division.",
       },
       { property: "og:title", content: "The Group | Structra" },
       {
         property: "og:description",
         content:
-          "Two sister holding companies. One focused structural-intelligence division.",
+          "One group. Technostream and Mr Shade ME alongside Structra's focused structural-intelligence division.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -67,15 +67,14 @@ const partners = [
     name: "TECHNOSTREAM",
     kicker: "Sister holding company · Engineering systems",
     lead:
-      "Integrated engineering and industrial products — from light-gauge-steel prefab building systems to security, automation, and smart infrastructure solutions.",
+      "A diversified group of companies creating value across advanced construction, smart technologies, education, and healthcare.",
     body:
-      "Technostream designs and delivers complete product systems for the built environment: turnkey LGS prefab structures engineered off-site and assembled on location, integrated security and automation installations, technical education and training programs, pharmaceutical supply, and mobile service solutions. Every product is delivered end-to-end — design, fabrication, installation, and support.",
+      "Technostream creates value across diverse sectors — from advanced construction and smart technologies to education and healthcare — and continues to expand its impact through innovation, integration, and sustainable growth. Every product is delivered end-to-end — design, fabrication, installation, and support.",
     divisions: [
       { icon: Factory, label: "Industries" },
       { icon: ShieldCheck, label: "Security & Automation" },
       { icon: GraduationCap, label: "Technical Education" },
       { icon: Pill, label: "Pharmaceuticals" },
-      { icon: Smartphone, label: "Mobile Services" },
     ],
   },
   {
@@ -104,7 +103,7 @@ function PartnersPage() {
         <SectionHead
           eyebrow="One group · Shared foundation"
           title="Backed by two sister companies."
-          lead="Technostream and Mr Shade ME are sister holding companies within the wider group. Structra operates beneath their shared backing as the group's focused structural-intelligence division — supported by their investment, advice, engineering experience, and delivery strength."
+          lead="Structra is part of a group that also includes Technostream and Mr Shade ME. Together they form one wider group — with Structra operating within it as the focused structural-intelligence division, backed by the group's investment, advice, engineering experience, and delivery strength."
         />
 
         {/* Group structure diagram */}
