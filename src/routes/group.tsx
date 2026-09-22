@@ -8,7 +8,6 @@ import {
   Sun,
   GraduationCap,
   Pill,
-  Smartphone,
   Landmark,
   Compass,
   Hammer,
