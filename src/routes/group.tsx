@@ -24,7 +24,7 @@ export const Route = createFileRoute("/group")({
         {
           name: "description",
           content:
-            "Structra operates as the structural-intelligence division of one group, alongside sister companies Technostream and Mr Shade ME — backed by their investment, engineering judgment, and delivery strength.",
+            "One group. Two sister companies — Technostream and Mr Shade ME — with Structra as the focused structural-intelligence division: their building strength, our always-on signal layer.",
         },
         { property: "og:title", content: "The Group | Structra" },
         {
@@ -43,17 +43,17 @@ const groupRoles = [
   {
     icon: Landmark,
     title: "Investors",
-    body: "The group funds Structra's platform, deployments, and growth — patient capital from operators who build for a living.",
+    body: "Patient capital from operators who build for a living — funding Structra's platform, deployments, and growth.",
   },
   {
     icon: Compass,
     title: "Advisors",
-    body: "Decades of engineering judgment guide our product, our pilots, and every structural standard we hold ourselves to.",
+    body: "Decades of engineering judgment sharpen our product, our pilots, and every structural standard we hold ourselves to.",
   },
   {
     icon: Hammer,
     title: "Builders",
-    body: "Fabrication lines, installation crews, and delivery networks within the group turn Structra deployments into reality.",
+    body: "Fabrication lines, installation crews, and delivery networks inside the group turn every Structra deployment into reality.",
   },
 ];
 
@@ -100,9 +100,9 @@ function PartnersPage() {
     <>
       <Section className="border-b-0">
         <SectionHead
-          eyebrow="One group · Shared foundation"
-          title="Backed by two sister companies."
-          lead="Structra was built inside a family of engineering companies that has spent decades designing, fabricating, and delivering real structures across the region. Technostream and Mr Shade ME are our sister companies — and together we form one group. Within it, Structra operates as the focused structural-intelligence division, combining the group's investment strength, engineering judgment, and on-the-ground delivery with always-on monitoring technology."
+          eyebrow="One group · Three companies"
+          title="A stronger backbone. A sharper signal."
+          lead="Structra grew out of a family of engineering companies that has spent decades designing, fabricating, and delivering real structures across the region. Technostream and Mr Shade ME are our sister companies — and together we form one group. Within it, Structra is the focused structural-intelligence division: they bring the building strength, we bring the always-on signal layer."
         />
 
         {/* Group structure diagram */}
@@ -261,12 +261,12 @@ function PartnersPage() {
             Held by engineers. Built for asset owners.
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Being part of the group means Structra never starts from zero. Our sister companies
-            bring fabrication capacity, installation crews, and decades of field experience — we
-            bring the signal layer that tells those structures how they're performing. Together,
-            we give asset owners a single partner: the people who build the structure, and the
-            division that keeps watch over it. We work with asset owners, developers, and
-            engineering firms ready to host a focused 90-day pilot deployment.
+            Inside the group, Structra never starts from zero. Our sister companies bring
+            fabrication capacity, installation crews, and decades of field experience — we bring
+            the signal layer that tells those structures how they perform. For asset owners, that
+            means a single partner: the people who build the structure, and the division that keeps
+            watch over it. We work with asset owners, developers, and engineering firms ready to
+            host a focused 90-day pilot deployment.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
