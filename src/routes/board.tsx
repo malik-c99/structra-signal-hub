@@ -7,6 +7,7 @@ import abdullah from "@/assets/abdullah-ishraq-2.jpg.asset.json";
 import adham from "@/assets/adham-elbahaa.jpg.asset.json";
 import abdulmaliik from "@/assets/abdulmaliik-chaqif.jpg.asset.json";
 import karim from "@/assets/karim-yacoub.jpg.asset.json";
+import yousef from "@/assets/yousef-zouaoui.jpg.asset.json";
 
 export const Route = createFileRoute("/board")({
   head: () => ({
@@ -58,6 +59,7 @@ const interns = [
   { photo: adham.url, name: "Adham Elbahaa", role: "Software Intern", bio: null },
   { photo: abdulmaliik.url, name: "Abdulmaliik Chaqif", role: "Software Intern", bio: null },
   { photo: karim.url, name: "Karim Yacoub", role: "Operations Intern", bio: null },
+  { photo: yousef.url, name: "Yousef Zouaoui", role: "Contracts Intern", bio: null },
 ];
 
 function BoardPage() {
