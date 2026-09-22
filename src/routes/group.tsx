@@ -24,7 +24,7 @@ export const Route = createFileRoute("/group")({
         {
           name: "description",
           content:
-            "One group. Two sister companies — Technostream and Mr Shade ME — with Structra as the focused structural-intelligence division: their building strength, our always-on signal layer.",
+            "One group. Two sister companies — Technostream and Mr Shade ME — with Structra as the focused structural-intelligence division: their engineering strength, our always-on signal layer.",
         },
         { property: "og:title", content: "The Group | Structra" },
         {
