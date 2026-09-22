@@ -35,13 +35,11 @@ const leaders = [
     photo: qusai.url,
     name: "Qusai Al Daour",
     role: "Co-Founder & CEO",
-    tag: "Operations · Strategy · Growth",
   },
   {
     photo: daniel.url,
     name: "Daniel Shihat",
     role: "Co-Founder & CTO",
-    tag: "Product · Engineering · Technical Strategy",
   },
 ];
 
