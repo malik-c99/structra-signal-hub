@@ -102,7 +102,7 @@ function PartnersPage() {
         <SectionHead
           eyebrow="One group · Shared foundation"
           title="Backed by two sister companies."
-          lead="Structra is part of a group that also includes Technostream and Mr Shade ME. Together they form one wider group — with Structra operating within it as the focused structural-intelligence division, backed by the group's investment, advice, engineering experience, and delivery strength."
+          lead="Structra was built inside a family of engineering companies that has spent decades designing, fabricating, and delivering real structures across the region. Technostream and Mr Shade ME are our sister companies — and together we form one group. Within it, Structra operates as the focused structural-intelligence division, combining the group's investment strength, engineering judgment, and on-the-ground delivery with always-on monitoring technology."
         />
 
         {/* Group structure diagram */}
@@ -261,10 +261,12 @@ function PartnersPage() {
             Held by engineers. Built for asset owners.
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Operating inside the group gives Structra the reach, fabrication depth, and field
-            experience of our sister companies — while the group gains a direct line
-            to always-on monitoring. We work with asset owners, developers, and engineering firms
-            ready to host a focused 90-day pilot deployment.
+            Being part of the group means Structra never starts from zero. Our sister companies
+            bring fabrication capacity, installation crews, and decades of field experience — we
+            bring the signal layer that tells those structures how they're performing. Together,
+            we give asset owners a single partner: the people who build the structure, and the
+            division that keeps watch over it. We work with asset owners, developers, and
+            engineering firms ready to host a focused 90-day pilot deployment.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
