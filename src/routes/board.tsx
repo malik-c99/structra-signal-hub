@@ -108,7 +108,6 @@ function BoardPage() {
                   <span className="h-1.5 w-1.5 bg-signal shadow-signal" />
                   {m.tag}
                 </div>
-                <p>{m.body}</p>
                 <div className="board-founder-access" aria-hidden="true">
                   <span>LEAD-0{index + 1}</span>
                   <span>CORE ACCESS</span>
