@@ -64,7 +64,7 @@ const partners = [
     logo: technostreamLogo.url,
     logoAlt: "Technostream Group logo",
     name: "TECHNOSTREAM",
-    kicker: "Sister holding company · Engineering systems",
+    kicker: "Sister company · Engineering systems",
     lead:
       "A diversified group of companies creating value across advanced construction, smart technologies, education, and healthcare.",
     body:
@@ -82,7 +82,7 @@ const partners = [
     logo: mrshadeLogo.url,
     logoAlt: "Mr Shade ME logo",
     name: "MR SHADE ME",
-    kicker: "Sister holding company · Shade structures",
+    kicker: "Sister company · Shade structures",
     lead:
       "Engineered tensile shade products — car park canopies, PTFE membrane structures, and utility structures built to withstand the region's harshest conditions.",
     body:
@@ -122,9 +122,9 @@ function PartnersPage() {
           />
 
           <div className="relative">
-            <div className="label-mono text-center text-[10px]">Group holding structure</div>
+            <div className="label-mono text-center text-[10px]">Group structure</div>
 
-            {/* Sister holding companies */}
+            {/* Sister companies */}
             <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-2">
               {partners.map((p) => (
                 <a
@@ -141,7 +141,7 @@ function PartnersPage() {
                     className="h-12 w-auto max-w-full object-contain sm:h-14"
                     loading="lazy"
                   />
-                  <span className="label-mono text-[9px] text-signal">Sister holding company</span>
+                  <span className="label-mono text-[9px] text-signal">Sister company</span>
                 </a>
               ))}
             </div>
@@ -171,7 +171,7 @@ function PartnersPage() {
               </div>
             </div>
             <p className="label-mono mt-4 text-center text-[9px] text-muted-foreground">
-              Shared holding support · Focused operating division
+              Shared group support · Focused operating division
             </p>
           </div>
         </div>
