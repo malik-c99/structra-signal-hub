@@ -36,14 +36,12 @@ const leaders = [
     name: "Qusai Al Daour",
     role: "Co-Founder & CEO",
     tag: "Operations · Strategy · Growth",
-    body: "Runs the business end to end — operations, commercial strategy, partnerships, and pilot deployments that keep Structra growing.",
   },
   {
     photo: daniel.url,
     name: "Daniel Shihat",
     role: "Co-Founder & CTO",
     tag: "Product · Engineering · Technical Strategy",
-    body: "Leads the product — from sensing hardware and monitoring software to the engineering that powers every Structra deployment.",
   },
 ];
 
@@ -110,7 +108,6 @@ function BoardPage() {
                   <span className="h-1.5 w-1.5 bg-signal shadow-signal" />
                   {m.tag}
                 </div>
-                <p>{m.body}</p>
                 <div className="board-founder-access" aria-hidden="true">
                   <span>LEAD-0{index + 1}</span>
                   <span>CORE ACCESS</span>
