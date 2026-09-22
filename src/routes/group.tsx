@@ -21,17 +21,17 @@ export const Route = createFileRoute("/group")({
   head: () => ({
     meta: [
       { title: "The Group | Structra" },
-      {
-        name: "description",
-        content:
-          "Structra is part of a group that also includes Technostream and Mr Shade ME — one group, with Structra as its focused structural-intelligence division.",
-      },
-      { property: "og:title", content: "The Group | Structra" },
-      {
-        property: "og:description",
-        content:
-          "One group. Technostream and Mr Shade ME alongside Structra's focused structural-intelligence division.",
-      },
+        {
+          name: "description",
+          content:
+            "Structra operates as the structural-intelligence division of one group, alongside sister companies Technostream and Mr Shade ME — backed by their investment, engineering judgment, and delivery strength.",
+        },
+        { property: "og:title", content: "The Group | Structra" },
+        {
+          property: "og:description",
+          content:
+            "One group. Two sister companies. Technostream and Mr Shade ME alongside Structra's focused structural-intelligence division.",
+        },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
