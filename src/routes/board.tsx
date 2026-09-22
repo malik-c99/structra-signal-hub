@@ -7,6 +7,7 @@ import abdullah from "@/assets/abdullah-ishraq-2.jpg.asset.json";
 import adham from "@/assets/adham-elbahaa.jpg.asset.json";
 import abdulmaliik from "@/assets/abdulmaliik-chaqif.jpg.asset.json";
 import karim from "@/assets/karim-yacoub.jpg.asset.json";
+import yousef from "@/assets/yousef-zouaoui.jpg.asset.json";
 
 export const Route = createFileRoute("/board")({
   head: () => ({
@@ -58,6 +59,7 @@ const interns = [
   { photo: adham.url, name: "Adham Elbahaa", role: "Software Intern", bio: null },
   { photo: abdulmaliik.url, name: "Abdulmaliik Chaqif", role: "Software Intern", bio: null },
   { photo: karim.url, name: "Karim Yacoub", role: "Operations Intern", bio: null },
+  { photo: yousef.url, name: "Yousef Zouaoui", role: "Contracts Intern", bio: null },
 ];
 
 function BoardPage() {
@@ -122,13 +124,13 @@ function BoardPage() {
       <Section className="board-cohort-section border-b-0">
         <div className="board-cohort-heading">
           <div>
-            <span className="board-command-kicker">Emerging talent / 05</span>
+            <span className="board-command-kicker">Emerging talent / 06</span>
             <h2>Interns</h2>
             <p>Youth-led, hands-on — one team learning, building, and shaping the future of structural engineering together.</p>
           </div>
           <div className="board-cohort-status" aria-hidden="true">
             <span>INTERNS</span>
-            <strong>05</strong>
+            <strong>06</strong>
           </div>
         </div>
         <div className="board-interns mt-12">
