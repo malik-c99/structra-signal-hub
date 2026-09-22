@@ -104,14 +104,6 @@ function BoardPage() {
               <div className="board-founder-copy">
                 <div className="board-founder-role">{m.role}</div>
                 <h3>{m.name}</h3>
-                <div className="board-founder-tag">
-                  <span className="h-1.5 w-1.5 bg-signal shadow-signal" />
-                  {m.tag}
-                </div>
-                <div className="board-founder-access" aria-hidden="true">
-                  <span>LEAD-0{index + 1}</span>
-                  <span>CORE ACCESS</span>
-                </div>
               </div>
             </article>
           ))}
@@ -148,7 +140,6 @@ function BoardPage() {
               <div className="board-intern-copy">
                 <h3>{intern.name}</h3>
                 <div>{intern.role}</div>
-                <span aria-hidden="true"><i /></span>
               </div>
             </article>
           ))}
