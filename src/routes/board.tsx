@@ -53,7 +53,7 @@ const interns = [
   },
   { photo: abdullah.url, name: "Abdullah Ishraq", role: "Software Intern", bio: null },
   { photo: adham.url, name: "Adham Elbahaa", role: "Software Intern", bio: null },
-  { photo: abdulmaliik.url, name: "Abdulmaliik Chaqif", role: "Software Intern", bio: null },
+  { photo: abdulmaliik.url, name: "Abdulmalik Chakif", role: "Software Intern", bio: null },
   { photo: karim.url, name: "Karim Yacoub", role: "Operations Intern", bio: null },
   { photo: yousef.url, name: "Yousef Zouaoui", role: "Contracts Intern", bio: null },
 ];
